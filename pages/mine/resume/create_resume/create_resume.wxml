@@ -1,0 +1,63 @@
+<!--pages/mine/resume/create_resume/create_resume.wxml-->
+<view class="bgcolor">
+  <view class="top_item">
+    <view class="head_img">
+      <image src="{{myInfo.wx_headimg}}"></image>
+    </view>
+    <view class="nickname">{{myInfo.wx_nickname}}</view>
+    <view class="phone">{{myInfo.username}}</view>
+  </view>
+
+  <view class="title">
+    基本信息
+  </view>
+  <view class="cc_item">
+    性别：
+    <input type='text' data-type='gender' bindinput='input' value='{{gender}}'></input>
+  </view>
+  <view class="cc_item">
+    年龄：
+    <input type='text' data-type='old' bindinput='input' value='{{old}}'></input>
+  </view>
+  <view class="cc_item" >
+    出生日期：
+    <input type='text' data-type='birth' bindinput='input' value='{{birth}}'></input>
+  </view>
+  <view class="cc_item">
+    求职状态：
+    <input type='text' data-type='search' bindinput='input' value='{{search}}'></input>
+  </view>
+  <view class="title">
+    教育经历(最近)
+  </view>
+  <view class="cc_item" >
+    时间：
+    <input type='text' data-type='time' bindinput='input' value='{{time}}'></input>
+  </view>
+  <view class="cc_item" >
+    学校：
+    <input type='text' data-type='school' bindinput='input' value='{{school}}'></input>
+  </view>
+  <view class="cc_item" >
+    专业：
+    <input type='text' data-type='professional' bindinput='input' value='{{professional}}'></input>
+  </view>
+  <view class="cc_item" >
+    学历：
+    <input type='text' data-type='edubg' bindinput='input' value='{{edubg}}'></input>
+  </view>
+  <view class="title">
+    工作经历(最近)
+  </view>
+    <textarea class='area' data-type='workexp' bindinput='input' value='{{workexp}}'></textarea>
+  <block wx:if="{{is_edit=='no'}}">
+    <view class='btn' bindtap='create'>
+      创建我的简历
+    </view>
+  </block>
+  <block wx:else>
+    <view class='btn' bindtap='create'>
+      修改我的简历
+    </view>
+  </block>
+</view>

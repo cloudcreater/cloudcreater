@@ -1,0 +1,79 @@
+<!--pages/mine/card/card.wxml-->
+<view class="bottom_bar">
+  <view class="Bo_bar_item {{which_bar=='my_card'?'selected':''}}" data-bar_name="mine" bindtap='change'>
+    我的名片
+  </view>
+  <view class="Bo_bar_item {{which_bar=='my_collect'?'selected':''}}" data-bar_name="collect" bindtap='change'>
+    名片夹
+  </view>
+</view>
+<canvas class="shareCanvas" canvas-id="shareCanvas" style='width:100vw;height:100vh;' hidden='{{canvasHidden}}'></canvas>
+<view class="card_main">
+  <block wx:if="{{which_bar=='my_card'}}">
+    <block wx:if="{{is_has=='no'}}">
+      <view class="no_card">
+        <image src="../../../imgs/文件夹.jpg"></image>
+        <view class="tips">您还没有自己的名片，去做一张吧~</view>
+        <view class="btn" bindtap='to_createCard'>点此制作名片</view>
+      </view>
+    </block>
+    <block wx:elif="{{is_has=='has'}}">
+      <view class="has_card">
+        <view class="card">
+          <view class="head_img">
+            <image src="{{myInfo.wx_headimg}}"></image>
+          </view>
+          <view class="nickname">
+            {{mycard.wx_nickname}}
+          </view>
+          <view class="job">
+            {{mycard.job}}
+          </view>
+          <view class="card_item">
+            公司(学校): {{mycard.school}}
+          </view>
+          <view class="card_item">
+            电话: {{mycard.username}}
+          </view>
+          <view class="card_item">
+            需求: {{mycard.need}}
+          </view>
+        </view>
+        <view class="op_bar">
+          <view class="op_bar_item" style='border-right:solid 2px;left:50rpx;'>
+            <button class='share_btn' open-type="share">转发</button>
+          </view>
+          <view class="op_bar_item" style='padding-left:60rpx;left:240rpx;' bindtap='op'>编辑</view>
+        </view>
+        <view class='pic_btn' bindtap='saveImageToPhotosAlbum'>生成图片</view>
+      </view>
+    </block>
+  </block>
+  <block wx:elif="{{which_bar=='my_collect'}}">
+    <block wx:if="{{info =='no'}}">
+      <text class="info">暂未收藏名片</text>
+    </block>
+    <block wx:elif="{{info =='has'}}">
+      <view class="card" wx:for="{{cardList}}" wx:for-index="index" wx:for-item="card" style='margin-top:60rpx;'>
+        <view class="head_img">
+          <image src="{{card.wx_headimg}}"></image>
+        </view>
+        <view class="nickname">
+          {{card.wx_nickname}}
+        </view>
+        <view class="job">
+          {{card.job}}
+        </view>
+        <view class="card_item">
+          公司(学校): {{card.school}}
+        </view>
+        <view class="card_item">
+          电话: {{card.username}}
+        </view>
+        <view class="card_item">
+          需求: {{card.need}}
+        </view>
+      </view>
+    </block>
+  </block>
+</view>

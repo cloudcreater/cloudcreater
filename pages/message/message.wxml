@@ -1,0 +1,72 @@
+<!--pages/message/message.wxml-->
+<view class="container">
+  <!--顶部导航条 -->
+  <view class="topbar">
+    <view class="left-mine">
+      通知列表
+    </view>
+    <!-- <view class="flex-wrp right-mine" style="flex-direction:row;">
+      <view class="op-item">
+        <image src="/imgs/设置.png" />
+      </view> 
+      <view class="op-item">
+        <image src="/imgs/清空.png" />
+      </view>
+      <view class="op-item">
+        <image src="/imgs/筛选.png" />
+      </view>
+    </view> -->
+  </view>
+  <view class="topbar">
+    <view class="items left {{bottom_line==1?'.underline':''}}" bindtap="not_read">未读</view>
+    <view class="items right {{bottom_line==2?'.underline':''}}" bindtap="is_read">已读</view>
+  </view>
+  <block wx:if="{{info!=null}}">
+    暂无消息
+  </block>
+  <block wx:else>
+    <!--消息体开始-->
+    <view class="msg_main" wx:for="{{msgs}}" wx:for-index="index" wx:for-item="msg">
+      <view class="headimg" data-msg="{{msg}}">
+        <!-- bindtap='toOther_user' -->
+        <image src='{{msg.from_headimg}}'></image>
+      </view>
+      <view data-id="{{msg.id}}" data-msg_type="{{msg.type}}" data-msg_status="{{msg.msg_status}}" data-project_id="{{msg.project_id}}" bindtap="oprations">
+        <view class="content">
+          <text class="nickname inaline">{{msg.from_nickname}}</text>
+          <view class="title">
+            {{msg.title}}
+          </view>
+          <view class="lebal">
+            寻找合伙人
+          </view>
+          <view class="gogogo">
+            快去看看
+          </view>
+          <view class="icon">
+            <!-- 
+              1：关注
+              2：报名
+              3：点赞 
+            -->
+            <block wx:if="{{msg.type==3}}">
+              <image src='https://czw.saleii.com/uploads/xcxchat/undefined/bafd88326d45e66e623f70ba58f96d8e.jpg'></image>
+            </block>
+            <block wx:elif="{{msg.type==2}}">
+              <image src='https://czw.saleii.com/uploads/xcxchat/undefined/d6d631491d5c2754e5065ce18c71e878.jpg'></image>
+            </block>
+            <block wx:elif="{{msg.type==1}}">
+              <image src='https://czw.saleii.com/uploads/xcxchat/undefined/f39cf041ac5d566db6b5dcb4018f3f9e.png'></image>
+            </block>
+            <block wx:elif="{{msg.type==4}}">
+            </block>
+          </view>
+          <view class="date">
+            {{dateArr[index]}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--消息体结束-->
+  </block>
+</view>

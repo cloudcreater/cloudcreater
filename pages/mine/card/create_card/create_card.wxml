@@ -1,0 +1,41 @@
+<!--pages/mine/card/create_card/create_card.wxml-->
+<view class="bgcolor">
+  <view class="top_item">
+    <view class="head_img">
+      <image src="{{myInfo.wx_headimg}}"></image>
+    </view>
+    <view class="nickname">{{myInfo.wx_nickname}}</view>
+    <view class="phone">{{myInfo.username}}</view>
+  </view>
+  <view class="cc_item">
+    公司或学校：
+    <input type='text' data-type='school' bindinput='input' value='{{school}}'></input>
+  </view>
+  <view class="cc_item">
+    职务或专业：
+    <input type='text' data-type='job' bindinput='input' value='{{job}}'></input>
+  </view>
+  <view class="cc_item" >
+    现居地址：
+    <input type='text' data-type='address' bindinput='input' value='{{address}}'></input>
+  </view>
+  <view class="cc_item" style='margin-top:40rpx;'>
+    我的资源或技能：
+    <input type='text' data-type='skill' bindinput='input' value='{{skill}}'></input>
+  </view>
+  <view class="cc_item" >
+    我的需求：
+    <input type='text' data-type='need' bindinput='input' value='{{need}}'></input>
+  </view>
+  <block wx:if="{{is_edit=='no'}}">
+    <view class='btn' bindtap='create'>
+      创建我的名片
+    </view>
+  </block>
+  <block wx:else>
+    <view class='btn' bindtap='create'>
+      修改我的名片
+    </view>
+  </block>
+</view>
+

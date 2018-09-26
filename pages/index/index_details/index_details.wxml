@@ -1,0 +1,223 @@
+<!--pages/index/index_details/index_details.wxml-->
+<view class="container">
+  <scroll-view scroll-y class="main">
+    <view class="top_user_info" bindtap="toOther_user">
+      <view class="headimg">
+        <image src="{{currentProject.headimgurl}}"></image>
+      </view>
+      <view class="nickname">
+        {{currentProject.nickname}}
+        <image src="../../../imgs/v.jpg"></image>
+      </view>
+      <view class="content">
+        <block wx:if="{{currentProject.full_name!=''}}">
+          <text>{{getinfo.full_name}}</text>
+        </block>
+        <block wx:else>
+          <text>无</text>
+        </block>
+      </view>
+      <!-- <view class="focus_loc">
+        <image src="../../../imgs/focus.jpg"></image>
+      </view> -->
+      <!-- <view class="chat_loc">
+        <image src="../../../imgs/chat.jpg" bindtap="tochat"></image>
+      </view> -->
+    </view>
+    <view class="project_label">
+      <view class="title">创业标签</view>
+      <view class="label_loc">
+        <view class="label_user_info">{{currentProject.project_step}}</view>
+        <block wx:if="{{currentProject.project_team}}">
+          <view class="label_user_info">{{currentProject.project_team}}</view>
+        </block>
+        <block wx:if="{{currentProject.project_captial}}">
+          <view class="label_user_info">{{currentProject.project_captial}}</view>
+        </block>
+        <block wx:if="{{currentProject.project_industry}}">
+          <view class="label_user_info">{{currentProject.project_industry}}</view>
+        </block>
+      </view>
+    </view>
+    <!--sketch简述  -->
+    <view class="sketch">
+      <view class="title">创业简述</view>
+      <view class="detail">
+        <view class="detail_item">项目名称：{{currentProject.title}}</view>
+        <view class="detail_item">项目简述：{{currentProject.project_desc}}</view>
+        <view class="detail_item">发布区域：{{currentProject.city_str}}</view>
+        <view class="detail_item">发布时间：{{currentProject.addtime}}</view>
+        <view class="detail_item">联系方式：{{currentProject.author}}</view>
+        <!-- <view class="detail_item">项目网址：</view>
+        <view class="detail_item">有效时间：</view> -->
+      </view>
+    </view>
+    <view class="photo" bindtap="tophoto">
+      <view class="title">项目图集</view>
+      <image src="/imgs/右箭头.png" />
+    </view>
+    <view class="detail_text">
+      <view class="title">创业详述</view>
+      <view class="main_text">
+        {{currentProject.desc}}
+      </view>
+    </view>
+    <block wx:if="{{currentProject.author==username}}">
+      <view class="title_bg">报名列表</view>
+      <view class="sign_up_list">
+        <view class="top_user_info" style="border-top:none" wx:for="{{user_items}}" wx:for-index="index" wx:for-item="user_item">
+          <view class="headimg">
+            <image src="{{user_item.headimgurl}}"></image>
+          </view>
+          <view class="nickname">
+            {{user_item.nickname}}
+            <!-- <image src="../../../imgs/v.jpg"></image> -->
+          </view>
+          <view class="content">
+            {{user_item.full_name}}
+          </view>
+          <view class="chat_loc">
+            联系方式:{{user_item.enroll_username}}
+          </view>
+        </view>
+      </view>
+    </block>
+    <block wx:else></block>
+    <view style="margin-top:144rpx;"></view>
+    <!-- <view class="title_bg">相似信息</view>
+    <view class="similar_info">
+      <view class="bgcolor">
+        <view class="main_x">
+          <view class="info-loc">
+            <view class="namespace">
+              《图片》
+              <text>汤大王</text> V
+              <text>发布了一条</text>
+              <text id="type" class="label">寻找合伙人</text> ·
+              <text class="data">1小时前</text>
+            </view>
+            <view class="label-loc">
+              <text id="type" class="label">正在进行中</text>
+              <text id="type" class="label">团队组建阶段</text>
+              <text id="type" class="label">未融资</text>
+              <text id="type" class="label">餐饮</text>
+            </view>
+            <view class="introduce">
+              如果啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦 啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦 啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦.....
+            </view>
+            <view class="img-loc">
+              <image src="/imgs/图1.png" />
+            </view>
+            <view class="foot">
+              ❤ 已关注 33报名 ·356点赞 ·53转发
+            </view>
+          </view>
+        </view>
+      </view>
+    </view> -->
+  </scroll-view>
+  <view class="bottom_nav">
+    <block wx:if="{{!dis}}">
+      <view class="flex-wrp" style="flex-direction:row;">
+        <block wx:if="{{join_m_id}}">
+          <view class="nav_item" data-pid="{{currentProject.id}}">
+            <view class="join_img_loc">
+              <image src='https://czw.saleii.com/uploads/xcxchat/undefined/d08bd79e7eb9ec2563da8324f2225420.jpg'></image>
+            </view>
+            已报名
+          </view>
+        </block>
+        <block wx:elif="{{currentProject.author==username}}">
+          <view class="nav_item" data-pid="{{currentProject.id}}">
+            <view class="join_img_loc">
+              <image src='https://czw.saleii.com/uploads/xcxchat/undefined/d08bd79e7eb9ec2563da8324f2225420.jpg'></image>
+            </view>
+            我的项目
+          </view>
+        </block>
+        <block wx:else>
+        <!-- 
+          <view class="nav_item" data-pid="{{currentProject.id}}" bindtap="dojoin">
+          -->
+          <form  class="nav_item" bindsubmit="dojoin" report-submit="true"  data-pid="{{currentProject.id}}">
+            <view class="join_img_loc">
+              <image src='https://czw.saleii.com/uploads/xcxchat/undefined/fbe718c4671d97f6b2cce5385a0ac9f7.jpg'></image>
+            </view>
+             <button class="free-btn-bordernone" style="margin-top:30rpx;" formType="submit">报名</button>
+          </form>
+          <!--报名
+          </view>
+          -->
+        </block>
+        <block wx:if="{{focus_m_id!=null}}">
+          <view class="nav_item" data-pid="{{currentProject.id}}">
+            <view class="num_loc">
+              <image src='https://czw.saleii.com/uploads/xcxchat/undefined/f39cf041ac5d566db6b5dcb4018f3f9e.png'></image>
+            </view>
+            已关注
+          </view>
+        </block>
+        <block wx:else>
+          <view class="nav_item" data-pid="{{currentProject.id}}" bindtap="dofocus">
+            <view class="num_loc">
+              <image src='https://czw.saleii.com/uploads/xcxchat/undefined/b52b79476b7a1323ebbdd1fdb2d39482.png'></image>
+            </view>
+            关注内容
+          </view>
+        </block>
+        <block wx:if="{{prize_m_id!=null}}">
+          <view class="nav_item" data-pid="{{currentProject.id}}" style='padding-top: 10px;'>
+            <view class="num_loc" style="color:red">
+              <block wx:if="{{num_prize<10}}">
+                0{{num_prize}}
+              </block>
+              <block wx:else>
+                {{num_prize}}
+              </block>
+            </view>
+            <view>
+              已点赞
+            </view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="nav_item" bindtap="doprize" data-pid="{{currentProject.id}}">
+            <view class="num_loc" style="color:red">
+              <block wx:if="{{num_prize<10}}">
+                0{{num_prize}}
+              </block>
+              <block wx:else>
+                {{num_prize}}
+              </block>
+            </view>
+            <view>
+              点赞
+            </view>
+          </view>
+        </block>
+        <view class="nav_item">
+          <view class="share_img_loc">
+            <image src='https://czw.saleii.com/uploads/xcxchat/undefined/34873d1835d88e70f20099f92fe013b5.jpg'></image>
+          </view>
+          <button class="share_btn" open-type="share">分享</button>
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="selectBox del_btn" bindtap="del" data-item="{{currentProject}}">
+        删除
+      </view>
+      <view class="selectBox edit_btn" bindtap="edit" data-item="{{currentProject}}">
+        编辑
+      </view>
+    </block>
+  </view>
+  <view class="op_btn {{dis?'selected':''}}" bindtap='do_op' wx:if="{{currentProject.author==username}}">
+    <block wx:if="{{!dis}}">
+      管理
+    </block>
+    <block wx:else> 
+      返回
+    </block>
+  </view>
+</view>

@@ -1,0 +1,96 @@
+/* pages/other_user/other_user.wxss */
+.bgcolor{
+  width: 100%;
+  height: 670px;
+  background-color: rgb(241, 241, 241);
+  position: relative;
+}
+.top_user_info{
+  width: 100%;
+  height: 100px;
+  border-top: solid rgb(228, 228, 228) 1px; 
+  border-bottom: solid rgb(228, 228, 228) 1px; 
+  position: relative;
+  background-color: white;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.headimg image{
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  left: 15px;
+  top: 18px;
+}
+
+.nickname{
+  position: absolute;
+  left: 95px;
+  top: 20px;
+  font-size: 18px;
+}
+
+.content{
+  position: absolute;
+  left: 95px;
+  top: 54px;
+  font-size: 18px;
+  color: rgb(147, 147, 147);
+}
+
+.focus_loc{
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  right: 85px;
+  top: 23px;
+}
+
+.focus_loc image{
+  width: 45px;
+  height: 45px;
+}
+
+.chat_loc{
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  right: 20px;
+  top: 25px;
+}
+
+.chat_loc image{
+  width: 40px;
+  height: 40px;
+}
+
+.other_user_item{
+  width: 100%;
+  height: 60px;
+  border-bottom:solid rgb(228, 228, 228) 1px; 
+  background-color: white;
+  position: relative;
+}
+
+.title{
+  position: absolute;
+  left: 15px;
+  top: 17px;
+  font-size: 18px;
+}
+
+.city_loc{
+  position: absolute;
+  left: 105px;
+  top: 14px;
+}
+
+.other_user_item image{
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: 19px;
+  right: 10px;
+}

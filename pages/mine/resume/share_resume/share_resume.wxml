@@ -1,0 +1,42 @@
+<!--pages/mine/resume/share_resume/share_resume.wxml-->
+<view class="card_main">
+  <view class="has_card">
+    <view class="card">
+      <view class="head_img">
+        <image src="{{myresume.wx_headimg}}"></image>
+      </view>
+      <view class="nickname">
+        {{myresume.wx_nickname}}
+      </view>
+      <view class="job">
+        {{myresume.gender}}
+      </view>
+      <view class="card_item">
+        年龄: {{myresume.old}}
+      </view>
+      <view class="card_item">
+        出生日期: {{myresume.birth}}
+      </view>
+      <view class="card_item">
+        求职状态: {{myresume.search}}
+      </view>
+    </view>
+    <view class="op_bar">
+      <view class="op_bar_item" style='border-right:solid 2px;left:50rpx;'>
+        <button class='share_btn' open-type="share">转发</button>
+      </view>
+      <block wx:if="{{is_collected=='no'}}">
+        <view class="op_bar_item" style='padding-left:60rpx;left:240rpx;' bindtap='collect'>
+          收藏
+        </view>
+      </block>
+      <block wx:else>
+        <view class="op_bar_item" style='padding-left:60rpx;left:240rpx;'>
+          已收藏
+        </view>
+      </block>
+    </view>
+    <view class='oth_btn' bindtap='to_detail'>查看详情</view>
+    <view class='oth_btn' style='top:900rpx;' bindtap='back'>返回名片页</view>
+  </view>
+</view>

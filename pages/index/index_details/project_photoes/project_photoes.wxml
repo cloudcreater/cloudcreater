@@ -1,0 +1,16 @@
+<!--pages/index/index_details/project_photoes/project_photoes.wxml-->
+<view class='image_loc'>
+  <image src='{{currentProject.imagePath1}}'></image>
+</view>
+<view class='image_loc'>
+  <image src='{{currentProject.imagePath2}}'></image>
+</view>
+<view class='image_loc'>
+  <image src='{{currentProject.imagePath3}}'></image>
+</view>
+<view class='image_loc'>
+  <image src='{{currentProject.imagePath4}}'></image>
+</view>
+<view class='image_loc'>
+  <image src='{{currentProject.imagePath5}}'></image>
+</view>

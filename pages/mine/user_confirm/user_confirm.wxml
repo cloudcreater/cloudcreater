@@ -1,0 +1,31 @@
+<!--pages/mine/user_confirm/user_confirm.wxml-->
+<view class="container">
+  <view class="bgcolor">
+    <view class="main">
+      <view class="line"></view>  
+      <view class="title">
+        以公司的形式发布创业，创意和活动信息需要进行公司验证
+      </view>
+      <view class="item">
+        公司名称<input type="text" placeholder="请填写您的公司名称"></input>
+      </view>
+      <view class="item">
+        机构代码<input type="text"></input>
+      </view>
+      <view class="item">
+        电话号码<input type="text"></input>
+      </view>
+      <view class="item_idpic">
+        身份验证
+      </view>
+      <view class="photo_loc">
+          
+      </view>
+      <view class="tips">
+        (拍摄如图所示的营业执照原件或加盖公章的复印件添加)
+      </view>
+      <view class="btn">填写完成，审核通过后您就可以发布信息啦</view>
+    </view>
+  </view>
+</view>
+

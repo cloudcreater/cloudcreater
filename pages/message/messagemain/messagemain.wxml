@@ -1,0 +1,19 @@
+<!--pages/message/messagemain/messagemain.wxml-->
+<view>
+  11111111111111111111111111 {{msg.content}}
+</view>
+来自：
+<view class="top_user_info">
+  <view class="headimg">
+    <image src="{{msg.from_headimg}}"></image>
+    <image src="../../../imgs/图1.png"></image>
+  </view>
+  <view class="nickname">
+  HMC
+    {{msg.from_nickname}}
+  </view>
+</view>
+
+<view>
+  他的联系方式：{{msg.from_username}} 1878652995
+</view>

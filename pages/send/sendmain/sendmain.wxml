@@ -1,0 +1,17 @@
+<!--pages/send/sendmain/sendmain.wxml-->
+<view class="container">
+  <view class="title">1.选择您发布的主体</view>
+  <view class="flex-wrp" style="flex-direction:column;">
+    <view class="item" bindtap='Tois_mine'>
+    <image src="../../../imgs/个人.png"></image>
+    <view class="btn">以个人形式发布</view>
+  </view>
+  <view class="item">
+    <image src="../../../imgs/公司.jpg" style="margin-top:80px;"></image>
+    <view class="btn" bindtap='Tois_company'>以公司或组织形式发布</view>
+  </view>
+  </view>
+  <view class="line top"></view>
+  <view class="line mid"></view>
+</view>
+

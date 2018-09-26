@@ -1,0 +1,208 @@
+<!--pages/send/mydraft/selectlabel/selectlabel.wxml-->
+<view class="menu">
+  <block wx:if="{{project_classify=='创业'}}">
+    <view class="scroll_title">信息类型</view>
+    <view class="btnitem">
+     <view class="flex-wrp" style="flex-direction:column;">
+          <view class="flex-wrp" style="flex-direction:row;">
+            <view class="btns {{tid==1?'.afterclick':''}}" data-task="找合伙人" data-tid="1" bindtap="choose_task">找合伙人</view>
+            <view class="btns {{tid==2?'.afterclick':''}}" data-task="找投资人" data-tid="2" bindtap="choose_task">找投资人</view>
+            <view class="btns {{tid==3?'.afterclick':''}}" data-task="找合作商" data-tid="3" bindtap="choose_task">找合作商</view>
+          </view>
+          <view class="flex-wrp" style="flex-direction:row;  margin-top:20px;">
+            <view class="btns {{tid==4?'.afterclick':''}}" data-task="任务众包" data-tid="4" bindtap="choose_task">任务众包</view>
+            <view class="btns {{tid==5?'.afterclick':''}}" data-task="招聘英才" data-tid="5" bindtap="choose_task">招聘英才</view>
+            <view class="btns {{tid==6?'.afterclick':''}}" data-task="企业服务" data-tid="6" bindtap="choose_task">企业服务</view>
+          </view>
+        </view>
+    </view>
+    <view class="row_line"></view>
+    <view class="scroll_title">创业阶段</view>
+    <view class="btnitem">
+      <view class="flex-wrp" style="flex-direction:row;margin-bottom:18px;">
+        <view class="btns {{teid==1?'.afterclick':''}}" data-team="团队阶段" data-teid="1" bindtap="choose_team">团队阶段</view>
+        <view class="btns {{teid==2?'.afterclick':''}}" data-team="团队组建中" data-teid="2" bindtap="choose_team">团段组建阶段</view>
+        <view class="btns {{teid==3?'.afterclick':''}}" data-team="成立公司阶段" data-teid="3" bindtap="choose_team">成立公司阶段</view>
+      </view>
+      <view class="flex-wrp" style="flex-direction:row">
+        <view class="btns {{teid==4?'.afterclick':''}}" data-team="公司在扩招" data-teid="4" bindtap="choose_team">公司扩大阶段</view>
+      </view>
+
+    </view>
+    <view class="row_line"></view>
+    <view class="scroll_title">融资阶段</view>
+    <view class="btnitem">
+      <view class="flex-wrp" style="flex-direction:column;">
+        <view class="flex-wrp" style="flex-direction:row;">
+          <view class="btns {{cid==1?'.afterclick':''}}" data-captial="已融资" data-cid="1" bindtap="choose_captial">已融资</view>
+          <view class="btns {{cid==2?'.afterclick':''}}" data-captial="未融资" data-cid="2" bindtap="choose_captial">未融资</view>
+        </view>
+      </view>
+    </view>
+    <view class="row_line"></view>
+    <view class="scroll_title">创业领域</view>
+    <view class="btnitem">
+      <view class="flex-wrp" style="flex-direction:column;">
+        <view class="flex-wrp" style="flex-direction:row;">
+          <view class="btns {{inid==2?'.afterclick':''}}" data-industry="社交" data-inid="2" bindtap="choose_industry">社交</view>
+          <view class="btns {{inid==3?'.afterclick':''}}" data-industry="电商" data-inid="3" bindtap="choose_industry">电商</view>
+          <view class="btns {{inid==10?'.afterclick':''}}" data-industry="金融" data-inid="10" bindtap="choose_industry">金融</view>
+        </view>
+        <view class="flex-wrp" style="flex-direction:row; margin-top:20px;">
+          <view class="btns {{inid==4?'.afterclick':''}}" data-industry="旅游" data-inid="4" bindtap="choose_industry">旅游</view>
+          <view class="btns {{inid==5?'.afterclick':''}}" data-industry="医疗" data-inid="5" bindtap="choose_industry">医疗</view>
+          <view class="btns {{inid==6?'.afterclick':''}}" data-industry="体育" data-inid="6" bindtap="choose_industry">体育</view>
+        </view>
+        <view class="flex-wrp" style="flex-direction:row; margin-top:20px;">
+          <view class="btns {{inid==7?'.afterclick':''}}" data-industry="餐饮" data-inid="7" bindtap="choose_industry">餐饮</view>
+          <view class="btns {{inid==8?'.afterclick':''}}" data-industry="教育" data-inid="8" bindtap="choose_industry">教育</view>
+          <view class="btns {{inid==9?'.afterclick':''}}" data-industry="其他" data-inid="9" bindtap="choose_industry">其他</view>
+        </view>
+        <view class="row_line"></view>
+        <view class="scroll_title">进行阶段</view>
+        <view class="btnitem">
+          <view class="flex-wrp" style="flex-direction:column;">
+            <view class="flex-wrp" style="flex-direction:row;">
+              <view class="btns {{sid==0?'.afterclick':''}}" data-status="准备阶段" data-sid="0" bindtap="choose_status">准备阶段</view>
+              <view class="btns {{sid==1?'.afterclick':''}}" data-status="启动阶段" data-sid="1" bindtap="choose_status">启动阶段</view>
+            </view>
+            <view class="flex-wrp" style="flex-direction:row; margin-top:20px;">
+              <view class="btns {{sid==2?'.afterclick':''}}" data-status="进行阶段" data-sid="2" bindtap="choose_status">进行阶段</view>
+              <view class="btns {{sid==3?'.afterclick':''}}" data-status="扩展阶段" data-sid="3" bindtap="choose_status">扩展阶段</view>
+              <view class="btns {{sid==4?'.afterclick':''}}" data-status="完结阶段" data-sid="4" bindtap="choose_status">完结阶段</view>
+            </view>
+          </view>
+        </view>
+        <view class="row_line"></view>
+        <view class="btnitem">
+          <view class="btns" style="margin:30px auto;" bindtap="confirm">确认</view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <block wx:elif="{{project_classify=='创意'}}">
+    <view class="scroll_title">信息类型</view>
+    <view class="btnitem">
+      <view class="flex-wrp" style="flex-direction:column;">
+        <view class="flex-wrp" style="flex-direction:row; margin-top:20px;">
+          <view class="btns {{tid==1?'.afterclick':''}}" data-task="一起搞事情" data-tid="1" bindtap="choose_task">一起搞事情</view>
+          <view class="btns {{tid==2?'.afterclick':''}}" data-task="创意众筹" data-tid="2" bindtap="choose_task">创意众筹             </view>
+        </view>
+      </view>
+    </view>
+    <view class="row_line"></view>
+    <view class="scroll_title">创意领域</view>
+    <view class="btnitem">
+      <view class="flex-wrp" style="flex-direction:column;">
+        <view class="flex-wrp" style="flex-direction:row;">
+          <view class="btns {{inid==1?'.afterclick':''}}" data-industry="互联网产品" data-inid="1" bindtap="choose_industry">互联网产品</view>
+            <view class="btns {{inid==2?'.afterclick':''}}" data-industry="游戏娱乐" data-inid="2" bindtap="choose_industry">游戏娱乐</view>
+            <view class="btns {{inid==3?'.afterclick':''}}" data-industry="影视传媒" data-inid="3" bindtap="choose_industry">影视传媒</view>
+          </view>
+          <view class="flex-wrp" style="flex-direction:row; margin-top:20px;">
+            <view class="btns {{inid==4?'.afterclick':''}}" data-industry="音乐音频" data-inid="4" bindtap="choose_industry">音乐音频</view>
+            <view class="btns {{inid==5?'.afterclick':''}}" data-industry="书籍小说" data-inid="5" bindtap="choose_industry">书籍小说</view>
+            <view class="btns {{inid==6?'.afterclick':''}}" data-industry="其他" data-inid="6" bindtap="choose_industry">其他</view>
+          </view>
+        <!-- <view class="flex-wrp" style="flex-direction:row; margin-top:20px;">
+            <view class="btns">图片图像</view>
+            <view class="btns">学术内容</view>
+            <view class="btns">生活技巧</view>
+          </view>
+          <view class="flex-wrp" style="flex-direction:row; margin-top:20px;">
+            <view class="btns">兴趣爱好</view>
+            <view class="btns">生活服务</view>
+            <view class="btns">医疗</view>
+          </view>
+          <view class="flex-wrp" style="flex-direction:row; margin-top:20px;">
+            <view class="btns">广告媒体</view>
+            <view class="btns">外贸加工</view>
+            <view class="btns">硬件工业</view>
+          </view>
+          <view class="flex-wrp" style="flex-direction:row; margin-top:20px;">
+            <view class="btns">农业产品</view>
+            <view class="btns">物流运输</view>
+            <view class="btns">其他</view>
+          </view> -->
+        <view class="row_line"></view>
+        <view class="scroll_title">进行阶段</view>
+        <view class="btnitem">
+          <view class="flex-wrp" style="flex-direction:column;">
+            <view class="flex-wrp" style="flex-direction:row;">
+              <view class="btns {{sid==0?'.afterclick':''}}" data-status="准备阶段" data-sid="0" bindtap="choose_status">准备阶段</view>
+              <view class="btns {{sid==1?'.afterclick':''}}" data-status="启动阶段" data-sid="1" bindtap="choose_status">启动阶段</view>
+            </view>
+            <view class="flex-wrp" style="flex-direction:row; margin-top:20px;">
+              <view class="btns {{sid==2?'.afterclick':''}}" data-status="进行阶段" data-sid="2" bindtap="choose_status">进行阶段</view>
+              <view class="btns {{sid==3?'.afterclick':''}}" data-status="扩展阶段" data-sid="3" bindtap="choose_status">扩展阶段</view>
+              <view class="btns {{sid==4?'.afterclick':''}}" data-status="完结阶段" data-sid="4" bindtap="choose_status">完结阶段</view>
+            </view>
+          </view>
+        </view>
+        <view class="btnitem">
+          <view class="btns" style="margin:30px auto;" bindtap="confirm">确认</view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <block wx:elif="{{project_classify=='活动'}}">
+    <view class="scroll_title">信息类型</view>
+    <view class="btnitem">
+      <view class="flex-wrp" style="flex-direction:column;">
+        <view class="flex-wrp" style="flex-direction:row; margin-top:20px;">
+          <view class="btns {{tid==1?'.afterclick':''}}" data-task="赛事活动" data-tid="1" bindtap="choose_task">赛事活动</view>
+          <view class="btns {{tid==2?'.afterclick':''}}" data-task="线上活动" data-tid="2" bindtap="choose_task">线上活动</view>
+          <view class="btns {{tid==3?'.afterclick':''}}" data-task="线下活动" data-tid="3" bindtap="choose_task">线下活动</view>
+        </view>
+      </view>
+    </view>
+    <view class="row_line"></view>
+    <view class="scroll_title">付费类型</view>
+    <view class="btnitem">
+      <view class="flex-wrp" style="flex-direction:column;">
+        <view class="flex-wrp" style="flex-direction:row;">
+          <view class="btns {{cid==1?'.afterclick':''}}" data-captial="需要付费" data-cid="1" bindtap="choose_captial">需要付费</view>
+          <view class="btns {{cid==2?'.afterclick':''}}" data-captial="不需付费" data-cid="2" bindtap="choose_captial">不需付费</view>
+        </view>
+      </view>
+    </view>
+    <view class="row_line"></view>
+    <view class="scroll_title">活动类型</view>
+    <view class="btnitem">
+      <view class="flex-wrp" style="flex-direction:column;">
+        <view class="flex-wrp" style="flex-direction:row;">
+          <view class="btns {{inid==1?'.afterclick':''}}" data-industry="沙龙聚会" data-inid="1" bindtap="choose_industry">沙龙聚会</view>
+            <view class="btns {{inid==2?'.afterclick':''}}" data-industry="有奖征集" data-inid="2" bindtap="choose_industry">有奖征集</view>
+            <view class="btns {{inid==3?'.afterclick':''}}" data-industry="官方赛事" data-inid="3" bindtap="choose_industry">官方赛事</view>
+          </view>
+          <view class="flex-wrp" style="flex-direction:row; margin-top:20px;">
+            <view class="btns {{inid==4?'.afterclick':''}}" data-industry="展览展出" data-inid="4" bindtap="choose_industry">展览展出</view>
+            <view class="btns {{inid==5?'.afterclick':''}}" data-industry="其他活动" data-inid="5" bindtap="choose_industry">其他活动</view>
+        </view>
+        <!-- <view class="flex-wrp" style="flex-direction:row; margin-top:20px;">
+            <view class="btns">图片图像</view>
+            <view class="btns">学术内容</view>
+            <view class="btns">生活技巧</view>
+          </view> -->
+        <view class="row_line"></view>
+        <view class="scroll_title">进行阶段</view>
+       <view class="btnitem">
+          <view class="flex-wrp" style="flex-direction:column;">
+            <view class="flex-wrp" style="flex-direction:row;">
+              <view class="btns {{sid==0?'.afterclick':''}}" data-status="准备阶段" data-sid="0" bindtap="choose_status">准备阶段</view>
+              <view class="btns {{sid==1?'.afterclick':''}}" data-status="启动阶段" data-sid="1" bindtap="choose_status">启动阶段</view>
+            </view>
+            <view class="flex-wrp" style="flex-direction:row; margin-top:20px;">
+              <view class="btns {{sid==2?'.afterclick':''}}" data-status="进行阶段" data-sid="2" bindtap="choose_status">进行阶段</view>
+              <view class="btns {{sid==3?'.afterclick':''}}" data-status="扩展阶段" data-sid="3" bindtap="choose_status">扩展阶段</view>
+              <view class="btns {{sid==4?'.afterclick':''}}" data-status="完结阶段" data-sid="4" bindtap="choose_status">完结阶段</view>
+            </view>
+          </view>
+        </view>
+        <view class="btnitem">
+          <view class="btns" style="margin:30px auto;" bindtap="confirm">确认</view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

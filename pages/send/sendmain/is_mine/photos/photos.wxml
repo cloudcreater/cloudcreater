@@ -1,0 +1,16 @@
+<!--pages/send/sendmain/is_mine/photos/photos.wxml-->
+  <block wx:if="{{img_arr.length!=0}}">
+    <view class="image_loc" wx:for="{{img_arr}}" wx:for-index="index" wx:for-item="imgs">
+      <image src='{{imgs}}' bindtap="concel" data-index="{{index}}"></image>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="title">暂未上传图片</view>
+  </block>
+  <block wx:if="{{img_arr.length<5}}">
+    <button bindtap="choose">点此上传图片</button>
+  </block>
+  <block wx:else>
+    <button bindtap="backandsave">确认并返回</button>
+  </block>
+ 

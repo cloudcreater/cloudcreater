@@ -1,0 +1,10 @@
+/* pages/index/index_details/project_photoes/project_photoes.wxss */
+image{
+  width: 300rpx;
+  height: 200rpx;
+}
+.image_loc{
+  display: inline-block;
+  margin-left: 55rpx;
+  margin-top: 20rpx;
+}

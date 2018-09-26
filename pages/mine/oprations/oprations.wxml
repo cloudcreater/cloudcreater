@@ -1,0 +1,23 @@
+<!--pages/mine/oprations/oprations.wxml-->
+<view class="contanier">
+  <view class="bgcolor">
+    <view class="loc">
+      <view class="item">
+        点击报名时别人可以查看我的联系方式 
+        <switch></switch>
+      </view>
+      <view class="item">
+        发布消息时时别人可以查看我的联系方式
+        <switch></switch>
+      </view>
+      <view class="item">
+        有人请求交换联系方式时自动开放
+        <switch></switch>
+      </view>
+      <view class="item">
+        相互关注时可以互看联系方式
+        <switch></switch>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,84 @@
+<!--pages/mine/mine.wxml-->
+<view class="container">
+  <view class="bgcolor">
+    <view wx:if="{{myInfo!=0}}">
+      <view class="user_Info" bindtap="ToUser_Info">
+        <image class="profilephoto" src="{{myInfo.wx_headimg}}" />
+        <view class="name_loc">
+          <text>{{myInfo.wx_nickname}}</text>
+        </view>
+        <view class="sign_loc">
+          签名：
+          <block wx:if="{{getinfo.full_name!=''}}">
+            <text>{{getinfo.full_name}}</text>
+          </block>
+          <block wx:else>
+            <text>无</text>
+          </block>
+        </view>
+        <image src="https://czw.saleii.com/uploads/xcxchat/undefined/c7964b869da85ff083de75d80e72696a.png" />
+      </view>
+      <view class="user_item undertaking_mine" bindtap="ToUser_Card">
+        我的名片
+        <image src="https://czw.saleii.com/uploads/xcxchat/undefined/c7964b869da85ff083de75d80e72696a.png" />
+      </view>
+      <view class="user_item" bindtap="ToUser_Resume">
+        我的简历
+        <image src="https://czw.saleii.com/uploads/xcxchat/undefined/c7964b869da85ff083de75d80e72696a.png" />
+      </view>
+      <view class="user_item undertaking_mine" bindtap="toMy_cia">
+        我的创业
+        <image src="https://czw.saleii.com/uploads/xcxchat/undefined/c7964b869da85ff083de75d80e72696a.png" />
+      </view>
+      <view class="user_item" bindtap="toMy_idea">
+        我的创意
+        <image src="https://czw.saleii.com/uploads/xcxchat/undefined/c7964b869da85ff083de75d80e72696a.png" />
+      </view>
+      <view class="user_item" bindtap="toMy_activity">
+        我的活动
+        <image src="https://czw.saleii.com/uploads/xcxchat/undefined/c7964b869da85ff083de75d80e72696a.png" />
+      </view>
+      <!-- <view class="user_item opration" bindtap="toOpration">
+        设置
+        <image src="/imgs/右箭头.png" />
+      </view> -->
+      <view class="user_item" bindtap="tofeedback">
+        反馈中心
+        <image src="https://czw.saleii.com/uploads/xcxchat/undefined/c7964b869da85ff083de75d80e72696a.png" />
+      </view>
+      <view class="user_item undertaking_mine" bindtap="search">
+        问卷调查
+        <image src="https://czw.saleii.com/uploads/xcxchat/undefined/c7964b869da85ff083de75d80e72696a.png" />
+      </view>
+      <!-- <view class="user_item undertaking_mine" bindtap="clear">
+        清除缓存
+        <image src="https://czw.saleii.com/uploads/xcxchat/undefined/c7964b869da85ff083de75d80e72696a.png" />
+      </view> -->
+      <!--  <button class="user_btn">
+        退出登录
+      </button> -->
+    </view>
+    <view wx:else>
+      <view class="title">请登录</view>
+      <view class="login_frame">
+        <view class="main_frame_loc">
+          <view class="phone_loc">
+            <view class="login_item_title">手机号：</view>
+            <view class="login_item_input">
+              <input type="text" placeholder='请输入您的手机号码' bindinput="phoneNoInput" bindfocus="tipsClear"></input>
+            </view>
+            <view class="tips">{{info}}</view>
+          </view>
+          <view class="sms_loc">
+            <view class="login_item_title">验证码：</view>
+            <view class="login_item_input">
+              <input type="text" placeholder='请输入验证码' bindinput="SmscodeInput"></input>
+            </view>
+          </view>
+          <button class="getsms_btn" bindtap="getSmscode">获取验证码</button>
+          <button class="getsms_btn login" bindtap="dologin">登陆</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

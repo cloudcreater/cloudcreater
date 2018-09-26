@@ -1,0 +1,41 @@
+<!--pages/mine/card/share_card/share_card.wxml-->
+<canvas canvas-id="shareCanvas" style='width:100vw;height:100vh;' hidden='{{canvasHidden}}'></canvas>
+<view class="card_main">
+  <view class="has_card">
+    <view class="card">
+      <view class="head_img">
+        <image src="{{mycard.wx_headimg}}"></image>
+      </view>
+      <view class="nickname">
+        {{mycard.wx_nickname}}
+      </view>
+      <view class="job">
+        {{mycard.job}}
+      </view>
+      <view class="card_item">
+        公司(学校): {{mycard.school}}
+      </view>
+      <view class="card_item">
+        电话: {{mycard.username}}
+      </view>
+      <view class="card_item">
+        需求: {{mycard.need}}
+      </view>
+    </view>
+    <view class="op_bar">
+      <block wx:if="{{is_collected=='no'}}">
+        <view class="op_bar_item" style='border-right:solid 2px;left:50rpx;' bindtap='collect'>
+          收藏
+        </view>
+      </block>
+      <block wx:else>
+        <view class="op_bar_item" style='border-right:solid 2px;left:50rpx;'>
+          已收藏
+        </view>
+      </block>
+      <view class="op_bar_item" style='width:200rpx;padding-left:100rpx;left:240rpx;' bindtap='addPhoneContact'>添加通讯录</view>
+    </view>
+    <view class='oth_btn' bindtap='saveImageToPhotosAlbum'>生成图片</view>
+    <view class='oth_btn' style='top:900rpx;' bindtap='back'>返回名片页</view>
+  </view>
+</view>

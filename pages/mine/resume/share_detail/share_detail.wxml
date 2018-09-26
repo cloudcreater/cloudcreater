@@ -1,0 +1,48 @@
+<!--pages/mine/resume/share_detail/share_detail.wxml-->
+<canvas class="shareCanvas" canvas-id="shareCanvas" style='width:100vw;height:160vh;' hidden='{{canvasHidden}}'></canvas>
+<view class="bgcolor">
+  <view class="top_item">
+    <view class="head_img">
+      <image src="{{myresume.wx_headimg}}"></image>
+    </view>
+    <view class="nickname">{{myresume.wx_nickname}}</view>
+    <view class="phone">{{myresume.username}}</view>
+  </view>
+  <view class="title" style='top:202rpx'>
+    基本信息
+  </view>
+  <view class="cc_item" style='top:304rpx'>
+    性别： {{gender}}
+  </view>
+  <view class="cc_item" style='top:405rpx'>
+    年龄： {{old}}
+  </view>
+  <view class="cc_item" style='top:508rpx'>
+    出生日期： {{birth}}
+  </view>
+  <view class="cc_item" style='top:610rpx'>
+    求职状态： {{search}}
+  </view>
+  <view class="title" style='top:712rpx'>
+    教育经历(最近)
+  </view>
+  <view class="cc_item" style='top:814rpx'>
+    时间： {{time}}
+  </view>
+  <view class="cc_item" style='top:916rpx'>
+    学校： {{school}}
+  </view>
+  <view class="cc_item" style='top:1018rpx'>
+    专业： {{professional}}
+  </view>
+  <view class="cc_item" style='top:1119rpx'>
+    学历： {{edubg}}
+  </view>
+  <view class="title" style='top:1222rpx'>
+    工作经历(最近)
+  </view>
+  <view class='area' style='top:1324rpx'>{{workexp}}</view>
+  <view class='btn' bindtap='saveImageToPhotosAlbum'>
+    生成图片
+  </view>
+</view>

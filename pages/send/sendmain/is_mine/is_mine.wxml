@@ -1,0 +1,80 @@
+<!--pages/send/sendmain/is_mine/is_mine.wxml-->
+<view class="container">
+  <view class="bgcolor">
+    <view class="main">
+      <view class="selectlabel" bindtap="select" data-num="1"> 
+        选择标签
+        <image src="/imgs/右箭头.png" />
+      </view>
+      <block wx:if="{{symbols[0].task&&symbols[4].status}}">
+        <view class="selectlabel">
+          <view class="label-loc">
+            <text class="label">{{symbols[0].task}}</text>
+            <block wx:if="{{symbols[1].captial}}">
+              <text class="label">{{symbols[1].captial}}</text> 
+            </block>
+            <block wx:if="{{symbols[2].industry}}">
+              <text class="label">{{symbols[2].industry}}</text> 
+            </block>
+            <block wx:if="{{symbols[3].team}}">
+              <text class="label">{{symbols[3].team}}</text> 
+            </block>
+            <text class="label">{{symbols[4].status}}</text>
+          </view>
+        </view>
+      </block>
+      <view class="title">基础信息</view>
+      <view class="items" style="margin-top:10px;">
+        项目名称：
+        <input maxlength='16' type='text' placeholder='请输入项目名称' bindinput="titleInput"></input>
+      </view>
+      <!-- <view class="items_date" style='height:fit-content'>
+        信息持续时间
+        <picker mode="date" value="{{startdate}}" bindchange="start">
+          <view>
+            从: {{startdate}}
+          </view>
+        </picker>
+        <picker mode="date" value="{{enddate}}" bindchange="end">
+          <view>
+            到: {{enddate}}
+          </view>
+        </picker>
+      </view> -->
+      <view class="items_city">
+        信息发布区域
+        <!-- <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+          <view>
+            当前选择：{{region[0]}}，{{region[1]}}，{{region[2]}}
+          </view>
+        </picker> -->
+        <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+          <view class="picker">
+            当前选择：{{multiArray[1][multiIndex[1]]}}
+          </view>
+        </picker>
+      </view>
+      <view class="items" bindtap="tophoto">
+        项目图集
+        <image src="/imgs/右箭头.png" />
+      </view>
+      <!-- <view class="items">
+        项目网址：
+        <input type='text' placeholder='请输入项目网址，没有可不输入'></input>
+      </view> -->
+      <view class="items">
+        简介：
+        <textarea class="items_textarea" placeholder='用几句话简单介绍您的项目,建议三四十字即可' bindinput="project_descInput"></textarea>
+      </view>
+      <view class="title">创业详述
+        <view class="right">1000字以内</view>
+      </view>
+      <textarea class='area' maxlength='2000' placeholder='请简要介绍下您的项目和需求，建议提前写好复制黏贴' bindinput="descInput">
+      </textarea>
+    </view>
+    <view class='flex-wrp' style='direction:column'>
+      <view class="btn" bindtap="publish">发布</view>
+      <view class="btn" bindtap="save">保存草稿</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,3 @@
+<!--pages/mine/getUserInfo/getUserInfo.wxml-->
+<button open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取微信权限 </button>
+

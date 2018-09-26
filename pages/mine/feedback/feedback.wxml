@@ -1,0 +1,10 @@
+<!--pages/mine/feefback/feedback.wxml-->
+<view class="contanier">
+  <view class="bgcolor">
+    <textarea placeholder="对于我们的产品，欢迎写下意见和建议。1000字以内"></textarea>
+    <view class="btn">
+      提交
+    </view>
+  </view>
+  
+</view>

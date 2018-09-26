@@ -1,0 +1,98 @@
+/* pages/mine/resume/create_resume/create_resume.wxss */
+.bgcolor{
+  background-color: rgb(241, 241, 241);
+  display: flex;
+  flex-direction: column;
+  height:1750rpx;
+  width: 100%;
+}
+
+.top_item{
+  position: relative;
+  height: 200rpx;
+  width: 100%;
+  border-bottom: solid rgb(228, 228, 228) 0.5px;
+  border-top: solid rgb(228, 228, 228) 0.5px;
+  background-color: white;
+}
+
+.cc_item{
+  position: relative;
+  height: 100rpx;
+  width: 100%;
+  line-height: 100rpx;
+  font-size: 26rpx;
+  padding-left: 30rpx;
+  border-bottom: solid rgb(228, 228, 228) 0.5px;
+  background-color: white;
+}
+
+.cc_item input{
+  width: 400rpx;
+  height: 60rpx;
+  position: absolute;
+  left: 240rpx;
+  top: 20rpx;
+  border-radius: 10px;
+  background-color: rgba(238, 238, 238, 0.329)
+}
+
+.head_img{
+  position: absolute;
+  left: 20rpx;
+  top: 20rpx;
+}
+
+.head_img image{
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 100%;
+}
+
+.nickname{
+  position: absolute;
+  width: 500rpx;
+  left: 200rpx;
+  top: 15rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: solid 1px;
+}
+
+.phone{
+  position: absolute;
+  left: 200rpx;
+  top: 110rpx;
+}
+
+.btn{
+  position: absolute;
+  text-align: center;
+  width: 280rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 30rpx;
+  color: white;
+  font-size: 34rpx;
+  background-color: rgb(60, 108, 246);
+  left: 230rpx;
+  top: 1650rpx;
+}
+
+.title{
+  position: relative;
+  height: 40rpx;
+  font-size: 30rpx;
+  background-color: rgb(241, 241, 241);
+  padding: 20rpx 0;
+  padding-left: 20rpx;
+}
+
+.area{
+  background-color: white;
+  width: 90%;
+  height: 300rpx;
+  margin-left: 5%;
+  margin-top: 20rpx;
+  border-radius:15px; 
+}

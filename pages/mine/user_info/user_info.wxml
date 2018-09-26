@@ -1,0 +1,54 @@
+<!--pages/mine/user_info/user_info.wxml-->
+<view class="container">
+  <view class="bgcolor">
+    <view class="title">基础信息</view>
+    <view class="profile">
+      头像
+      <image class="profilephoto" src="{{myInfo.wx_headimg}}" />
+    </view>
+    <!--头像栏-->
+    <view class="user_item">名字
+      <text>{{myInfo.wx_nickname}}</text>
+    </view>
+    <view class="user_item">签名
+      
+      <block wx:if="{{getinfo.full_name!=''}}">
+        <text>{{getinfo.full_name}}</text>
+      </block>
+      <block wx:else>
+        <text>无</text>
+      </block>
+    </view>
+    <view class="title">更多信息</view>
+    <view class="user_item">性别
+      <block wx:if="{{userInfo.gender==1}}">
+        <text>男</text>
+      </block>
+      <block wx:if="{{userInfo.gender==2}}">
+        <text>女</text>
+      </block>
+    </view>
+    <view class="user_item">地区
+      <text>{{userInfo.city}}</text>
+    </view>
+    <view class="title">我的联系方式</view>
+    <view class="user_item">电话
+      <text>{{myInfo.username}}</text>
+    </view>
+    <block wx:if="{{getinfo.note}}">
+      <view class="user_item" bindtap="edit_Wxnumber">微信号
+        <image src="https://czw.saleii.com/uploads/xcxchat/undefined/5bb6e301c5d34eb38faa64cc431c39dc.png" />
+        <text>{{getinfo.note}}</text>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="user_item" bindtap="edit_Wxnumber">微信号
+        <image src="https://czw.saleii.com/uploads/xcxchat/undefined/5bb6e301c5d34eb38faa64cc431c39dc.png" />
+        <text>还没有编辑微信号？点此编辑</text>
+      </view>
+    </block>
+  </view>
+</view>
+<modal hidden="{{hiddenmodalput}}" title="请输入微信号" confirm-text="提交" cancel-text="返回" bindcancel="cancel" bindconfirm="confirm">  
+    <input type='text' style=' height:50rpx; ' bindinput='Wxnumber_input' placeholder="请输入内容"/>  
+</modal>

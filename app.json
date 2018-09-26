@@ -1,0 +1,103 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/index_details/index_details",
+    "pages/index/index_details/project_photoes/project_photoes",
+    "pages/index/index_details/report/report",
+    "pages/index/index_details/chat/chat",
+
+    "pages/focus/focus",
+    "pages/focus/focus_details/foucs_detail",
+    "pages/focus/focus_details/project_photoes/project_photoes",
+    "pages/focus/focus_details/report/report",
+    "pages/focus/focus_details/chat/chat",
+
+    "pages/send/sendmain/sendmain",
+    "pages/send/sendblank/sendblank",
+    "pages/send/sendmain/is_mine/is_mine",
+    "pages/send/sendmain/is_mine/selectlabel/selectlabel",
+    "pages/send/sendmain/is_mine/photos/photos",
+    "pages/send/sendmain/is_company/is_company",
+    "pages/send/mydraft/mydraft",
+    "pages/send/mydraft/selectlabel/selectlabel",
+    "pages/send/mydraft/photos/photos",
+
+    "pages/message/message",
+    "pages/message/messagemain/messagemain",
+
+    "pages/mine/mine",
+    "pages/mine/user_info/user_info",
+    "pages/mine/user_confirm/user_confirm",
+    "pages/mine/my_cia/mycia",
+    "pages/mine/my_idea/myidea",
+    "pages/mine/my_activity/my_activity",
+    "pages/mine/card/card",
+    "pages/mine/card/share_card/share_card",
+    "pages/mine/card/create_card/create_card",
+    "pages/mine/resume/resume",
+    "pages/mine/resume/create_resume/create_resume",
+    "pages/mine/resume/index_resume/index_resume",
+    "pages/mine/resume/share_detail/share_detail",
+    "pages/mine/resume/share_resume/share_resume",
+    "pages/mine/oprations/oprations",
+    "pages/mine/feedback/feedback",
+    "pages/mine/getUserInfo/getUserInfo",
+    "pages/mine/editpage/editpage",
+    "pages/mine/editpage/selectlabel/selectlabel",
+    "pages/mine/editpage/photos/photos",
+
+    "pages/other_user/other_user",
+    "pages/other_user/other_user_info/other_user_info",
+    "pages/other_user/other_user_remark/other_user_remark",
+    "pages/other_user/user_report/user_report",
+
+    "pages/out/out"
+
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "backgroundColor": "#ddd",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "云端创客",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "color": "#9E9E9E",
+    "selectedColor": "#f00",
+    "backgroundColor": "#fff",
+    "borderStyle": "#ccc",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "imgs/首页-前.png",
+        "selectedIconPath": "imgs/首页-后.png"
+      },
+      {
+        "pagePath": "pages/focus/focus",
+        "text": "关注",
+        "iconPath": "imgs/关注-前.png",
+        "selectedIconPath": "imgs/关注-后.png"
+      },
+      {
+        "pagePath": "pages/send/sendblank/sendblank",
+        "text": "发布",
+        "iconPath": "imgs/发布.png",
+        "selectedIconPath": "imgs/发布.png"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "消息",
+        "iconPath": "imgs/消息-前.png",
+        "selectedIconPath": "imgs/消息-后.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "imgs/我的-前.png",
+        "selectedIconPath": "imgs/我的-后.png"
+      }
+    ]
+  }
+}

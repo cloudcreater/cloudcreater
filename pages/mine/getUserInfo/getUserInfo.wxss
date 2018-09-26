@@ -1,0 +1,6 @@
+/* pages/mine/getUserInfo/getUserInfo.wxss */
+button{
+  margin: 40px auto;
+  width: 140px;
+  height: 45px;
+}

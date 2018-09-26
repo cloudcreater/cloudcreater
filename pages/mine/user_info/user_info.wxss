@@ -1,0 +1,71 @@
+/* pages/mine/user_info/user_info.wxss */
+.bgcolor {
+  width: 100%;
+  height: 700px;
+  background-color: rgb(241, 241, 241);
+  position: relative;
+}
+
+.title{
+  width: 100%;
+  height: 50px;
+  line-height: 40px;
+  font-size: 15px;
+  text-indent: 1em; 
+}
+
+.profile{
+  position: relative;
+  width: 100%;
+  height: 90px;
+  background-color: white;
+  line-height: 90px;
+  font-size: 15px;
+  text-indent: 1em;
+  border-bottom: solid rgb(228, 228, 228) 0.5px;
+}
+
+.profile .profilephoto{
+  position: absolute;
+  top: 15px;
+  width: 70px;
+  height: 70px;
+  right: 35px;
+  border-radius: 100%;
+}
+
+.profile image{
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: 40px;
+  right: 10px;
+}
+
+.user_item{
+  position: relative;
+  width: 100%;
+  height: 60px;
+  background-color: white;
+  line-height: 60px;
+  font-size: 15px;
+  text-indent: 1em;
+  border-bottom: solid rgb(228, 228, 228) 0.5px;
+}
+
+.user_item text{
+  position: absolute;
+  color: rgb(163, 163, 163);
+  font-size: 17px;
+  font-weight: 300;
+  top: 0px;
+  right: 35px;
+}
+
+.user_item image{
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: 17px;
+  right: 10px;
+}

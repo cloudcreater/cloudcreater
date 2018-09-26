@@ -1,0 +1,39 @@
+<!--pages/other_user/other_user.wxml-->
+<view class="container">
+  <view class="bgcolor">
+    <view class="top_user_info">
+      <view class="headimg">
+        <image src="{{currentProject.headimgurl}}"></image>
+      </view>
+      <view class="nickname">
+        {{currentProject.nickname}}
+      </view>
+      <view class="content">
+        {{currentProject.full_name}}
+      </view>
+      <view class="focus_loc">
+        <image src="../../../imgs/focus.jpg"></image>
+      </view>
+      <view class="chat_loc">
+        <image src="../../../imgs/chat.jpg" bindtap="tochat"></image>
+      </view>
+    </view>
+    <view class="other_user_item">
+      <view class="title">地区</view>
+      <view class="city_loc">{{currentProject.city_str}}</view>
+    </view>
+    <view class="other_user_item" bindtap="to_other_info">
+      <view class="title">他的简介</view>
+      <image src="/imgs/右箭头.png" />
+    </view>
+    <!-- <view class="other_user_item" bindtap="to_remark">
+      <view class="title">设置备注</view>
+      <image src="/imgs/右箭头.png" />
+    </view> -->
+    <!-- <view class="other_user_item" bindtap="to_report">
+      <view class="title">投诉</view>
+      <image src="/imgs/右箭头.png" />
+    </view> -->
+  </view>
+
+</view>

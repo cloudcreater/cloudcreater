@@ -1,0 +1,88 @@
+/* pages/mine/user_confirm/user_confirm.wxss */
+.bgcolor {
+  width: 100%;
+  height: 700px;
+  background-color: rgb(241, 241, 241);
+  position: relative;
+}
+
+.main{
+  width: 100%;
+  height: 500px;
+  background-color: white;
+  position: relative;
+}
+
+
+.title{
+  position: absolute;
+  margin-left: 12px;
+  margin-top: 20px;
+  font-size: 13px;
+  color: rgb(148, 148, 148)
+}
+
+.line{
+  width: 100%;
+  height: 1px;
+  border-top:solid 1px;
+  border-color: rgb(228, 228, 228);
+  position: absolute;
+  top: 0px;
+}
+
+.item{
+  width: 100%;
+  font-size:15px;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 5px;
+  position: relative;
+  padding-left: 15px;
+  top: 50px;
+}
+
+.item input{
+  width: 250px;
+  background-color:rgb(242, 242, 242); 
+  position: absolute;
+  left: 100px;
+  top: 12px;
+}
+
+.item_idpic{
+  font-size:15px;
+  position: relative;
+  padding-left: 15px;
+  top: 70px;
+}
+
+.photo_loc{
+  position: relative;
+  width: 250px;
+  height: 120px;
+  border: solid black 1px;
+  left: 100px; 
+  top: 50px; 
+}
+.tips{
+  position: relative;
+  font-size:13px;
+  top: 80px;
+  left: 50px;
+}
+
+.btn{
+  position: absolute;
+  text-align: center;
+  width: fit-content;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 15px;
+  padding: 0 15px; 
+  color: white;
+  font-size: 17px;
+  background-color: rgb(60, 108, 246);
+  bottom: 30px;
+  left: 30px;
+}

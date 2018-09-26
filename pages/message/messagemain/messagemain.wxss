@@ -1,0 +1,43 @@
+/* pages/message/messagemain/messagemain.wxss */
+.top_user_info{
+  width: 100%;
+  height: 140rpx;
+  border-top: solid rgb(228, 228, 228) 1px; 
+  border-bottom: solid rgb(228, 228, 228) 1px; 
+  position: relative;
+}
+
+.headimg image{
+  position: absolute;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 100%;
+  left: 30rpx;
+  top: 20rpx;
+}
+
+.nickname{
+  position: absolute;
+  left: 160rpx;
+  top: 24rpx;
+  font-size: 34rpx;
+}
+
+.Vimg{
+  position: absolute;
+  left: 300rpx;
+  top: 20rpx;
+}
+
+.nickname image{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.content{
+  position: absolute;
+  left: 160rpx;
+  top: 70rpx;
+  font-size: 34rpx;
+  color: rgb(147, 147, 147);
+}

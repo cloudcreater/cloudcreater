@@ -1,0 +1,41 @@
+<!--pages/other_user/other_user/other_user_info.wxml-->
+<view class="container">
+  <view class="bgcolor">
+    <view class="title">基础信息</view>
+    <view class="profile">
+      头像
+      <image class="profilephoto" src="{{currentProject.headimgurl}}" />
+    </view>
+    <!--头像栏-->
+    <view class="user_item">名字
+      <text>{{currentProject.nickname}}</text>
+    </view>
+    <view class="user_item">签名
+      <block wx:if="{{getinfo.full_name!=null}}">
+        <text>{{getinfo.full_name}}</text>
+      </block>
+      <block wx:else>
+        <text>无</text>
+      </block>
+    </view>
+    <view class="title">更多信息</view>
+    <!-- <view class="user_item">发布者类别
+      <block wx:if="{{currentProject.user_type==0}}">
+        <text>个人发布</text>
+      </block>
+      <block wx:if="{{currentProject.user_type==1}}">
+        <text>公司发布</text>
+      </block>
+    </view> -->
+    <view class="user_item">地区
+      <text>{{currentProject.city_str}}</text>
+    </view>
+    <!-- <view class="user_item">他的微信号
+      <image src="/imgs/右箭头.png" />
+    </view> -->
+    <view class="user_item" bindtap="call">他的电话号
+      <image src='https://czw.saleii.com/uploads/xcxchat/undefined/d20b55d2f2a2becf59726ffb8df7736b.png'></image>
+      <text>{{currentProject.author}}</text>
+    </view>
+  </view>
+</view>
