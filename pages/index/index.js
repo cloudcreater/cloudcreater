@@ -48,6 +48,8 @@ Page({
     team: "",
     teid: "",
     dates:"",
+    fid:"",
+    focus: 0,
 
     pagesize: 10,
     changepage: 0,
@@ -101,13 +103,14 @@ Page({
           'Accept': 'application/json'
         },
         data: {
-          username: 15355813859,
+          username: 18158511795,
           project_industry: "全部",
           project_type: name,
           project_status: that.data.status,
           project_date:that.data.dates,
           project_location: that.data.multiArray[1][that.data.multiIndex[1]],
           pagesize: that.data.pagesize,
+          is_focus: that.data.focus,
           is_del: 0
         },
         success(res) {
@@ -165,6 +168,7 @@ Page({
           project_date: that.data.dates,
           project_location: that.data.multiArray[1][that.data.multiIndex[1]],
           pagesize: that.data.pagesize,
+          is_focus: that.data.focus,
           is_del: 0
         },
         success(res) {
@@ -234,6 +238,7 @@ Page({
           project_captial: that.data.captial,
           project_team: that.data.team,
           project_location: that.data.multiArray[1][that.data.multiIndex[1]],
+          is_focus: that.data.focus,
           is_del: 0
         },
         success(res) {
@@ -278,6 +283,7 @@ Page({
           project_captial: that.data.captial,
           project_team: that.data.team,
           project_type: that.data.project_type,
+          is_focus: that.data.focus,
           is_del: 0
         },
         success(res) {
@@ -335,6 +341,7 @@ Page({
           project_captial: that.data.captial,
           project_team: that.data.team,
           project_type: that.data.project_type,
+          is_focus: that.data.focus,
           is_del: 0
         },
         success(res) {
@@ -380,6 +387,7 @@ Page({
           project_captial: that.data.captial,
           project_team: that.data.team,
           project_type: that.data.project_type,
+          is_focus: that.data.focus,
           is_del: 0
         },
         success(res) {
@@ -435,6 +443,7 @@ Page({
           project_task: that.data.task,
           project_captial: that.data.captial,
           project_team: that.data.team,
+          is_focus: that.data.focus,
           is_del: 0
         },
         success(res) {
@@ -477,6 +486,7 @@ Page({
           project_task: that.data.task,
           project_captial: that.data.captial,
           project_team: that.data.team,
+          is_focus: that.data.focus,
           is_del: 0
         },
         success(res) {
@@ -580,6 +590,15 @@ Page({
       tid: tid
     })
   },
+  choose_focus: function (event) {
+    var that = this
+    var focus = event.currentTarget.dataset.focus
+    var fid = event.currentTarget.dataset.fid
+    that.setData({
+      focus: focus,
+      fid: fid
+    })
+  },
   choose_team: function(event) {
     var that = this
     var team = event.currentTarget.dataset.team
@@ -621,7 +640,7 @@ Page({
           'Accept': 'application/json'
         },
         data: {
-          username: 15355813859,
+          username: 18158511795,
           project_industry: that.data.industry,
           project_task: that.data.task,
           project_captial: that.data.captial,
@@ -629,6 +648,7 @@ Page({
           project_date: that.data.dates,
           project_status: that.data.status,
           project_type: that.data.project_type,
+          is_focus: that.data.focus,
           is_del: 0
         },
         success(res) {
@@ -678,6 +698,7 @@ Page({
           project_date: that.data.dates,
           project_status: that.data.status,
           project_type: that.data.project_type,
+          is_focus: that.data.focus,
           is_del: 0
         },
         success(res) {
@@ -743,7 +764,8 @@ Page({
     var that = this
     that.onLoad()
     that.setData({
-      changepage: 1
+      changepage: 1,
+      focus:0
     })
 
     if (wecache.get("myInfo", "0") == 0) {
@@ -758,7 +780,7 @@ Page({
           'Accept': 'application/json'
         },
         data: {
-          username: 15355813859,
+          username: 18158511795,
           shop_type: 5,
           project_type: that.data.project_type,
           project_industry: that.data.industry,
@@ -768,6 +790,7 @@ Page({
           project_date: that.data.dates,
           project_status: that.data.status,
           pagesize: that.data.pagesize,
+          is_focus: that.data.focus,
           is_del: 0
         },
         success(res) {
@@ -816,6 +839,7 @@ Page({
           project_date: that.data.dates,
           project_status: that.data.status,
           pagesize: that.data.pagesize,
+          is_focus: that.data.focus,
           is_del: 0
         },
         success(res) {

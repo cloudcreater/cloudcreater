@@ -12,7 +12,7 @@ Page({
     region: ['浙江省', '杭州市', '江干区'],
     // dis: 4,
     project_classify: "",
-    symbols: [],
+    symbols: [], 
     upimg_url: [],
 
     title: "",
@@ -175,6 +175,13 @@ Page({
   },
   publish: function() {
     var that = this
+    var id
+    if (app.globalData.community!=""){
+      id = app.globalData.community.id
+    }else{
+      id = ""
+    }
+    
     if (that.data.symbols[0] == null) {
       wx.showModal({
         title: '重要',
@@ -235,6 +242,7 @@ Page({
             project_img3: that.data.upimg_url[2],
             project_img4: that.data.upimg_url[3],
             project_img5: that.data.upimg_url[4],
+            group_id: id,
           },
           success: function(res) {
             console.log(res)

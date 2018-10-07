@@ -1,0 +1,121 @@
+/* pages/community/my_community/my_community.wxss */
+.communities{
+  
+}
+
+.communities_item{
+  position: relative;
+  width: 90%;
+  left: 5%;
+  height: 170rpx;
+  border-bottom: solid rgb(228, 228, 228) 1px;
+}
+
+.head_img{
+  border-radius: 100%;
+  width: 130rpx;
+  height: 130rpx;
+  position: absolute;
+  left: 15rpx;
+  top: 20rpx;
+}
+
+.name{
+  position: absolute;
+  left: 165rpx;
+  top: 15rpx;
+  font-size: 28rpx;
+}
+
+.location{
+  position: absolute;
+  width: 50rpx;
+  height: 100rpx;
+  left: 160rpx;
+  top: 50rpx;
+  padding-top: 80rpx;
+  font-size: 22rpx;
+}
+
+.location image{
+  position: absolute;
+  top: 10rpx;
+  width: 40rpx;
+  height: 60rpx;
+  left: 5rpx;
+}
+
+.label_loc{
+  position: absolute;
+  width:  330rpx;
+  height: 110rpx;
+  left: 220rpx;
+  top: 50rpx;
+}
+
+.label{
+  display: inline-block;
+  width: fit-content;
+  height: 35rpx;
+  margin-top: 10rpx;
+  margin-left: 10px;
+  padding-top: 5rpx;
+  padding-bottom: 5rpx;
+  padding: 0 15rpx;
+  border-radius: 10px;
+  background-color: rgb(241, 241, 241);
+  font-size: 24rpx;
+}
+
+.focus{
+  position: absolute;
+  right: 80rpx;
+  top: 50rpx;
+}
+
+.join{
+  position: absolute;
+  right: 0rpx;
+  top: 30rpx;
+}
+
+.focusimg{
+  width: 60rpx;
+  height: 80rpx;
+}
+
+.joinimg{
+  width: 60rpx;
+  height: 100rpx;
+}
+
+.topbar {
+  width: 100%;
+  height: 80rpx;
+  border-top: solid gainsboro 1px;
+  border-bottom: solid gainsboro 0.5px;
+  position: relative;
+}
+
+.items{
+  width: 180rpx;
+  font-weight: 200;
+  text-align: center;
+  font-size: 36rpx;
+}
+
+.left{
+  position: absolute;
+  left: 170rpx;
+  top: 20rpx;
+}
+
+.right{
+  position: absolute;
+  right: 170rpx;
+  top: 20rpx;
+}
+
+.underline {
+  border-bottom: solid gray 2px;
+}

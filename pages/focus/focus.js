@@ -1,9 +1,11 @@
 // pages/index/index.js 
+const app = getApp()
 import dateApi from "../../utils/utils.js"
 import citydata from "../../citydata/citydata.js";
 import wecache from "../../utils/wecache.js"
-const app = getApp()
+
 var list = []
+
 function setdata(Xago) {
   if (Xago != "all") {
     var timestamp = Date.parse(new Date());

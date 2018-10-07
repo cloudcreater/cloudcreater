@@ -13,6 +13,10 @@ App({
     appsecret:'521fabc9fc9e432c1ca2969be953a285',
     weburl:'https://czw.saleii.com',
     shop_type:5,
+
+    other_to_main:"",
+    community:"",
+
   },
   /** 
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）

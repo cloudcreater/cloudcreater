@@ -1,0 +1,399 @@
+/* pages/community/community.wxss */
+.community_item{
+  position: absolute;
+  width: 90%;
+  height: 120rpx;
+  line-height: 120rpx;
+  left: 5%;
+  background-color: rgb(242, 242, 242);
+  border-radius: 15px;
+  text-indent: 1em;
+}
+
+.community_item image{
+  position: absolute;
+  width: 50rpx;
+  height: 50rpx;
+  right: 20rpx;
+  top: 35rpx;
+}
+
+.title_before{
+  position: absolute;
+  top: 490rpx;
+  left: 70rpx;
+}
+
+.communities{
+  position: absolute;
+  height: 540rpx;
+  top: 560rpx;
+}
+
+.communities_item{
+  position: relative;
+  width: 90%;
+  left: 5%;
+  height: 170rpx;
+  border-bottom: solid rgb(228, 228, 228) 1px;
+}
+
+.head_img{
+  border-radius: 100%;
+  width: 130rpx;
+  height: 130rpx;
+  position: absolute;
+  left: 15rpx;
+  top: 20rpx;
+}
+
+.name{
+  position: absolute;
+  left: 165rpx;
+  top: 15rpx;
+  font-size: 28rpx;
+}
+
+.location{
+  position: absolute;
+  width: 50rpx;
+  height: 100rpx;
+  left: 160rpx;
+  top: 50rpx;
+  padding-top: 80rpx;
+  font-size: 22rpx;
+}
+
+.location image{
+  position: absolute;
+  top: 10rpx;
+  width: 40rpx;
+  height: 60rpx;
+  left: 5rpx;
+}
+
+.label_loc{
+  position: absolute;
+  width:  330rpx;
+  height: 110rpx;
+  left: 220rpx;
+  top: 50rpx;
+}
+
+.label{
+  display: inline-block;
+  width: fit-content;
+  height: 35rpx;
+  margin-top: 10rpx;
+  margin-left: 10px;
+  padding-top: 5rpx;
+  padding-bottom: 5rpx;
+  padding: 0 15rpx;
+  border-radius: 10px;
+  background-color: rgb(241, 241, 241);
+  font-size: 24rpx;
+}
+
+.join{
+  position: absolute;
+  right:90rpx;
+  top: 80rpx;
+  font-size: 24rpx;
+}
+
+.joinimg{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+
+
+
+
+/* 主页面css */
+.underline {
+  border-bottom: solid gray 3px;
+}
+
+.underlinewhite{
+  border-bottom: solid white 4px;
+  z-index: 16
+}
+
+.fontcolor{
+  color:red;
+}
+
+.topbar {
+  width: 100%;
+  height: 80rpx;
+  border-top: solid gainsboro 0.5px;
+  border-bottom: solid gainsboro 1.5px;
+  position: fixed;
+  z-index: 15;
+  background-color: white;
+}
+
+.top-item {
+  text-align: center;
+  width: 33%;
+  line-height: 76rpx;
+  height: 76rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.selection {
+  width: 100%;
+  height: 60rpx;
+  border-bottom: solid gainsboro 0.5px;
+  position: fixed;
+  z-index: 15;
+  background-color: white;
+  top: 84rpx;
+}
+
+.next-item {
+  text-align: center;
+  width: 25%;
+  height: 36rpx;
+  position: relative;
+  font-size: 24rpx;
+  margin-top: 12rpx;
+  line-height: 36rpx;
+  padding-bottom: 12rpx;
+}
+
+.next-item image {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  top: 2rpx;
+  right: 10rpx
+}
+
+.time {
+  border-left: solid gainsboro 1.5px;
+  border-right: solid gainsboro 1.5px;
+}
+
+.process {
+  border-right: solid gainsboro 1.5px;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.menu {
+  width: 100%;
+  height: 1000rpx;
+  background-color: rgba(102, 102, 102,0.5);
+  z-index: 10;
+  position: fixed;
+  top: 143rpx;
+  border-bottom: solid gainsboro 0.5px;
+  border-top: solid gray 2px;
+}
+
+.bgcolor-white{
+  width: 100%;
+  height: 600rpx;
+  background-color: white;
+  position: absolute;
+}
+
+.left {
+  width: 25%;
+}
+
+.chooseCity {
+  font-size: 26rpx;
+  text-align: center;
+}
+
+.citem {
+  margin-top: 20rpx;
+}
+
+.line {
+  height: 560rpx;
+  width: 1rpx;
+  border-left: solid gainsboro 1.5px;
+  margin-top: 20rpx;
+}
+
+.right {
+  width: 75%;
+}
+
+.btnitem {
+  width: 100%;
+  margin-top: 20rpx;
+}
+
+.btns {
+  width: 260rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 26rpx;
+  border-radius: 50rpx;
+  background-color: white;
+  text-align: center;
+  border: solid rgb(197, 196, 196) 1px;
+  margin: 0 24rpx;
+}
+
+.afterclick{
+  color: white;
+  background-color: gainsboro;
+}
+
+.meun_item{
+  font-size: 28rpx;
+  /* color: rgb(156, 151, 151); */
+  margin-top: 30rpx;
+  margin-left: 40rpx;
+}
+
+.title{
+  margin-left: 24rpx;
+  margin-top: 20rpx;
+  font-size: 30rpx;
+}
+
+.row_line{
+  width: 100%;
+  height: 2rpx;
+  border-top: solid gainsboro 1px;
+  margin-top: 40rpx;
+}
+
+
+.bgcolor {
+  width: 100%;
+  height: 560rpx;
+  background-color: rgb(241, 241, 241);
+  position: relative;
+}
+
+.main {
+  width: 100%;
+  height: 520rpx;
+  background-color: white;
+  font-size: 28rpx;
+  position: absolute;
+  top: 10rpx;
+}
+
+.info-loc {
+  margin: 30rpx auto;
+  width: 660rpx;
+  position: relative;
+  height: 480rpx;
+}
+
+.label {
+  display: inline-block;
+  margin: 0 14rpx;
+  padding: 0 24rpx;
+  width: fit-content; 
+  height: 44rpx;
+  text-align: center;
+  border-radius: 38rpx;
+  line-height: 42rpx;
+  background-color: rgb(231, 231, 231);
+  font-size: 22rpx;
+  color: black;
+  font-weight: 400;
+}
+
+.data {
+  font-size: 22rpx;
+}
+
+.namespace {
+  width: 100%;
+  height: 86rpx;
+  font-size: 20rpx;
+  position: relative;
+  color: rgb(161, 161, 161);
+}
+
+.namespace image{
+  width: 50rpx;
+  height: 50rpx;
+  display: inline-block;
+  border-radius: 100%;
+}
+
+.textpart{
+  display: inline-block;
+  position: absolute;
+  left: 60rpx; top: 4rpx;
+}
+
+.introduce {
+  width: 440rpx;
+  height: 240rpx;
+  margin-top: 30rpx;
+  margin-left: 10rpx;
+  float: left;
+  font-size: 26rpx;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+  margin-bottom: 36rpx;
+}
+
+.img-loc {
+  width: 160rpx;
+  height: 140rpx;
+  float: right;
+  margin-right: 30rpx;
+  margin-top: 50rpx;
+}
+
+.foot {
+  font-size: 26rpx;
+  color: rgb(161, 161, 161);
+  display: block;
+  width: fit-content;
+  margin-left: 10rpx;
+}
+
+.img-loc image {
+  width: 200rpx;
+  height: 160rpx;
+}
+
+.op_btn {
+  z-index: 10;
+  width: 55rpx;
+  height: 100rpx;
+  padding-top: 20rpx;
+  line-height: 40rpx;
+  text-align: center;
+  font-size: 32rpx;
+  border: solid rgba(0, 0, 0, 0.719);
+  border-left: none;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  position: fixed;
+  left: 0;
+  bottom: 10%;
+  font-weight: 600;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.719);
+}
+
+.main_items{
+  position: absolute;
+  height: 100%;
+}

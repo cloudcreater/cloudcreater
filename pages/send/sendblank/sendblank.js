@@ -8,8 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    draft:"",
-    tid:""
+    draft: "",
+    tid: ""
   },
 
   /**
@@ -32,7 +32,7 @@ Page({
   onShow: function() {
     wx.getStorage({
       key: 'has_draft',
-      success: function (res) {
+      success: function(res) {
         that.setData({
           draft: res.data
         })
@@ -55,106 +55,213 @@ Page({
         }
       })
     } else {
-      var systemtype
-      wx.getSystemInfo({
-        success: function (res) {
-          systemtype = res.system
-        }
-      })
-      if (systemtype.substring(0, 7) !="Android"){
-        wx.showActionSheet({
-          itemList: ['我的创业', '我的创意', '我的活动', '我的草稿'],
-          success: function (res) {
-            if (res.tapIndex == 0) {
-              wx.navigateTo({
-                url: '../sendmain/is_mine/is_mine?type=创业',
-              })
-            } else if (res.tapIndex == 1) {
-              wx.navigateTo({
-                url: '../sendmain/is_mine/is_mine?type=创意',
-              })
-            } else if (res.tapIndex == 2) {
-              wx.navigateTo({
-                url: '../sendmain/is_mine/is_mine?type=活动',
-              })
-            } else if (res.tapIndex == 3) {
-              console.log(that.data.draft)
-              if (that.data.draft != "has") {
-                wx.showModal({
-                  title: '重要',
-                  content: '无草稿',
-                  success: function (res) {
-                    if (res.confirm) {
-                      that.onShow()
-                    } else if (res.cancel) {
-                      that.onShow()
+      if (app.globalData.other_to_main == 'yes'){
+        wx.showModal({
+          title: '重要',
+          content: '此时默认在社区内发布，若想发布在主页请在社区内点返回！',
+          success(res) {
+            var systemtype
+            wx.getSystemInfo({
+              success: function (res) {
+                systemtype = res.system
+              }
+            })
+            if (systemtype.substring(0, 7) != "Android") {
+              wx.showActionSheet({
+                itemList: ['我的创业', '我的创意', '我的活动', '我的草稿'],
+                success: function (res) {
+                  if (res.tapIndex == 0) {
+                    wx.navigateTo({
+                      url: '../sendmain/is_mine/is_mine?type=创业',
+                    })
+                  } else if (res.tapIndex == 1) {
+                    wx.navigateTo({
+                      url: '../sendmain/is_mine/is_mine?type=创意',
+                    })
+                  } else if (res.tapIndex == 2) {
+                    wx.navigateTo({
+                      url: '../sendmain/is_mine/is_mine?type=活动',
+                    })
+                  } else if (res.tapIndex == 3) {
+                    console.log(that.data.draft)
+                    if (that.data.draft != "has") {
+                      wx.showModal({
+                        title: '重要',
+                        content: '无草稿',
+                        success: function (res) {
+                          if (res.confirm) {
+                            that.onShow()
+                          } else if (res.cancel) {
+                            that.onShow()
+                          }
+                        }
+                      })
+                    } else {
+                      wx.navigateTo({
+                        url: '../mydraft/mydraft',
+                      })
                     }
                   }
-                })
-              } else {
-                wx.navigateTo({
-                  url: '../mydraft/mydraft',
-                })
-              }
+                },
+                fail: function (res) {
+                  console.log(res.errMsg)
+                  wx.switchTab({
+                    url: '../../index/index',
+                  })
+                }
+              })
+            } else {
+              wx.showActionSheet({
+                itemList: ['我的创业', '我的创意', '我的活动', '我的草稿', '取消'],
+                success: function (res) {
+                  if (res.tapIndex == 0) {
+                    wx.navigateTo({
+                      url: '../sendmain/is_mine/is_mine?type=创业',
+                    })
+                  } else if (res.tapIndex == 1) {
+                    wx.navigateTo({
+                      url: '../sendmain/is_mine/is_mine?type=创意',
+                    })
+                  } else if (res.tapIndex == 2) {
+                    wx.navigateTo({
+                      url: '../sendmain/is_mine/is_mine?type=活动',
+                    })
+                  } else if (res.tapIndex == 3) {
+                    console.log(that.data.draft)
+                    if (that.data.draft != "has") {
+                      wx.showModal({
+                        title: '重要',
+                        content: '无草稿',
+                        success: function (res) {
+                          if (res.confirm) {
+                            that.onShow()
+                          } else if (res.cancel) {
+                            that.onShow()
+                          }
+                        }
+                      })
+                    } else {
+                      wx.navigateTo({
+                        url: '../mydraft/mydraft',
+                      })
+                    }
+                  } else if (res.tapIndex == 4) {
+                    wx.switchTab({
+                      url: '../../index/index',
+                    })
+                  }
+                },
+                fail: function (res) {
+                  console.log(res.errMsg)
+                  wx.switchTab({
+                    url: '../../index/index',
+                  })
+                }
+              })
             }
-          },
-          fail: function (res) {
-            console.log(res.errMsg)
-            wx.switchTab({
-              url: '../../index/index',
-            })
           }
         })
       }else{
-        wx.showActionSheet({
-          itemList: ['我的创业', '我的创意', '我的活动', '我的草稿', '取消'],
+        var systemtype
+        wx.getSystemInfo({
           success: function (res) {
-            if (res.tapIndex == 0) {
-              wx.navigateTo({
-                url: '../sendmain/is_mine/is_mine?type=创业',
-              })
-            } else if (res.tapIndex == 1) {
-              wx.navigateTo({
-                url: '../sendmain/is_mine/is_mine?type=创意',
-              })
-            } else if (res.tapIndex == 2) {
-              wx.navigateTo({
-                url: '../sendmain/is_mine/is_mine?type=活动',
-              })
-            } else if (res.tapIndex == 3) {
-              console.log(that.data.draft)
-              if (that.data.draft != "has") {
-                wx.showModal({
-                  title: '重要',
-                  content: '无草稿',
-                  success: function (res) {
-                    if (res.confirm) {
-                      that.onShow()
-                    } else if (res.cancel) {
-                      that.onShow()
-                    }
-                  }
-                })
-              } else {
+            systemtype = res.system
+          }
+        })
+        if (systemtype.substring(0, 7) != "Android") {
+          wx.showActionSheet({
+            itemList: ['我的创业', '我的创意', '我的活动', '我的草稿'],
+            success: function (res) {
+              if (res.tapIndex == 0) {
                 wx.navigateTo({
-                  url: '../mydraft/mydraft',
+                  url: '../sendmain/is_mine/is_mine?type=创业',
                 })
+              } else if (res.tapIndex == 1) {
+                wx.navigateTo({
+                  url: '../sendmain/is_mine/is_mine?type=创意',
+                })
+              } else if (res.tapIndex == 2) {
+                wx.navigateTo({
+                  url: '../sendmain/is_mine/is_mine?type=活动',
+                })
+              } else if (res.tapIndex == 3) {
+                console.log(that.data.draft)
+                if (that.data.draft != "has") {
+                  wx.showModal({
+                    title: '重要',
+                    content: '无草稿',
+                    success: function (res) {
+                      if (res.confirm) {
+                        that.onShow()
+                      } else if (res.cancel) {
+                        that.onShow()
+                      }
+                    }
+                  })
+                } else {
+                  wx.navigateTo({
+                    url: '../mydraft/mydraft',
+                  })
+                }
               }
-            }else if (res.tapIndex == 4) {
+            },
+            fail: function (res) {
+              console.log(res.errMsg)
               wx.switchTab({
                 url: '../../index/index',
               })
             }
-          },
-          fail: function (res) {
-            console.log(res.errMsg)
-            wx.switchTab({
-              url: '../../index/index',
-            })
-          }
-        })
+          })
+        } else {
+          wx.showActionSheet({
+            itemList: ['我的创业', '我的创意', '我的活动', '我的草稿', '取消'],
+            success: function (res) {
+              if (res.tapIndex == 0) {
+                wx.navigateTo({
+                  url: '../sendmain/is_mine/is_mine?type=创业',
+                })
+              } else if (res.tapIndex == 1) {
+                wx.navigateTo({
+                  url: '../sendmain/is_mine/is_mine?type=创意',
+                })
+              } else if (res.tapIndex == 2) {
+                wx.navigateTo({
+                  url: '../sendmain/is_mine/is_mine?type=活动',
+                })
+              } else if (res.tapIndex == 3) {
+                console.log(that.data.draft)
+                if (that.data.draft != "has") {
+                  wx.showModal({
+                    title: '重要',
+                    content: '无草稿',
+                    success: function (res) {
+                      if (res.confirm) {
+                        that.onShow()
+                      } else if (res.cancel) {
+                        that.onShow()
+                      }
+                    }
+                  })
+                } else {
+                  wx.navigateTo({
+                    url: '../mydraft/mydraft',
+                  })
+                }
+              } else if (res.tapIndex == 4) {
+                wx.switchTab({
+                  url: '../../index/index',
+                })
+              }
+            },
+            fail: function (res) {
+              console.log(res.errMsg)
+              wx.switchTab({
+                url: '../../index/index',
+              })
+            }
+          })
+        }
       }
-     
     }
   },
 

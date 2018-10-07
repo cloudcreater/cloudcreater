@@ -1,0 +1,69 @@
+<!--pages/community/search_community/search_community.wxml-->
+<view class="icon_loc">
+  <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+    <image src="../../../imgs/location.jpg"></image>
+    <view class="picker">
+      {{multiArray[1][multiIndex[1]]}}
+    </view>
+  </picker>
+</view>
+<view class="search_loc">
+  <input class="search" maxlength='20' type='text' bindinput='searchInput' bindfocus='doshow'></input>
+</view>
+<view class="btn" bindtap='dosearch'>
+  <image src='../../../imgs/search.png'></image>
+</view>
+<block wx:if="{{is_search=='yes'}}">
+  <view class="title">
+    搜索结果
+  </view>
+</block>
+<block wx:else>
+  <view class="title">
+    推荐社区
+  </view>
+</block>
+<block wx:if="{{info!=''}}">
+  <scroll-view scroll-y class="communities">
+    <view style='margin-left:250rpx;'>暂无此类社区</view>
+  </scroll-view>
+</block>
+<block wx:else>
+  <scroll-view scroll-y class="communities">
+    <!-- 推荐社区 -->
+    <view class="communities_item" wx:for="{{communities}}" wx:for-index="index" wx:for-item="community" data-item='{{community}}' bindtap='tomain'>
+      <image class="head_img" src='{{community.logo}}'></image>
+      <view class="name">{{community.name}}</view>
+      <view class="location">
+        <image src="../../imgs/location.jpg"></image>
+        {{community.city_str}}
+      </view>
+      <view class="label_loc">
+        <view class="label">{{community.type}}</view>
+        <view class="label">{{community.industry_type}}</view>
+        <view class="label">
+          <block wx:if="{{community.pass_code}}">
+            内部群
+          </block>
+          <block wx:else>
+            开放群
+          </block>
+        </view>
+        <view class="label">
+          <block wx:if="{{community.pass_code}}">
+            需要验证
+          </block>
+          <block wx:else>
+            不需要验证
+          </block>
+        </view>
+      </view>
+      <view class="focus">
+        <image class="focusimg" src='../../imgs/com_focus.jpg'></image>
+      </view>
+      <view class="join">
+        <image class="joinimg" src='../../imgs/join.jpg'></image>
+      </view>
+    </view>
+  </scroll-view>
+</block>

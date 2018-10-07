@@ -12,6 +12,12 @@
     "pages/focus/focus_details/report/report",
     "pages/focus/focus_details/chat/chat",
 
+    "pages/community/community",
+    "pages/community/search_community/search_community",
+    "pages/community/create_community/create_community",
+    "pages/community/create_community/selectlebal/selectlebal",
+    "pages/community/my_community/my_community",
+
     "pages/send/sendmain/sendmain",
     "pages/send/sendblank/sendblank",
     "pages/send/sendmain/is_mine/is_mine",
@@ -75,10 +81,10 @@
         "selectedIconPath": "imgs/首页-后.png"
       },
       {
-        "pagePath": "pages/focus/focus",
-        "text": "关注",
-        "iconPath": "imgs/关注-前.png",
-        "selectedIconPath": "imgs/关注-后.png"
+        "pagePath": "pages/community/community",
+        "text": "社区",
+        "iconPath": "imgs/社区-前.jpg",
+        "selectedIconPath": "imgs/社区-后.jpg"
       },
       {
         "pagePath": "pages/send/sendblank/sendblank",

@@ -1,0 +1,38 @@
+<!--pages/community/create_community/selectlebal/selectlebal.wxml-->
+<view class="menu">
+  <view class="scroll_title">行业类型</view>
+  <view class="btnitem">
+    <view class="flex-wrp" style="flex-direction:column;">
+      <view class="flex-wrp" style="flex-direction:row;">
+        <view class="btns {{iid==1?'.afterclick':''}}" data-intype="互联网" data-iid="1" bindtap="choose_intype">互联网</view>
+        <view class="btns {{iid==2?'.afterclick':''}}" data-intype="金融投资" data-iid="2" bindtap="choose_intype">金融投资</view>
+        <view class="btns {{iid==3?'.afterclick':''}}" data-intype="高校部门" data-iid="3" bindtap="choose_intype">高校部门</view>
+      </view>
+      <view class="flex-wrp" style="flex-direction:row;  margin-top:20px;">
+        <view class="btns {{iid==4?'.afterclick':''}}" data-intype="电子商务" data-iid="4" bindtap="choose_intype">电子商务</view>
+        <view class="btns {{iid==5?'.afterclick':''}}" data-intype="企业服务" data-iid="5" bindtap="choose_intype">企业服务</view>
+        <view class="btns {{iid==6?'.afterclick':''}}" data-intype="行业不限" data-iid="6" bindtap="choose_intype">行业不限</view>
+      </view>
+    </view>
+  </view>
+  <view class="row_line"></view>
+  <view class="scroll_title">社区类型</view>
+  <view class="btnitem">
+    <view class="flex-wrp" style="flex-direction:column;">
+      <view class="flex-wrp" style="flex-direction:row;">
+        <view class="btns {{tid==1?'.afterclick':''}}" data-type="互联网" data-tid="1" bindtap="choose_type">交流合作</view>
+        <view class="btns {{tid==2?'.afterclick':''}}" data-type="金融投资" data-tid="2" bindtap="choose_type">营销推广</view>
+        <view class="btns {{tid==3?'.afterclick':''}}" data-type="高校部门" data-tid="3" bindtap="choose_type">技能学习</view>
+      </view>
+      <view class="flex-wrp" style="flex-direction:row;  margin-top:20px;">
+        <view class="btns {{tid==4?'.afterclick':''}}" data-type="电子商务" data-tid="4" bindtap="choose_type">兴趣爱好</view>
+        <view class="btns {{tid==5?'.afterclick':''}}" data-type="企业服务" data-tid="5" bindtap="choose_type">投资融资</view>
+        <view class="btns {{tid==6?'.afterclick':''}}" data-type="行业不限" data-tid="6" bindtap="choose_type">其他类型</view>
+      </view>
+    </view>
+  </view>
+  <view class="row_line"></view>
+  <view class="btnitem">
+    <view class="btns" style="margin:30px auto;" bindtap="confirm">确认</view>
+  </view>
+</view>
