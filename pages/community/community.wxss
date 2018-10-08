@@ -40,8 +40,8 @@
 
 .head_img{
   border-radius: 100%;
-  width: 130rpx;
-  height: 130rpx;
+  width: 90rpx;
+  height: 90rpx;
   position: absolute;
   left: 15rpx;
   top: 20rpx;
@@ -49,7 +49,7 @@
 
 .name{
   position: absolute;
-  left: 165rpx;
+  left: 110rpx;
   top: 15rpx;
   font-size: 28rpx;
 }
@@ -58,7 +58,7 @@
   position: absolute;
   width: 70rpx;
   height: 70rpx;
-  left: 160rpx;
+  left: 110rpx;
   top: 50rpx;
   padding-top: 80rpx;
   font-size: 22rpx;
@@ -76,7 +76,7 @@
   position: absolute;
   width:  330rpx;
   height: 110rpx;
-  left: 220rpx;
+  left: 160rpx;
   top: 50rpx;
 }
 
@@ -102,8 +102,8 @@
 }
 
 .joinimg{
-  width: 40rpx;
-  height: 40rpx;
+  width: 20rpx;
+  height: 20rpx;
 }
 
 

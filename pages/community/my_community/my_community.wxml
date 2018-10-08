@@ -15,30 +15,16 @@
       {{community.city_str}}
     </view>
     <view class="label_loc">
-      <view class="label">{{community.type}}</view>
-      <view class="label">{{community.industry_type}}</view>
-      <view class="label">
-        <block wx:if="{{community.pass_code}}">
-          内部群
-        </block>
-        <block wx:else>
-          开放群
-        </block>
-      </view>
-      <view class="label">
-        <block wx:if="{{community.pass_code}}">
-          需要验证
-        </block>
-        <block wx:else>
-          不需要验证
-        </block>
-      </view>
+      <view class="label" style="{{community.type?'':'background-color:white'}}">{{community.type}}</view>
+      <view class="label" style="{{community.industry_type?'':'background-color:white'}}">{{community.industry_type}}</view>
+      <view class="label">{{community.pass_code?'内部群':'开放群'}}</view>
+      <view class="label">{{community.pass_code?'需要验证':'不需要验证'}}</view>
     </view>
     <view class="focus">
-      <image class="focusimg" src='../../imgs/com_focus.jpg' ></image>
+      <image class="focusimg" src='../../../imgs/com_focus.jpg' ></image>
     </view>
     <view class="join">
-      <image class="joinimg" src='../../imgs/join.jpg' bindtap='join'></image>
+      <image class="joinimg" src='../../../imgs/join.jpg' bindtap='join'></image>
     </view>
   </view>
 </block>
