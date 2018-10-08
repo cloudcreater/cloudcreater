@@ -31,7 +31,7 @@
           <view class="label">{{community.pass_code?'需要验证':'不需要验证'}}</view>
         </view>
         <view class="join">
-          <image class="joinimg" src='../../../imgs/join.jpg'></image>
+          <image class="joinimg" src='../../imgs/join.jpg'></image>
           <block wx:if="{{community.flag==0}}">
             <view style="width:100rpx; position: absolute;left:30rpx; top:3rpx;" data-item='{{community}}' bindtap='join'>加入</view>
           </block>
