@@ -21,7 +21,7 @@
         <image class="head_img" src='{{community.logo}}'></image>
         <view class="name">{{community.name?community.name:''}}</view>
         <view class="location">
-          <image src="../../../imgs/location.jpg"></image>
+          <image src="../../imgs/location.jpg"></image>
           {{community.city_str?community.city_str:''}}
         </view>
         <view class="label_loc">
