@@ -35,7 +35,7 @@
       <image class="head_img" src='{{community.logo}}'></image>
       <view class="name">{{community.name}}</view>
       <view class="location">
-        <image src="../../imgs/location.jpg"></image>
+        <image src="../../../imgs/location.jpg"></image>
         {{community.city_str}}
       </view>
       <view class="label_loc">
@@ -59,10 +59,10 @@
         </view>
       </view>
       <view class="focus">
-        <image class="focusimg" src='../../imgs/com_focus.jpg'></image>
+        <image class="focusimg" src='../../../imgs/com_focus.jpg'></image>
       </view>
       <view class="join">
-        <image class="joinimg" src='../../imgs/join.jpg'></image>
+        <image class="joinimg" src='../../../imgs/join.jpg'></image>
       </view>
     </view>
   </scroll-view>
