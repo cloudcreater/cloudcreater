@@ -56,8 +56,8 @@
 
 .location{
   position: absolute;
-  width: 50rpx;
-  height: 100rpx;
+  width: 70rpx;
+  height: 70rpx;
   left: 160rpx;
   top: 50rpx;
   padding-top: 80rpx;
