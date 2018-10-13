@@ -111,6 +111,7 @@ Page({
           project_location: that.data.multiArray[1][that.data.multiIndex[1]],
           pagesize: that.data.pagesize,
           is_focus: that.data.focus,
+          shop_type: 5,
           is_del: 0
         },
         success(res) {
@@ -169,6 +170,7 @@ Page({
           project_location: that.data.multiArray[1][that.data.multiIndex[1]],
           pagesize: that.data.pagesize,
           is_focus: that.data.focus,
+          shop_type: 5,
           is_del: 0
         },
         success(res) {
@@ -239,6 +241,7 @@ Page({
           project_team: that.data.team,
           project_location: that.data.multiArray[1][that.data.multiIndex[1]],
           is_focus: that.data.focus,
+          shop_type: 5,
           is_del: 0
         },
         success(res) {
@@ -284,6 +287,7 @@ Page({
           project_team: that.data.team,
           project_type: that.data.project_type,
           is_focus: that.data.focus,
+          shop_type: 5,
           is_del: 0
         },
         success(res) {
@@ -342,6 +346,7 @@ Page({
           project_team: that.data.team,
           project_type: that.data.project_type,
           is_focus: that.data.focus,
+          shop_type: 5,
           is_del: 0
         },
         success(res) {
@@ -388,6 +393,7 @@ Page({
           project_team: that.data.team,
           project_type: that.data.project_type,
           is_focus: that.data.focus,
+          shop_type: 5,
           is_del: 0
         },
         success(res) {
@@ -444,6 +450,7 @@ Page({
           project_captial: that.data.captial,
           project_team: that.data.team,
           is_focus: that.data.focus,
+          shop_type: 5,
           is_del: 0
         },
         success(res) {
@@ -487,6 +494,7 @@ Page({
           project_captial: that.data.captial,
           project_team: that.data.team,
           is_focus: that.data.focus,
+          shop_type: 5,
           is_del: 0
         },
         success(res) {
@@ -649,6 +657,7 @@ Page({
           project_status: that.data.status,
           project_type: that.data.project_type,
           is_focus: that.data.focus,
+          shop_type: 5,
           is_del: 0
         },
         success(res) {
@@ -699,6 +708,7 @@ Page({
           project_status: that.data.status,
           project_type: that.data.project_type,
           is_focus: that.data.focus,
+          shop_type: 5,
           is_del: 0
         },
         success(res) {
@@ -791,6 +801,7 @@ Page({
           project_status: that.data.status,
           pagesize: that.data.pagesize,
           is_focus: that.data.focus,
+          shop_type: 5,
           is_del: 0
         },
         success(res) {
@@ -840,6 +851,7 @@ Page({
           project_status: that.data.status,
           pagesize: that.data.pagesize,
           is_focus: that.data.focus,
+          shop_type: 5,
           is_del: 0
         },
         success(res) {
