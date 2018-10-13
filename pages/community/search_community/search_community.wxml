@@ -69,6 +69,12 @@
         <block wx:elif="{{community.flag==1}}">
           <view style="width:100rpx; position: absolute;left:30rpx; top:3rpx;">我创建的</view>
         </block>
+        <view class="focus">
+          <image class="focusimg" src='../../../imgs/com_focus.jpg'></image>
+        </view>
+        <view class="join">
+          <image class="joinimg" src='../../../imgs/join.jpg'></image>
+        </view>
       </view>
     </view>
   </scroll-view>
