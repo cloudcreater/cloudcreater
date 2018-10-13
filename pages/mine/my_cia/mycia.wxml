@@ -69,7 +69,7 @@
         </view>
       </view>
     </view>
-    <!--循环体结束 -->
+    <!--循环体结束 --> 
   </block>
   <view class="op_btn {{dis?'selected':''}}" wx:if="{{project_name=='is_publish'}}" bindtap='do_op'>
     <block wx:if="{{!dis}}">

@@ -75,6 +75,12 @@
               <input type="text" placeholder='请输入验证码' bindinput="SmscodeInput"></input>
             </view>
           </view>
+          <view class="school_loc">
+            <view class="login_item_title">学校：</view>
+            <view class="login_item_input">
+              <input type="text" placeholder='输入您的学校（可不填）' bindinput="schoolInput"></input>
+            </view>
+          </view>
           <button class="getsms_btn" bindtap="getSmscode">获取验证码</button>
           <button class="getsms_btn login" bindtap="dologin">登陆</button>
         </view>

@@ -60,6 +60,9 @@ Page({
     inid: "",
     team: "",
     teid: "",
+    fid: "",
+    focus: 0,
+
     dates: "",
     dateArr: [],
 
@@ -135,6 +138,7 @@ Page({
             title: '提示',
             content: '加入成功',
           })
+          that.onShow()
         }
       })
     }
@@ -146,9 +150,6 @@ Page({
   },
   confirm: function() {
     if (that.data.community.pass_code != that.data.passcode) {
-      that.setData({
-        hiddenmodalput: true
-      })
       wx.showModal({
         title: '重要',
         content: '邀请码不匹配！',
@@ -293,6 +294,7 @@ Page({
         project_location: that.data.multiArray[1][that.data.multiIndex[1]],
         group_type: 1,
         group_id: that.data.community_main.id,
+        is_focus: that.data.focus,
         is_del: 0
       },
       success(res) {
@@ -369,6 +371,7 @@ Page({
         project_location: that.data.multiArray[1][that.data.multiIndex[1]],
         group_type: 1,
         group_id: that.data.community_main.id,
+        is_focus: that.data.focus,
         is_del: 0
       },
       success(res) {
@@ -426,6 +429,7 @@ Page({
         project_type: that.data.project_type,
         group_type: 1,
         group_id: that.data.community_main.id,
+        is_focus: that.data.focus,
         is_del: 0
       },
       success(res) {
@@ -480,6 +484,7 @@ Page({
         project_team: that.data.team,
         group_type: 1,
         group_id: that.data.community_main.id,
+        is_focus: that.data.focus,
         is_del: 0
       },
       success(res) {
@@ -587,6 +592,7 @@ Page({
         project_type: that.data.project_type,
         group_type: 1,
         group_id: that.data.community_main.id,
+        is_focus: that.data.focus,
         is_del: 0
       },
       success(res) {
@@ -650,6 +656,8 @@ Page({
       teid: "",
       dates: "",
       dateArr: [],
+      fid: "",
+      focus: 0,
 
       pagesize: 10,
       changepage: 0,
@@ -718,6 +726,46 @@ Page({
 
       wx.setNavigationBarTitle({
         title: that.data.community_main.name
+      })
+
+      wx.request({
+        url: 'https://czw.saleii.com/api/client/get_project_list',
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded', // 默认值
+          'Accept': 'application/json'
+        },
+        data: {
+          username: app.globalData.myInfo.username,
+          access_token: app.globalData.myInfo.token,
+          project_industry: "全部",
+          project_type: "is_create",
+          project_status: that.data.status,
+          project_date: that.data.dates,
+          project_location: that.data.multiArray[1][that.data.multiIndex[1]],
+          group_type: 1,
+          group_id: that.data.community_main.id,
+          is_del: 0
+        },
+        success(res) {
+          console.log(res)
+          if (res.data.status == "y") {
+            that.setData({
+              items: res.data.result,
+              info: null,
+              dateArr: []
+            })
+            for (var i = 0; i < res.data.result.length; i++) {
+              that.setData({
+                dateArr: that.data.dateArr.concat(dateApi.getDateDiff(res.data.result[i].addtime_str + "000"))
+              })
+            }
+          } else {
+            that.setData({
+              info: "无该类项目"
+            })
+          }
+        }
       })
 
     }

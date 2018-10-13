@@ -9,7 +9,8 @@ Page({
   data: {
     communities: "",
     bottom_line:1,
-    info:null
+    info:null,
+    dis: false,
   },
 
   /**
@@ -93,6 +94,45 @@ Page({
     app.globalData.other_to_main = 'yes'
     app.globalData.community = community
   },
+  do_op:function(){
+    that.setData({
+      dis:!that.data.dis
+    })
+  },
+  del:function(event){
+    var community = event.currentTarget.dataset.item
+    console.log(community.id)
+    wx.request({
+      url: 'https://czw.saleii.com/api/client/save_member_group',
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded', // 默认值
+        'Accept': 'application/json'
+      },
+      data: {
+        username: app.globalData.myInfo.username,
+        access_token: app.globalData.myInfo.token,
+        shop_type: 5,
+        group_id: community.id,
+        status: 1,
+        group_name: community.name,
+        group_type: community.type,
+        industry_type: community.industry_type,
+        logo: community.logo,
+        pass_code: community.pass_code,
+        group_city: community.city_str,
+      },
+      success: function (res) {
+        console.log(res)
+        that.onShow()
+      }
+    })
+  },
+  edit: function (event){
+    wx.navigateTo({
+      url: 'edit_community/edit_community?community=' + JSON.stringify(event.currentTarget.dataset.item),
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -118,6 +158,7 @@ Page({
         pagesize: 10,
         shop_type: 5,
         type: 0,	//0查我建立的朋友圈 1查我加入的朋友圈  2查询所有朋友圈 默认0,	
+        status: 0
       },
       success(res){
         console.log(res)

@@ -10,6 +10,7 @@ Page({
     userInfo: null,
     phoneNo: null,
     sms_code: null,
+    schoolname:"",
     info: "",
     myInfo: null,
     shop_type: 5
@@ -75,6 +76,11 @@ Page({
       sms_code: event.detail.value
     })
   },
+  schoolInput: function(event) {
+    this.setData({
+      schoolname: event.detail.value
+    })
+  },
   getSmscode: function () {
     var that = this
     wx.request({
@@ -122,6 +128,7 @@ Page({
         wx_nickname: app.globalData.userInfo.nickName,
         wx_headimg: app.globalData.userInfo.avatarUrl,
         openid: app.globalData.openid,
+        biz_area: that.data.schoolname,
         shop_type: shop_type,
       },
       success: function (res) {

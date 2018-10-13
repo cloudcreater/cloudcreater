@@ -80,18 +80,19 @@
   top: 50rpx;
 }
 
-.label{
+.label {
   display: inline-block;
-  width: fit-content;
-  height: 35rpx;
-  margin-top: 10rpx;
-  margin-left: 10px;
-  padding-top: 5rpx;
-  padding-bottom: 5rpx;
-  padding: 0 15rpx;
-  border-radius: 10px;
-  background-color: rgb(241, 241, 241);
-  font-size: 24rpx;
+  margin: 0 14rpx;
+  padding: 0 24rpx;
+  width: fit-content; 
+  height: 44rpx;
+  text-align: center;
+  border-radius: 38rpx;
+  line-height: 42rpx;
+  background-color: rgb(231, 231, 231);
+  font-size: 22rpx;
+  color: black;
+  font-weight: 400;
 }
 
 .join{

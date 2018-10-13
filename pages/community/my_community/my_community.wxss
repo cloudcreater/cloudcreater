@@ -10,7 +10,7 @@
   height: 170rpx;
   border-bottom: solid rgb(228, 228, 228) 1px;
 }
-
+/* 
 .head_img{
   border-radius: 100%;
   width: 130rpx;
@@ -18,11 +18,12 @@
   position: absolute;
   left: 15rpx;
   top: 20rpx;
-}
+} */
+
 
 .name{
   position: absolute;
-  left: 165rpx;
+  left: 110rpx;
   top: 15rpx;
   font-size: 28rpx;
 }
@@ -31,7 +32,7 @@
   position: absolute;
   width: 50rpx;
   height: 100rpx;
-  left: 160rpx;
+  left: 110rpx;
   top: 50rpx;
   padding-top: 80rpx;
   font-size: 22rpx;
@@ -44,7 +45,7 @@
   height: 60rpx;
   left: 5rpx;
 }
-
+/* 
 .label_loc{
   position: absolute;
   width:  330rpx;
@@ -66,27 +67,50 @@
   background-color: rgb(241, 241, 241);
   font-size: 24rpx;
 }
-
-.focus{
-  position: absolute;
-  right: 80rpx;
-  top: 50rpx;
-}
+ */
 
 .join{
   position: absolute;
-  right: 0rpx;
-  top: 30rpx;
-}
-
-.focusimg{
-  width: 60rpx;
-  height: 80rpx;
+  right:90rpx;
+  top: 80rpx;
+  font-size: 24rpx;
 }
 
 .joinimg{
-  width: 60rpx;
-  height: 100rpx;
+  width: 20rpx;
+  height: 20rpx;
+}
+
+.head_img{
+  border-radius: 100%;
+  width: 90rpx;
+  height: 90rpx;
+  position: absolute;
+  left: 15rpx;
+  top: 20rpx;
+}
+
+.label_loc{
+  position: absolute;
+  width:  330rpx;
+  height: 110rpx;
+  left: 160rpx;
+  top: 50rpx;
+}
+
+.label {
+  display: inline-block;
+  margin: 0 14rpx;
+  padding: 0 24rpx;
+  width: fit-content; 
+  height: 44rpx;
+  text-align: center;
+  border-radius: 38rpx;
+  line-height: 42rpx;
+  background-color: rgb(231, 231, 231);
+  font-size: 22rpx;
+  color: black;
+  font-weight: 400;
 }
 
 .topbar {
@@ -118,4 +142,59 @@
 
 .underline {
   border-bottom: solid gray 2px;
+}
+
+.op_btn {
+  z-index: 10;
+  width: 55rpx;
+  height: 100rpx;
+  padding-top: 20rpx;
+  line-height: 40rpx;
+  text-align: center;
+  font-size: 32rpx;
+  border: solid rgba(0, 0, 0, 0.719);
+  border-left: none;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  position: fixed;
+  left: 0;
+  bottom: 10%;
+  font-weight: 600;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.719);
+}
+
+.selected{
+  background-color: white;
+  border-color:rgba(0, 0, 0, 0.719);
+  color: rgba(0, 0, 0, 0.719);
+}
+
+.selectBox{
+  position: absolute;
+  right:180rpx;
+  top: 80rpx;
+}
+
+.btn{
+  width: 80rpx;
+  height: 50rpx;
+  font-size: 26rpx;
+  line-height: 50rpx;
+  border-radius: 10px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.05);
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+  border:solid rgb(0, 0, 0) 1px;
+}
+
+.edit{
+  position: absolute;
+  left: 0rpx;
+}
+
+.del{
+  position: absolute;
+  left: 90rpx;
 }

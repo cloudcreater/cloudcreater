@@ -13,6 +13,8 @@ Page({
     communities:"",
     search:"",
     info:"",
+    hiddenmodalput: true,
+    community:"",
 
     multiIndex: [0, 0],
     multiArray: [
@@ -76,6 +78,7 @@ Page({
         pagesize: 10,
         shop_type: 5,
         type: 2,
+        city_str: that.data.multiArray[1][that.data.multiIndex[1]],
         group_name: that.data.search
       },
       success(res){
@@ -126,13 +129,100 @@ Page({
       }
     })
   },
-  tomain: function (event){
+  join: function (event) {
     var community = event.currentTarget.dataset.item
-    wx.switchTab({
-      url: '../community',
+
+    that.setData({
+      community: community
     })
-    app.globalData.other_to_main = 'yes'
-    app.globalData.community = community
+    if (community.pass_code != "") {
+      that.setData({
+        hiddenmodalput: !this.data.hiddenmodalput
+      })
+    } else {
+      wx.request({
+        url: 'https://czw.saleii.com/api/client/join_member_group',
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded', // 默认值
+          'Accept': 'application/json'
+        },
+        data: {
+          username: app.globalData.myInfo.username,
+          access_token: app.globalData.myInfo.token,
+          shop_type: 5,
+          type: 0,
+          group_id: that.data.community.id
+        },
+        success(res) {
+          that.setData({
+            hiddenmodalput: true
+          })
+          wx.showModal({
+            title: '提示',
+            content: '加入成功',
+          })
+        }
+      })
+    }
+  },
+  cancel: function () {
+    that.setData({
+      hiddenmodalput: true
+    })
+  },
+  confirm: function () {
+    if (that.data.community.pass_code != that.data.passcode) {
+      wx.showModal({
+        title: '重要',
+        content: '邀请码不匹配！',
+      })
+    } else {
+      wx.request({
+        url: 'https://czw.saleii.com/api/client/join_member_group',
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded', // 默认值
+          'Accept': 'application/json'
+        },
+        data: {
+          username: app.globalData.myInfo.username,
+          access_token: app.globalData.myInfo.token,
+          shop_type: 5,
+          type: 0,
+          group_id: that.data.community.id
+        },
+        success(res) {
+          that.setData({
+            hiddenmodalput: true
+          })
+          wx.showModal({
+            title: '提示',
+            content: '加入成功',
+          })
+        }
+      })
+    }
+  },
+  passcode_input: function (event) {
+    that.setData({
+      passcode: event.detail.value
+    })
+  },
+  tomain: function (event) {
+    var community = event.currentTarget.dataset.item
+    if (community.flag != 0) {
+      wx.switchTab({
+        url: '../community',
+      })
+      app.globalData.other_to_main = 'yes'
+      app.globalData.community = community
+    } else {
+      wx.showModal({
+        title: '重要',
+        content: '请先加入该社区才能进入查看！',
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

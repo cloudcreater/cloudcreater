@@ -17,6 +17,8 @@
     "pages/community/create_community/create_community",
     "pages/community/create_community/selectlebal/selectlebal",
     "pages/community/my_community/my_community",
+    "pages/community/my_community/edit_community/edit_community",
+    "pages/community/my_community/edit_community/selectlebal/selectlebal",
 
     "pages/send/sendmain/sendmain",
     "pages/send/sendblank/sendblank",

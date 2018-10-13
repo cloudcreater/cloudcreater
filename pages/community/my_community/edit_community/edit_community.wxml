@@ -10,7 +10,7 @@
   <view class="info">
     <view class="info_item">
       社区名称：
-      <input type="text" bindinput='nameInput'></input>
+      <input type="text" bindinput='nameInput' value="{{name}}"></input>
     </view>
     <view class="info_item" style='height:180rpx;'>
       社区头像：
@@ -43,10 +43,10 @@
   <view class="invite">
     <view class="intro">别人申请加入社区如果需要验证码，请设置邀请码，别人输入邀请码才可以进入社区(可不填即默认开放)</view>
     <view class="input_loc">设置邀请码：
-      <input bindinput='pass_code'></input>
+      <input bindinput='pass_code' value="{{pass_code}}"></input>
     </view>
   </view>
   <view class="btn_loc">
-    <view class="btn" style='left:230rpx;' bindtap='create'>创建</view>
+    <view class="btn" style='left:230rpx;' bindtap='create'>修改</view>
   </view>
 </view>

@@ -1,6 +1,6 @@
 // pages/community/create_community/create_community.js
 var that
-import citydata from "../../../citydata/citydata.js"
+import citydata from "../../../../citydata/citydata.js"
 var list = []
 const app = getApp()
 Page({
@@ -11,10 +11,11 @@ Page({
   data: {
     symbols: [],
 
-    img: "",
-    upimg_url: "",
-    name: "",
-    pass_code: "",
+    img:"",
+    upimg_url:"",
+    name:"",
+    pass_code:"",
+    id:"",
 
     multiIndex: [0, 0],
     multiArray: [
@@ -28,6 +29,13 @@ Page({
    */
   onLoad: function(options) {
     that = this
+    let community = JSON.parse(options.community)
+    that.setData({
+      id: community.id,
+      img: community.logo,
+      name: community.name,
+      pass_code: community.pass_code,
+    })
   },
   bindMultiPickerChange: function(e) {
     that.setData({
@@ -65,7 +73,7 @@ Page({
   },
   uploadimg: function() {
     that.setData({
-      img: ""
+      img:""
     })
     wx.chooseImage({
       sizeType: ['original', 'compressed'],
@@ -76,73 +84,75 @@ Page({
       },
     })
   },
-  nameInput: function(event) {
+  nameInput:function(event){
     that.setData({
       name: event.detail.value
     })
   },
-  pass_code: function(event) {
+  pass_code: function (event){
     that.setData({
       pass_code: event.detail.value
     })
   },
-  create: function() {
+  create:function(){
     if (that.data.symbols[0] == null) {
       wx.showModal({
         title: '重要',
         content: '请先选好标签！',
       })
     } else {
-      wx.uploadFile({
-        url: 'https://czw.saleii.com/api/upload/index4',
-        filePath: that.data.img,
-        name: 'wechat_upimg',
-        formData: {
-          latitude: encodeURI(0.0),
-          longitude: encodeURI(0.0),
-          restaurant_id: encodeURI(0),
-          city: encodeURI('杭州'),
-          prov: encodeURI('浙江'),
-          name: encodeURI(), // 名称
+    wx.uploadFile({
+      url: 'https://czw.saleii.com/api/upload/index4',
+      filePath: that.data.img,
+      name: 'wechat_upimg',
+      formData: {
+        latitude: encodeURI(0.0),
+        longitude: encodeURI(0.0),
+        restaurant_id: encodeURI(0),
+        city: encodeURI('杭州'),
+        prov: encodeURI('浙江'),
+        name: encodeURI(), // 名称
+      },
+      success: function (res) {
+        var retinfo = JSON.parse(res.data.trim())
+        console.log('images upload:' + retinfo['result']['img_url'])
+        if (retinfo['status'] == "y") {
+          that.setData({
+            upimg_url: that.data.upimg_url.concat(retinfo['result']['img_url'])
+          })
+        }
+      }
+    })
+    setTimeout(function(){
+      wx.request({
+        url: 'https://czw.saleii.com/api/client/save_member_group',
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded', // 默认值
+          'Accept': 'application/json'
         },
-        success: function(res) {
-          var retinfo = JSON.parse(res.data.trim())
-          console.log('images upload:' + retinfo['result']['img_url'])
-          if (retinfo['status'] == "y") {
-            that.setData({
-              upimg_url: that.data.upimg_url.concat(retinfo['result']['img_url'])
-            })
-          }
+        data: {
+          username: app.globalData.myInfo.username,
+          access_token: app.globalData.myInfo.token,
+          shop_type: 5,
+          status: 0,
+          group_id: that.data.id,
+          group_name: that.data.name,
+          group_type: that.data.symbols[0].type,
+          industry_type: that.data.symbols[1].intype,
+          logo: that.data.upimg_url,
+          pass_code: that.data.pass_code,
+          group_city: that.data.multiArray[1][that.data.multiIndex[1]],
+          
+        },
+        success:function(res){
+          console.log(res)
+          wx.switchTab({
+            url: '../../community',
+          })
         }
       })
-      setTimeout(function() {
-        wx.request({
-          url: 'https://czw.saleii.com/api/client/save_member_group',
-          method: 'POST',
-          header: {
-            'content-type': 'application/x-www-form-urlencoded', // 默认值
-            'Accept': 'application/json'
-          },
-          data: {
-            username: app.globalData.myInfo.username,
-            access_token: app.globalData.myInfo.token,
-            shop_type: 5,
-            status: 0,
-            group_name: that.data.name,
-            group_type: that.data.symbols[0].type,
-            industry_type: that.data.symbols[1].intype,
-            logo: that.data.upimg_url,
-            pass_code: that.data.pass_code,
-            group_city: that.data.multiArray[1][that.data.multiIndex[1]],
-          },
-          success: function(res) {
-            console.log(res)
-            wx.switchTab({
-              url: '../community',
-            })
-          }
-        })
-      }, 500)
+    }, 500)
     }
   },
   /**

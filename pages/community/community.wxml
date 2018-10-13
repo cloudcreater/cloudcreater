@@ -215,6 +215,16 @@
     <view class="menu {{dis==3?'show':'hide'}}">
       <scroll-view class="bgcolor-white" scroll-y>
         <block wx:if="{{project_type=='is_create'}}">
+          <view class="title">只看关注</view>
+          <view class="btnitem">
+            <view class="flex-wrp" style="flex-direction:column;">
+              <view class="flex-wrp" style="flex-direction:row;">
+                <view class="btns {{fid==1?'.afterclick':''}}" data-focus="0" data-fid="1" bindtap="choose_focus">否</view>
+                <view class="btns {{fid==2?'.afterclick':''}}" data-focus="1" data-fid="2" bindtap="choose_focus">是</view>
+              </view>
+            </view>
+          </view>
+          <view class="row_line"></view>
           <view class="title">信息类型</view>
           <view class="btnitem">
             <view class="flex-wrp" style="flex-direction:column;">
@@ -276,14 +286,24 @@
                 <view class="btns {{inid==10?'.afterclick':''}}" data-industry="其他" data-inid="10" bindtap="choose_industry">其他</view>
               </view>
               <view class="btnitem">
-                <view class="btns" style="position: absolute;left: 60rpx; bottom:-710rpx" bindtap="confirm">确认</view>
-                <view class="btns" style="position: absolute;left: 380rpx; bottom:-710rpx" bindtap="remake">重置</view>
+                <view class="btns" style="position: absolute;left: 100rpx; bottom:-1000rpx" bindtap="confirm">确认</view>
+                <view class="btns" style="position: absolute;left: 380rpx; bottom:-1000rpx" bindtap="remake">重置</view>
                 <view style='height:100rpx;margin-top:60rpx;'></view>
               </view>
             </view>
           </view>
         </block>
         <block wx:elif="{{project_type=='is_idea'}}">
+          <view class="title">只看关注</view>
+          <view class="btnitem">
+            <view class="flex-wrp" style="flex-direction:column;">
+              <view class="flex-wrp" style="flex-direction:row;">
+                <view class="btns {{fid==1?'.afterclick':''}}" data-focus="0" data-fid="1" bindtap="choose_focus">否</view>
+                <view class="btns {{fid==2?'.afterclick':''}}" data-focus="1" data-fid="2" bindtap="choose_focus">是</view>
+              </view>
+            </view>
+          </view>
+          <view class="row_line"></view>
           <view class="title">信息类型</view>
           <view class="btnitem">
             <view class="flex-wrp" style="flex-direction:column;">
@@ -328,14 +348,24 @@
             <view class="btns">其他</view>
           </view> -->
               <view class="btnitem">
-                <view class="btns" style="position: absolute;left: 60rpx; bottom:10rpx" bindtap="confirm">确认</view>
-                <view class="btns" style="position: absolute;left: 380rpx; bottom:10rpx" bindtap="remake">重置</view>
+                <view class="btns" style="position: absolute;left: 100rpx; bottom:-205rpx" bindtap="confirm">确认</view>
+                <view class="btns" style="position: absolute;left: 380rpx; bottom:-205rpx" bindtap="remake">重置</view>
                 <view style='height:100rpx;margin-top:60rpx;'></view>
               </view>
             </view>
           </view>
         </block>
         <block wx:elif="{{project_type=='is_active'}}">
+          <view class="title">只看关注</view>
+          <view class="btnitem">
+            <view class="flex-wrp" style="flex-direction:column;">
+              <view class="flex-wrp" style="flex-direction:row;">
+                <view class="btns {{fid==1?'.afterclick':''}}" data-focus="0" data-fid="1" bindtap="choose_focus">否</view>
+                <view class="btns {{fid==2?'.afterclick':''}}" data-focus="1" data-fid="2" bindtap="choose_focus">是</view>
+              </view>
+            </view>
+          </view>
+          <view class="row_line"></view>
           <view class="title">信息类型</view>
           <view class="btnitem">
             <view class="flex-wrp" style="flex-direction:column;">
@@ -384,8 +414,8 @@
             <view class="btns">生活技巧</view>
           </view> -->
               <view class="btnitem">
-                <view class="btns" style="position: absolute;left: 60rpx; bottom:-130rpx" bindtap="confirm">确认</view>
-                <view class="btns" style="position: absolute;left: 380rpx; bottom:-130rpx" bindtap="remake">重置</view>
+                <view class="btns" style="position: absolute;left: 100rpx; bottom:-400rpx" bindtap="confirm">确认</view>
+                <view class="btns" style="position: absolute;left: 380rpx; bottom:-400rpx" bindtap="remake">重置</view>
                 <view style='height:100rpx;margin-top:60rpx;'></view>
               </view>
             </view>

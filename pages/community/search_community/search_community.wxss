@@ -75,7 +75,7 @@
   height: 170rpx;
   border-bottom: solid rgb(228, 228, 228) 1px;
 }
-
+/* 
 .head_img{
   border-radius: 100%;
   width: 130rpx;
@@ -83,11 +83,12 @@
   position: absolute;
   left: 15rpx;
   top: 20rpx;
-}
+} */
+
 
 .name{
   position: absolute;
-  left: 165rpx;
+  left: 110rpx;
   top: 15rpx;
   font-size: 28rpx;
 }
@@ -96,7 +97,7 @@
   position: absolute;
   width: 50rpx;
   height: 100rpx;
-  left: 160rpx;
+  left: 110rpx;
   top: 50rpx;
   padding-top: 80rpx;
   font-size: 22rpx;
@@ -109,7 +110,7 @@
   height: 60rpx;
   left: 5rpx;
 }
-
+/* 
 .label_loc{
   position: absolute;
   width:  330rpx;
@@ -131,25 +132,48 @@
   background-color: rgb(241, 241, 241);
   font-size: 24rpx;
 }
-
-.focus{
-  position: absolute;
-  right: 80rpx;
-  top: 50rpx;
-}
+ */
 
 .join{
   position: absolute;
-  right: 0rpx;
-  top: 30rpx;
-}
-
-.focusimg{
-  width: 60rpx;
-  height: 80rpx;
+  right:90rpx;
+  top: 80rpx;
+  font-size: 24rpx;
 }
 
 .joinimg{
-  width: 60rpx;
-  height: 100rpx;
+  width: 20rpx;
+  height: 20rpx;
+}
+
+.head_img{
+  border-radius: 100%;
+  width: 90rpx;
+  height: 90rpx;
+  position: absolute;
+  left: 15rpx;
+  top: 20rpx;
+}
+
+.label_loc{
+  position: absolute;
+  width:  330rpx;
+  height: 110rpx;
+  left: 160rpx;
+  top: 50rpx;
+}
+
+.label {
+  display: inline-block;
+  margin: 0 14rpx;
+  padding: 0 24rpx;
+  width: fit-content; 
+  height: 44rpx;
+  text-align: center;
+  border-radius: 38rpx;
+  line-height: 42rpx;
+  background-color: rgb(231, 231, 231);
+  font-size: 22rpx;
+  color: black;
+  font-weight: 400;
 }
