@@ -11,6 +11,7 @@ Page({
     bottom_line:1,
     info:null,
     dis: false,
+    type:0,
   },
 
   /**
@@ -41,11 +42,13 @@ Page({
           that.setData({
             communities: res.data.result,
             bottom_line: 1,
+            type:0,
             info: null
           })
         } else {
           that.setData({
             info: "暂无此类项目",
+            type: 0,
             bottom_line: 1,
           })
         }
@@ -75,12 +78,14 @@ Page({
           that.setData({
             communities: res.data.result,
             bottom_line: 2,
+            type: 1,
             info: null
           })
         } else {
           that.setData({
             info: "暂无此类项目",
             bottom_line: 2,
+            type: 0,
           })
         }
       }
@@ -133,6 +138,32 @@ Page({
       url: 'edit_community/edit_community?community=' + JSON.stringify(event.currentTarget.dataset.item),
     })
   },
+  out:function(event){
+    var community = event.currentTarget.dataset.item
+    console.log(community.id)
+    wx.request({
+      url: 'https://czw.saleii.com/api/client/join_member_group',
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded', // 默认值
+        'Accept': 'application/json'
+      },
+      data: {
+        username: app.globalData.myInfo.username,
+        access_token: app.globalData.myInfo.token,
+        shop_type: 5,
+        type: 1,
+        group_id: community.id
+      },
+      success(res) {
+        wx.showModal({
+          title: '提示',
+          content: '退出成功',
+        })
+        that.onShow()
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -157,7 +188,7 @@ Page({
         page: 1,
         pagesize: 10,
         shop_type: 5,
-        type: 0,	//0查我建立的朋友圈 1查我加入的朋友圈  2查询所有朋友圈 默认0,	
+        type: that.data.type,	//0查我建立的朋友圈 1查我加入的朋友圈  2查询所有朋友圈 默认0,	
         status: 0
       },
       success(res){
@@ -165,13 +196,14 @@ Page({
         if (res.data.all_rows != 0){
           that.setData({
             communities: res.data.result,
-            bottom_line: 1,
+            bottom_line: that.data.bottom_line,
+            type: that.data.type,
             info: null
           })
         }else{
           that.setData({
             info: "暂无此类项目",
-            bottom_line: 1,
+            bottom_line: that.data.bottom_line,
           })
         }
       }

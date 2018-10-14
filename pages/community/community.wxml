@@ -1,4 +1,4 @@
-<!--pages/community/community.wxml-->
+                           <!--pages/community/community.wxml-->
 <block wx:if="{{which_frame=='before'}}">
   <view>
     <view class="community_item" style='top:20rpx;' bindtap='to_search'>
@@ -45,7 +45,7 @@
       </view>
     </scroll-view>
   </view>
-  <modal hidden="{{hiddenmodalput}}" title="请输入邀请码" confirm-text="提交" cancel-text="返回" bindcancel="cancel" bindconfirm="confirm">
+  <modal hidden="{{hiddenmodalput}}" title="请输入邀请码" confirm-text="提交" cancel-text="返回" bindcancel="cancel" bindconfirm="confirm_pass">
     <input type='text' style=' height:50rpx; ' bindinput='passcode_input' placeholder="请输入内容" />
   </modal>
 </block>

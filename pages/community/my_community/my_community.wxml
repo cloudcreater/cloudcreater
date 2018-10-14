@@ -24,14 +24,12 @@
     </view>
     <block wx:if="{{!dis}}">
       <view class="join">
-        <image class="joinimg" src='../../../imgs/join.jpg'></image>
+        
         <block wx:if="{{bottom_line==2}}">
-          <view style="width:100rpx; position: absolute;left:30rpx; top:3rpx;">已加入</view>
+          <view class="btn" style="position: absolute;left:0rpx; top:3rpx;" data-item='{{community}}' bindtap="out">退出</view>
         </block>
         <block wx:elif="{{bottom_line==1}}">
-          <view style="width:100rpx; position: absolute;left:30rpx; top:3rpx;">我创建的</view>
-        </block>
-        <block wx:elif="{{bottom_line==1}}">
+          <image class="joinimg" src='../../../imgs/join.jpg'></image>
           <view style="width:100rpx; position: absolute;left:30rpx; top:3rpx;">我创建的</view>
         </block>
       </view>

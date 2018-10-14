@@ -113,7 +113,7 @@ Page({
     })
     if (community.pass_code != "") {
       that.setData({
-        hiddenmodalput: !this.data.hiddenmodalput
+        hiddenmodalput: !that.data.hiddenmodalput
       })
     } else {
       wx.request({
@@ -148,7 +148,8 @@ Page({
       hiddenmodalput: true
     })
   },
-  confirm: function() {
+  confirm_pass: function() {
+    console.log(1111)
     if (that.data.community.pass_code != that.data.passcode) {
       wx.showModal({
         title: '重要',
@@ -170,6 +171,7 @@ Page({
           group_id: that.data.community.id
         },
         success(res) {
+          console.log(res)
           that.setData({
             hiddenmodalput: true
           })
@@ -177,6 +179,7 @@ Page({
             title: '提示',
             content: '加入成功',
           })
+          that.onShow()
         }
       })
     }
