@@ -41,7 +41,8 @@ Page({
     communities: "",
     hiddenmodalput: true,
     community: "",
-    community_main: "",
+    community_main:"",
+    group_id:"",
     which_frame: "before",
     passcode: "",
 
@@ -149,7 +150,6 @@ Page({
     })
   },
   confirm_pass: function() {
-    console.log(1111)
     if (that.data.community.pass_code != that.data.passcode) {
       wx.showModal({
         title: '重要',
@@ -195,6 +195,7 @@ Page({
       that.setData({
         which_frame: "next",
         community_main: community,
+        group_id: community.id
       })
 
       wx.setNavigationBarTitle({
@@ -203,9 +204,8 @@ Page({
 
       app.globalData.other_to_main = 'yes'
       app.globalData.community = community
-      console.log(that.data.community_main.id)
-      console.log(community.flag)
-      if (community.flag == 2) {
+
+      if (that.data.community_main.flag == 2) {
         wx.request({
           url: 'https://czw.saleii.com/api/client/get_project_list',
           method: 'POST',
@@ -221,7 +221,7 @@ Page({
             project_status: "全部",
             shop_type: 5,
             group_type: 1,
-            group_id: that.data.community_main.id,
+            group_id: that.data.group_id,
             is_del: 0
           },
           success(res) {
@@ -244,7 +244,7 @@ Page({
             }
           }
         })
-      } else if (community.flag == 1){
+      } else if (that.data.community_main.flag == 1) {
         wx.request({
           url: 'https://czw.saleii.com/api/client/get_project_list',
           method: 'POST',
@@ -260,7 +260,7 @@ Page({
             project_status: "全部",
             shop_type: 5,
             group_type: 2,
-            group_id: that.data.community_main.id,
+            group_id: that.data.group_id,
             is_del: 0
           },
           success(res) {
@@ -313,71 +313,130 @@ Page({
     }
   },
   change: function(event) {
-    console.log(that.data.community_main)
     var name = event.currentTarget.dataset.name;
-
     that.setData({
       project_type: name,
       changepage: 1
     })
-    wx.request({
-      url: 'https://czw.saleii.com/api/client/get_project_list',
-      method: 'POST',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded', // 默认值
-        'Accept': 'application/json'
-      },
-      data: {
-        username: app.globalData.myInfo.username,
-        access_token: app.globalData.myInfo.token,
-        project_industry: "全部",
-        project_type: name,
-        shop_type: 5,
-        project_status: that.data.status,
-        project_date: that.data.dates,
-        project_location: that.data.multiArray[1][that.data.multiIndex[1]],
-        group_type: 1,
-        group_id: that.data.community_main.id,
-        is_focus: that.data.focus,
-        is_del: 0
-      },
-      success(res) {
-        if (res.data.status == "y") {
-          that.setData({
-            items: res.data.result,
-            info: null,
-            dateArr: []
-          })
-          for (var i = 0; i < res.data.result.length; i++) {
+    if (that.data.community_main.flag == 2) {
+      wx.request({
+        url: 'https://czw.saleii.com/api/client/get_project_list',
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded', // 默认值
+          'Accept': 'application/json'
+        },
+        data: {
+          username: app.globalData.myInfo.username,
+          access_token: app.globalData.myInfo.token,
+          project_industry: "全部",
+          project_type: name,
+          shop_type: 5,
+          project_status: that.data.status,
+          project_date: that.data.dates,
+          project_location: that.data.multiArray[1][that.data.multiIndex[1]],
+          group_type: 1,
+          group_id: that.data.group_id,
+          is_focus: that.data.focus,
+          is_del: 0
+        },
+        success(res) {
+          if (res.data.status == "y") {
             that.setData({
-              dateArr: that.data.dateArr.concat(dateApi.getDateDiff(res.data.result[i].addtime_str + "000"))
+              items: res.data.result,
+              info: null,
+              dateArr: []
+            })
+            for (var i = 0; i < res.data.result.length; i++) {
+              that.setData({
+                dateArr: that.data.dateArr.concat(dateApi.getDateDiff(res.data.result[i].addtime_str + "000"))
+              })
+            }
+          } else {
+            that.setData({
+              info: "无该类项目"
             })
           }
-        } else {
+        },
+        complete: function() {
+          if (name == "is_create") {
+            that.setData({
+              bottom_line: 1
+            })
+          } else if (name == "is_idea") {
+            that.setData({
+              bottom_line: 2
+            })
+          } else if (name == "is_active") {
+            that.setData({
+              bottom_line: 3
+            })
+          }
           that.setData({
-            info: "无该类项目"
+            pagesize: 10,
           })
         }
-      },
-      complete: function() {
-        if (name == "is_create") {
+      })
+    } else if (that.data.community_main.flag == 1) {
+      wx.request({
+        url: 'https://czw.saleii.com/api/client/get_project_list',
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded', // 默认值
+          'Accept': 'application/json'
+        },
+        data: {
+          username: app.globalData.myInfo.username,
+          access_token: app.globalData.myInfo.token,
+          project_industry: "全部",
+          project_type: name,
+          shop_type: 5,
+          project_status: that.data.status,
+          project_date: that.data.dates,
+          project_location: that.data.multiArray[1][that.data.multiIndex[1]],
+          group_type: 2,
+          group_id: that.data.group_id,
+          is_focus: that.data.focus,
+          is_del: 0
+        },
+        success(res) {
+          if (res.data.status == "y") {
+            that.setData({
+              items: res.data.result,
+              info: null,
+              dateArr: []
+            })
+            for (var i = 0; i < res.data.result.length; i++) {
+              that.setData({
+                dateArr: that.data.dateArr.concat(dateApi.getDateDiff(res.data.result[i].addtime_str + "000"))
+              })
+            }
+          } else {
+            that.setData({
+              info: "无该类项目"
+            })
+          }
+        },
+        complete: function() {
+          if (name == "is_create") {
+            that.setData({
+              bottom_line: 1
+            })
+          } else if (name == "is_idea") {
+            that.setData({
+              bottom_line: 2
+            })
+          } else if (name == "is_active") {
+            that.setData({
+              bottom_line: 3
+            })
+          }
           that.setData({
-            bottom_line: 1
-          })
-        } else if (name == "is_idea") {
-          that.setData({
-            bottom_line: 2
-          })
-        } else if (name == "is_active") {
-          that.setData({
-            bottom_line: 3
+            pagesize: 10,
           })
         }
-        that.setData({
-          pagesize: 10,
-        })
-      }
-    })
+      })
+    }
   },
   // changeTo_focus_user:function(event){
   //   var name = event.currentTarget.dataset.name;
@@ -395,51 +454,100 @@ Page({
       sname: sname,
       changepage: 0
     })
-    wx.request({
-      url: 'https://czw.saleii.com/api/client/get_project_list',
-      method: 'POST',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded', // 默认值
-        'Accept': 'application/json'
-      },
-      data: {
-        username: app.globalData.myInfo.username,
-        access_token: app.globalData.myInfo.token,
-        project_status: status,
-        shop_type: 5,
-        project_type: that.data.project_type,
-        project_date: that.data.dates,
-        project_industry: that.data.industry,
-        project_task: that.data.task,
-        project_captial: that.data.captial,
-        project_team: that.data.team,
-        project_location: that.data.multiArray[1][that.data.multiIndex[1]],
-        group_type: 1,
-        group_id: that.data.community_main.id,
-        is_focus: that.data.focus,
-        is_del: 0
-      },
-      success(res) {
-        if (res.data.status == "y") {
-          that.setData({
-            items: res.data.result,
-            info: null,
-            dateArr: [],
-            dis: 4,
-          })
-          for (var i = 0; i < res.data.result.length; i++) {
+
+    if (that.data.community_main.flag == 2) {
+      wx.request({
+        url: 'https://czw.saleii.com/api/client/get_project_list',
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded', // 默认值
+          'Accept': 'application/json'
+        },
+        data: {
+          username: app.globalData.myInfo.username,
+          access_token: app.globalData.myInfo.token,
+          project_status: status,
+          shop_type: 5,
+          project_type: that.data.project_type,
+          project_date: that.data.dates,
+          project_industry: that.data.industry,
+          project_task: that.data.task,
+          project_captial: that.data.captial,
+          project_team: that.data.team,
+          project_location: that.data.multiArray[1][that.data.multiIndex[1]],
+          group_type: 1,
+          group_id: that.data.group_id,
+          is_focus: that.data.focus,
+          is_del: 0
+        },
+        success(res) {
+          if (res.data.status == "y") {
             that.setData({
-              dateArr: that.data.dateArr.concat(dateApi.getDateDiff(res.data.result[i].addtime_str + "000"))
+              items: res.data.result,
+              info: null,
+              dateArr: [],
+              dis: 4,
+            })
+            for (var i = 0; i < res.data.result.length; i++) {
+              that.setData({
+                dateArr: that.data.dateArr.concat(dateApi.getDateDiff(res.data.result[i].addtime_str + "000"))
+              })
+            }
+          } else {
+            that.setData({
+              info: "无该类项目",
+              dis: 4
             })
           }
-        } else {
-          that.setData({
-            info: "无该类项目",
-            dis: 4
-          })
         }
-      }
-    })
+      })
+    } else if (that.data.community_main.flag == 1) {
+      wx.request({
+        url: 'https://czw.saleii.com/api/client/get_project_list',
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded', // 默认值
+          'Accept': 'application/json'
+        },
+        data: {
+          username: app.globalData.myInfo.username,
+          access_token: app.globalData.myInfo.token,
+          project_status: status,
+          shop_type: 5,
+          project_type: that.data.project_type,
+          project_date: that.data.dates,
+          project_industry: that.data.industry,
+          project_task: that.data.task,
+          project_captial: that.data.captial,
+          project_team: that.data.team,
+          project_location: that.data.multiArray[1][that.data.multiIndex[1]],
+          group_type: 2,
+          group_id: that.data.group_id,
+          is_focus: that.data.focus,
+          is_del: 0
+        },
+        success(res) {
+          if (res.data.status == "y") {
+            that.setData({
+              items: res.data.result,
+              info: null,
+              dateArr: [],
+              dis: 4,
+            })
+            for (var i = 0; i < res.data.result.length; i++) {
+              that.setData({
+                dateArr: that.data.dateArr.concat(dateApi.getDateDiff(res.data.result[i].addtime_str + "000"))
+              })
+            }
+          } else {
+            that.setData({
+              info: "无该类项目",
+              dis: 4
+            })
+          }
+        }
+      })
+    }
   },
   changetime: function(event) {
 
@@ -453,54 +561,103 @@ Page({
       changepage: 0,
       dates: dates
     })
-
-    wx.request({
-      url: 'https://czw.saleii.com/api/client/get_project_list',
-      method: 'POST',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded', // 默认值
-        'Accept': 'application/json'
-      },
-      data: {
-        username: app.globalData.myInfo.username,
-        access_token: app.globalData.myInfo.token,
-        project_date: dates,
-        shop_type: 5,
-        project_status: that.data.status,
-        project_location: that.data.multiArray[1][that.data.multiIndex[1]],
-        project_industry: that.data.industry,
-        project_task: that.data.task,
-        project_captial: that.data.captial,
-        project_team: that.data.team,
-        project_type: that.data.project_type,
-        group_type: 1,
-        group_id: that.data.community_main.id,
-        is_focus: that.data.focus,
-        is_del: 0
-      },
-      success(res) {
-        if (res.data.status == "y") {
-          console.log(res)
-          that.setData({
-            items: res.data.result,
-            info: null,
-            dateArr: [],
-            dis: 4,
-          })
-          for (var i = 0; i < res.data.result.length; i++) {
+    if (that.data.community_main.flag == 2) {
+      wx.request({
+        url: 'https://czw.saleii.com/api/client/get_project_list',
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded', // 默认值
+          'Accept': 'application/json'
+        },
+        data: {
+          username: app.globalData.myInfo.username,
+          access_token: app.globalData.myInfo.token,
+          project_date: dates,
+          shop_type: 5,
+          project_status: that.data.status,
+          project_location: that.data.multiArray[1][that.data.multiIndex[1]],
+          project_industry: that.data.industry,
+          project_task: that.data.task,
+          project_captial: that.data.captial,
+          project_team: that.data.team,
+          project_type: that.data.project_type,
+          group_type: 1,
+          group_id: that.data.group_id,
+          is_focus: that.data.focus,
+          is_del: 0
+        },
+        success(res) {
+          if (res.data.status == "y") {
+            console.log(res)
             that.setData({
-              dateArr: that.data.dateArr.concat(dateApi.getDateDiff(res.data.result[i].addtime_str + "000"))
+              items: res.data.result,
+              info: null,
+              dateArr: [],
+              dis: 4,
+            })
+            for (var i = 0; i < res.data.result.length; i++) {
+              that.setData({
+                dateArr: that.data.dateArr.concat(dateApi.getDateDiff(res.data.result[i].addtime_str + "000"))
+              })
+            }
+          } else {
+            that.setData({
+              info: "暂无此类项目",
+              dis: 4
             })
           }
-        } else {
-          that.setData({
-            info: "暂无此类项目",
-            dis: 4
-          })
-        }
 
-      }
-    })
+        }
+      })
+    } else if (that.data.community_main.flag == 1) {
+      wx.request({
+        url: 'https://czw.saleii.com/api/client/get_project_list',
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded', // 默认值
+          'Accept': 'application/json'
+        },
+        data: {
+          username: app.globalData.myInfo.username,
+          access_token: app.globalData.myInfo.token,
+          project_date: dates,
+          shop_type: 5,
+          project_status: that.data.status,
+          project_location: that.data.multiArray[1][that.data.multiIndex[1]],
+          project_industry: that.data.industry,
+          project_task: that.data.task,
+          project_captial: that.data.captial,
+          project_team: that.data.team,
+          project_type: that.data.project_type,
+          group_type: 2,
+          group_id: that.data.group_id,
+          is_focus: that.data.focus,
+          is_del: 0
+        },
+        success(res) {
+          if (res.data.status == "y") {
+            console.log(res)
+            that.setData({
+              items: res.data.result,
+              info: null,
+              dateArr: [],
+              dis: 4,
+            })
+            for (var i = 0; i < res.data.result.length; i++) {
+              that.setData({
+                dateArr: that.data.dateArr.concat(dateApi.getDateDiff(res.data.result[i].addtime_str + "000"))
+              })
+            }
+          } else {
+            that.setData({
+              info: "暂无此类项目",
+              dis: 4
+            })
+          }
+
+        }
+      })
+    }
   },
   bindMultiPickerChange: function(e) {
 
@@ -510,50 +667,98 @@ Page({
       changepage: 0
     })
     console.log('picker发送选择改变，携带值为', that.data.multiArray[1][that.data.multiIndex[1]])
-    wx.request({
-      url: 'https://czw.saleii.com/api/client/get_project_list',
-      method: 'POST',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded', // 默认值
-        'Accept': 'application/json'
-      },
-      data: {
-        username: app.globalData.myInfo.username,
-        access_token: app.globalData.myInfo.token,
-        project_location: that.data.multiArray[1][that.data.multiIndex[1]],
-        project_date: that.data.dates,
-        shop_type: 5,
-        project_status: that.data.status,
-        project_type: that.data.project_type,
-        project_industry: that.data.industry,
-        project_task: that.data.task,
-        project_captial: that.data.captial,
-        project_team: that.data.team,
-        group_type: 1,
-        group_id: that.data.community_main.id,
-        is_focus: that.data.focus,
-        is_del: 0
-      },
-      success(res) {
-        if (res.data.status == "y") {
-          console.log(res)
-          that.setData({
-            items: res.data.result,
-            info: null,
-            dateArr: [],
-          })
-          for (var i = 0; i < res.data.result.length; i++) {
+
+    if (that.data.community_main.flag == 2) {
+      wx.request({
+        url: 'https://czw.saleii.com/api/client/get_project_list',
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded', // 默认值
+          'Accept': 'application/json'
+        },
+        data: {
+          username: app.globalData.myInfo.username,
+          access_token: app.globalData.myInfo.token,
+          project_location: that.data.multiArray[1][that.data.multiIndex[1]],
+          project_date: that.data.dates,
+          shop_type: 5,
+          project_status: that.data.status,
+          project_type: that.data.project_type,
+          project_industry: that.data.industry,
+          project_task: that.data.task,
+          project_captial: that.data.captial,
+          project_team: that.data.team,
+          group_type: 1,
+          group_id: that.data.group_id,
+          is_focus: that.data.focus,
+          is_del: 0
+        },
+        success(res) {
+          if (res.data.status == "y") {
+            console.log(res)
             that.setData({
-              dateArr: that.data.dateArr.concat(dateApi.getDateDiff(res.data.result[i].addtime_str + "000"))
+              items: res.data.result,
+              info: null,
+              dateArr: [],
+            })
+            for (var i = 0; i < res.data.result.length; i++) {
+              that.setData({
+                dateArr: that.data.dateArr.concat(dateApi.getDateDiff(res.data.result[i].addtime_str + "000"))
+              })
+            }
+          } else if (res.data.status == "n") {
+            that.setData({
+              info: "无该类项目"
             })
           }
-        } else if (res.data.status == "n") {
-          that.setData({
-            info: "无该类项目"
-          })
         }
-      }
-    })
+      })
+    } else if (that.data.community_main.flag == 1) {
+      wx.request({
+        url: 'https://czw.saleii.com/api/client/get_project_list',
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded', // 默认值
+          'Accept': 'application/json'
+        },
+        data: {
+          username: app.globalData.myInfo.username,
+          access_token: app.globalData.myInfo.token,
+          project_location: that.data.multiArray[1][that.data.multiIndex[1]],
+          project_date: that.data.dates,
+          shop_type: 5,
+          project_status: that.data.status,
+          project_type: that.data.project_type,
+          project_industry: that.data.industry,
+          project_task: that.data.task,
+          project_captial: that.data.captial,
+          project_team: that.data.team,
+          group_type: 2,
+          group_id: that.data.group_id,
+          is_focus: that.data.focus,
+          is_del: 0
+        },
+        success(res) {
+          if (res.data.status == "y") {
+            console.log(res)
+            that.setData({
+              items: res.data.result,
+              info: null,
+              dateArr: [],
+            })
+            for (var i = 0; i < res.data.result.length; i++) {
+              that.setData({
+                dateArr: that.data.dateArr.concat(dateApi.getDateDiff(res.data.result[i].addtime_str + "000"))
+              })
+            }
+          } else if (res.data.status == "n") {
+            that.setData({
+              info: "无该类项目"
+            })
+          }
+        }
+      })
+    }
   },
   bindMultiPickerColumnChange: function(e) {
 
@@ -620,58 +825,114 @@ Page({
     that.setData({
       changepage: 0
     })
-    wx.request({
-      url: 'https://czw.saleii.com/api/client/get_project_list',
-      method: 'POST',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded', // 默认值
-        'Accept': 'application/json'
-      },
-      data: {
-        username: app.globalData.myInfo.username,
-        access_token: app.globalData.myInfo.token,
-        project_industry: that.data.industry,
-        project_task: that.data.task,
-        project_captial: that.data.captial,
-        project_team: that.data.team,
-        project_date: that.data.dates,
-        project_status: that.data.status,
-        project_type: that.data.project_type,
-        group_type: 1,
-        group_id: that.data.community_main.id,
-        is_focus: that.data.focus,
-        shop_type: 5,
-        is_del: 0
-      },
-      success(res) {
-        if (res.data.status == "y") {
-          console.log(res)
-          that.setData({
-            items: res.data.result,
-            info: null,
-            dateArr: []
-          })
-          for (var i = 0; i < res.data.result.length; i++) {
+
+    if (that.data.community_main.flag == 2) {
+      wx.request({
+        url: 'https://czw.saleii.com/api/client/get_project_list',
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded', // 默认值
+          'Accept': 'application/json'
+        },
+        data: {
+          username: app.globalData.myInfo.username,
+          access_token: app.globalData.myInfo.token,
+          project_industry: that.data.industry,
+          project_task: that.data.task,
+          project_captial: that.data.captial,
+          project_team: that.data.team,
+          project_date: that.data.dates,
+          project_status: that.data.status,
+          project_type: that.data.project_type,
+          group_type: 1,
+          group_id: that.data.group_id,
+          is_focus: that.data.focus,
+          shop_type: 5,
+          is_del: 0
+        },
+        success(res) {
+          if (res.data.status == "y") {
+            console.log(res)
             that.setData({
-              dateArr: that.data.dateArr.concat(dateApi.getDateDiff(res.data.result[i].addtime_str + "000"))
+              items: res.data.result,
+              info: null,
+              dateArr: []
+            })
+            for (var i = 0; i < res.data.result.length; i++) {
+              that.setData({
+                dateArr: that.data.dateArr.concat(dateApi.getDateDiff(res.data.result[i].addtime_str + "000"))
+              })
+            }
+          } else {
+            that.setData({
+              info: "无该类项目"
             })
           }
-        } else {
+        },
+        complete: function() {
           that.setData({
-            info: "无该类项目"
+            tid: "",
+            cid: "",
+            inid: "",
+            teid: "",
+            dis: 4,
           })
         }
-      },
-      complete: function() {
-        that.setData({
-          tid: "",
-          cid: "",
-          inid: "",
-          teid: "",
-          dis: 4,
-        })
-      }
-    })
+      })
+    } else if (that.data.community_main.flag == 1) {
+      wx.request({
+        url: 'https://czw.saleii.com/api/client/get_project_list',
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded', // 默认值
+          'Accept': 'application/json'
+        },
+        data: {
+          username: app.globalData.myInfo.username,
+          access_token: app.globalData.myInfo.token,
+          project_industry: that.data.industry,
+          project_task: that.data.task,
+          project_captial: that.data.captial,
+          project_team: that.data.team,
+          project_date: that.data.dates,
+          project_status: that.data.status,
+          project_type: that.data.project_type,
+          group_type: 1,
+          group_id: that.data.group_id,
+          is_focus: that.data.focus,
+          shop_type: 5,
+          is_del: 0
+        },
+        success(res) {
+          if (res.data.status == "y") {
+            console.log(res)
+            that.setData({
+              items: res.data.result,
+              info: null,
+              dateArr: []
+            })
+            for (var i = 0; i < res.data.result.length; i++) {
+              that.setData({
+                dateArr: that.data.dateArr.concat(dateApi.getDateDiff(res.data.result[i].addtime_str + "000"))
+              })
+            }
+          } else {
+            that.setData({
+              info: "无该类项目"
+            })
+          }
+        },
+        complete: function() {
+          that.setData({
+            tid: "",
+            cid: "",
+            inid: "",
+            teid: "",
+            dis: 4,
+          })
+        }
+      })
+    }
   },
   remake: function() {
 
@@ -706,6 +967,7 @@ Page({
       dateArr: [],
       fid: "",
       focus: 0,
+      group_id: "",
 
       pagesize: 10,
       changepage: 0,
@@ -765,18 +1027,16 @@ Page({
 
     //获取globadata
     if (app.globalData.community != "") {
-      var other_to_main = app.globalData.other_to_main
+      console.log("app.globalData.community" + app.globalData.community)
       var community = app.globalData.community
-      that.setData({
-        which_frame: 'next',
-        community_main: community,
-      })
+      console.log(community)
 
-      wx.setNavigationBarTitle({
-        title: that.data.community_main.name
-      })
-
-      if (community.flag == 2) {
+      if (community.flag == 2){
+        that.setData({
+          which_frame: 'next',
+          community_main: community,
+          group_id: community.group_id
+        })
         wx.request({
           url: 'https://czw.saleii.com/api/client/get_project_list',
           method: 'POST',
@@ -792,7 +1052,7 @@ Page({
             project_status: "全部",
             shop_type: 5,
             group_type: 1,
-            group_id: that.data.community_main.id,
+            group_id: that.data.group_id,
             is_del: 0
           },
           success(res) {
@@ -815,7 +1075,17 @@ Page({
             }
           }
         })
-      } else if (community.flag == 1) {
+      } else if (community.flag == 1){
+        console.log("flag=1")
+        that.setData({
+          which_frame: 'next',
+          community_main: community,
+          group_id: community.id
+        })
+        
+        console.log(that.data.gorup_id)
+        console.log(that.data.community_main)
+
         wx.request({
           url: 'https://czw.saleii.com/api/client/get_project_list',
           method: 'POST',
@@ -831,7 +1101,7 @@ Page({
             project_status: "全部",
             shop_type: 5,
             group_type: 2,
-            group_id: that.data.community_main.id,
+            group_id: that.data.group_id,
             is_del: 0
           },
           success(res) {
@@ -855,6 +1125,10 @@ Page({
           }
         })
       }
+
+      wx.setNavigationBarTitle({
+        title: that.data.community_main.name
+      })
 
     }
 

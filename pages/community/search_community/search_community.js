@@ -82,6 +82,7 @@ Page({
         group_name: that.data.search
       },
       success(res){
+        console.log(res)
         if (res.data.all_rows != 0) {
           that.setData({
             communities: res.data.result,
@@ -161,6 +162,13 @@ Page({
           wx.showModal({
             title: '提示',
             content: '加入成功',
+            success(res) {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '../my_community/my_community',
+                })
+              }
+            }
           })
         }
       })
@@ -199,7 +207,15 @@ Page({
           wx.showModal({
             title: '提示',
             content: '加入成功',
+            success(res){
+              if(res.confirm){
+                wx.navigateTo({
+                  url: '../my_community/my_community',
+                })
+              }
+            }
           })
+          
         }
       })
     }
