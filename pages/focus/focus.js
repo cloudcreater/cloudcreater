@@ -3,6 +3,7 @@ const app = getApp()
 import dateApi from "../../utils/utils.js"
 import citydata from "../../citydata/citydata.js";
 import wecache from "../../utils/wecache.js"
+var shop_type = app.globalData.shop_type
 
 var list = []
 
@@ -35,6 +36,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    shop_type:shop_type,
     items: "", 
     dis: 4,
     bottom_line: 1,
@@ -88,6 +90,7 @@ Page({
   change: function (event) {
     var name = event.currentTarget.dataset.name;
     var that = this;
+    var shop_type = that.data.shop_type
     that.setData({
       project_type: name,
       changepage: 1
@@ -108,7 +111,8 @@ Page({
           project_date: that.data.dates,
           project_location: that.data.multiArray[1][that.data.multiIndex[1]],
           is_focus: 1,
-          is_del: 0
+          is_del: 0,
+          shop_type:shop_type,
         },
         success(res) {
           if (res.data.status == "y") {
@@ -157,6 +161,7 @@ Page({
   // },
   changeProcess: function (event) {
     var that = this
+    var shop_type = that.data.shop_type
     var status = event.currentTarget.dataset.status;
     var sname = event.currentTarget.dataset.sname;
     that.setData({
@@ -183,7 +188,8 @@ Page({
           project_team: that.data.team,
           project_location: that.data.multiArray[1][that.data.multiIndex[1]],
           is_focus: 1,
-          is_del: 0
+          is_del: 0,
+          shop_type:shop_type
         },
         success(res) {
           if (res.data.status == "y") {
@@ -209,6 +215,7 @@ Page({
   },
   changetime: function (event) {
     var that = this
+    var shop_type = that.data.shop_type
     var x = event.currentTarget.dataset.x;
     var tname = event.currentTarget.dataset.tname;
     console.log(that.data.x)
@@ -239,7 +246,8 @@ Page({
           project_team: that.data.team,
           project_type: that.data.project_type,
           is_focus: 1,
-          is_del: 0
+          is_del: 0,
+          shop_type:shop_type
         },
         success(res) {
           if (res.data.status == "y") {
@@ -267,6 +275,7 @@ Page({
   },
   bindMultiPickerChange: function (e) { 
     var that = this
+    var shop_type = that.data.shop_type
     that.setData({
       "multiIndex[0]": e.detail.value[0],
       "multiIndex[1]": e.detail.value[1],
@@ -292,7 +301,8 @@ Page({
           project_captial: that.data.captial,
           project_team: that.data.team,
           is_focus: 1,
-          is_del: 0
+          is_del: 0,
+          shop_type:shop_type
         },
         success(res) {
           if (res.data.status == "y") {
@@ -377,6 +387,7 @@ Page({
   },
   confirm: function () {
     var that = this
+    var shop_type = that.data.shop_type
     that.setData({
       changepage: 0
     })
@@ -398,7 +409,8 @@ Page({
           project_status: that.data.status,
           project_type: that.data.project_type,
           is_focus: 1,
-          is_del: 0
+          is_del: 0,
+          shop_type:shop_type
         },
         success(res) {
           if (res.data.status == "y") {
@@ -460,6 +472,7 @@ Page({
    */
   onShow: function () {
     var that = this
+    var shop_type = that.data.shop_type
     that.setData({
       changepage: 1
     })
@@ -487,7 +500,8 @@ Page({
           project_status: that.data.status,
           pagesize: that.data.pagesize,
           is_focus: 1,
-          is_del: 0
+          is_del: 0,
+          shop_type:shop_type,
         },
         success(res) {
           if (res.data.status == "y") {

@@ -120,18 +120,27 @@
           <!--转发关注 -->
           <view class="foot">
             <view wx:if="{{item.focus_m_id!=null}}">
-              ❤ 已关注 ·{{item.num_join}}报名 ·{{item.num_prize}}点赞 ·{{item.num_share}}转发
+              <view>
+              ❤ 已关注 ·{{item.num_join}}报名 ·{{item.num_prize}}点赞 ·{{item.num_share}}转发{{item.join_m_id!=null?'·已报名':''}}
+              </view>
+              <!--
               <block wx:if="{{item.join_m_id!=null}}">
                 ·已报名
               </block>
               <block wx:else></block>
+               -->
             </view>
             <view wx:else>
-              {{item.num_join}}报名 ·{{item.num_prize}}点赞 ·{{item.num_share}}转发
+              <view>
+              {{item.num_join}}报名 ·{{item.num_prize}}点赞 ·{{item.num_share}}转发{{item.join_m_id!=null?'·已报名':''}}
+              </view>
+              <!-- 
               <block wx:if="{{item.join_m_id!=null}}">
                 ·已报名
               </block>
+              
               <block wx:else></block>
+              -->
             </view>
           </view>
         </view>
