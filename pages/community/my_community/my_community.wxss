@@ -1,7 +1,5 @@
 /* pages/community/my_community/my_community.wxss */
-.communities{
-  
-}
+ 
 
 .communities_item{
   position: relative;

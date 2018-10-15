@@ -14,7 +14,7 @@
     </view>
     <view class="location">
       <image src="../../../imgs/location.jpg"></image>
-      {{community.city_str}}
+      <view>{{community.city_str}}</view>
     </view>
     <view class="label_loc" data-item='{{community}}' bindtap='tomain'>
       <view class="label" style="{{community.type?'':'background-color:white'}}">{{community.type}}</view>
