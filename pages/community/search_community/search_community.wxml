@@ -2,9 +2,7 @@
 <view class="icon_loc">
   <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
     <image src="../../../imgs/location.jpg"></image>
-    <view class="picker">
-      {{multiArray[1][multiIndex[1]]}}
-    </view>
+    <view>{{multiArray[1][multiIndex[1]]}}</view>
   </picker>
 </view>
 <view class="search_loc">
@@ -36,7 +34,7 @@
       <view class="name">{{community.name}}</view>
       <view class="location">
         <image src="../../../imgs/location.jpg"></image>
-        {{community.city_str}}
+        <view>{{community.city_str}}</view>
       </view>
       <view class="label_loc">
         <view class="label" style="{{community.type?'':'background-color:white'}}">{{community.type}}</view>

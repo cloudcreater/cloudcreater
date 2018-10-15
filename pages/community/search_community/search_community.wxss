@@ -1,7 +1,7 @@
 /* pages/community/search_community/search_community.wxss */
 .icon_loc{
   position: absolute;
-  width: 50rpx;
+  width: 80rpx;
   height: 100rpx;
   left: 30rpx;
   top: 0rpx;
