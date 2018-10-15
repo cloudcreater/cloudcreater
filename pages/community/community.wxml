@@ -2,21 +2,21 @@
 <block wx:if="{{which_frame=='before'}}">
   <view>
     <view class="community_item" style='top:20rpx;' bindtap='to_search'>
-      发现社区
+      发现圈子
       <image src="https://czw.saleii.com/uploads/xcxchat/undefined/c7964b869da85ff083de75d80e72696a.png" />
     </view>
     <view class="community_item" style='top:170rpx;' bindtap='to_create'>
-      创建社区
+      创建圈子
       <image src="https://czw.saleii.com/uploads/xcxchat/undefined/c7964b869da85ff083de75d80e72696a.png" />
     </view>
     <view class="community_item" style='top:320rpx;' bindtap='to_my'>
-      我的社区
+      我的圈子
       <image src="https://czw.saleii.com/uploads/xcxchat/undefined/c7964b869da85ff083de75d80e72696a.png" />
     </view>
 
-    <view class="title_before">推荐社区</view>
+    <view class="title_before">推荐圈子</view>
     <scroll-view class="communities" scroll-y>
-      <!-- 推荐社区 -->
+      <!-- 推荐圈子 -->
       <view class="communities_item" wx:for="{{communities}}" wx:for-index="index" wx:for-item="community" data-item='{{community}}' bindtap='tomain'>
         <image class="head_img" src='{{community.logo}}'></image>
         <view class="name">{{community.name?community.name:''}}</view>

@@ -112,6 +112,7 @@ Page({
     that.setData({
       community: community
     })
+    
     if (community.pass_code != "") {
       that.setData({
         hiddenmodalput: !that.data.hiddenmodalput

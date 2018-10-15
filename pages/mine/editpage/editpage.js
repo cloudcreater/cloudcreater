@@ -167,6 +167,7 @@ Page({
             project_img4: that.data.upimg_url[3],
             project_img5: that.data.upimg_url[4],
             post_id: that.data.item.id,
+            group_id: that.data.item.group_id,
           },
           success: function (res) {
             console.log(res)

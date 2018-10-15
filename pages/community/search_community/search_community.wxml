@@ -18,17 +18,17 @@
 </block>
 <block wx:else>
   <view class="title">
-    推荐社区
+    推荐圈子
   </view>
 </block>
 <block wx:if="{{info!=''}}">
   <scroll-view scroll-y class="communities">
-    <view style='margin-left:250rpx;'>暂无此类社区</view>
+    <view style='margin-left:250rpx;'>暂无此圈子</view>
   </scroll-view>
 </block>
 <block wx:else>
   <scroll-view scroll-y class="communities">
-    <!-- 推荐社区 -->
+    <!-- 推荐圈子 -->
     <view class="communities_item" wx:for="{{communities}}" wx:for-index="index" wx:for-item="community" data-item='{{community}}' bindtap='tomain'>
       <image class="head_img" src='{{community.logo}}'></image>
       <view class="name">{{community.name}}</view>

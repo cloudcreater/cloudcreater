@@ -84,9 +84,9 @@
       },
       {
         "pagePath": "pages/community/community",
-        "text": "社区",
-        "iconPath": "imgs/社区-前.jpg",
-        "selectedIconPath": "imgs/社区-后.jpg"
+        "text": "发现",
+        "iconPath": "imgs/圈子-前.jpg",
+        "selectedIconPath": "imgs/圈子-后.jpg"
       },
       {
         "pagePath": "pages/send/sendblank/sendblank",

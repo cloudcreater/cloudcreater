@@ -9,11 +9,11 @@
   </view>
   <view class="info">
     <view class="info_item">
-      社区名称：
+      圈子名称：
       <input type="text" bindinput='nameInput'></input>
     </view>
     <view class="info_item" style='height:180rpx;'>
-      社区头像：
+      圈子头像：
       <block wx:if="{{img!=''}}">
         <image src='{{img}}' bindtap='uploadimg'></image>
       </block>
@@ -38,10 +38,10 @@
     </view>
   </view>
   <view class="title" style='top:140rpx;'>
-    社区设置
+    圈子设置
   </view>
   <view class="invite">
-    <view class="intro">别人申请加入社区如果需要验证码，请设置邀请码，别人输入邀请码才可以进入社区(可不填即默认开放)</view>
+    <view class="intro">别人申请加入圈子如果需要验证码，请设置邀请码，别人输入邀请码才可以进入圈子(可不填即默认开放)</view>
     <view class="input_loc">设置邀请码：
       <input bindinput='pass_code'></input>
     </view>
