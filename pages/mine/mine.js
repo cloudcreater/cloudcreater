@@ -1,6 +1,7 @@
 // pages/mine/mine.js
 import wecache from "../../utils/wecache.js"
 const app = getApp()
+var shop_type = app.globalData.shop_type
 Page({
 
   /**
@@ -13,7 +14,7 @@ Page({
     schoolname:"",
     info: "",
     myInfo: null,
-    shop_type: 5
+    shop_type: shop_type
   },
 
   /**
@@ -83,6 +84,7 @@ Page({
   },
   getSmscode: function () {
     var that = this
+    var shop_type = that.data.shop_type
     wx.request({
       url: 'https://czw.saleii.com/api/web/user/login/login_sms_send',
       method: 'POST',
@@ -91,7 +93,8 @@ Page({
         'Accept': 'application/json'
       },
       data: {
-        phoneNo: this.data.phoneNo
+        phoneNo: this.data.phoneNo,
+        shop_type:shop_type
       },
       success: function (res) {
         if (res.data.info) {
