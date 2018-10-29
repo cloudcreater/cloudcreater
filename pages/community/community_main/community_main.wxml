@@ -1,0 +1,249 @@
+<!--pages/community/community_main/community_main.wxml-->
+<view class="container">
+  <block wx:if="{{lebal_num==1}}">
+    <!--顶部导航条 -->
+    <view class="topbar">
+      <view class="flex-wrp" style="flex-direction:row;">
+        <view class="top-item {{bottom_line==1?'.underline':''}}" bindtap="change" data-name="is_create">创业</view>
+        <view class="top-item {{bottom_line==2?'.underline':''}}" bindtap="change" data-name="is_idea">创意</view>
+        <view class="top-item {{bottom_line==3?'.underline':''}}" bindtap="change" data-name="is_active">活动</view>
+      </view>
+    </view>
+    <block wx:if="{{info!=null}}">
+      <view style="margin-top:144rpx;"></view>
+      <view>{{info}}</view>
+    </block>
+    <block wx:else>
+      <!--循环体开始 -->
+      <!--主要内容 -->
+      <view style="margin-top:100rpx;"></view>
+      <view class="bgcolor" wx:for="{{items}}" wx:for-index="index" wx:for-item="item">
+        <view class="main">
+          <view class="info-loc" bindtap="toindex_details" data-item="{{item}}">
+            <!--姓名信息 -->
+            <view class="namespace" bindtap="toOther_user" data-item="{{item}}">
+              <image src="{{item.headimgurl}}"></image>
+              <view class="textpart">
+                <text>{{item.nickname}}</text>
+                <text>\t</text>
+                <text>发布了一条</text>
+                <text id="type" class="label">{{item.project_task}}</text> ·
+                <text class="data">{{dateArr[index]}}</text>
+              </view>
+            </view>
+            <!--标签 -->
+            <view class="label-loc">
+              <text id="type" class="label">{{item.project_step}}</text>
+              <block wx:if="{{item.project_team}}">
+                <text id="type" class="label">{{item.project_team}}</text>
+              </block>
+              <block wx:if="{{item.project_captial}}">
+                <text id="type" class="label">{{item.project_captial}}</text>
+              </block>
+              <block wx:if="{{item.project_industry}}">
+                <text id="type" class="label">{{item.project_industry}}</text>
+              </block>
+            </view>
+            <!--介绍 -->
+            <view class="introduce">
+              {{item.project_desc}}
+            </view>
+            <!--图片 -->
+            <view class="img-loc">
+              <image src="{{item.imagePath1}}" />
+            </view>
+            <!--转发关注 -->
+            <view class="foot">
+              <view wx:if="{{item.focus_m_id!=null}}">
+                ❤ 已关注 ·{{item.num_join}}报名 ·{{item.num_prize}}点赞 ·{{item.num_share}}转发
+                <block wx:if="{{item.join_m_id!=null}}">
+                  ·已报名
+                </block>
+                <block wx:else></block>
+              </view>
+              <view wx:else>
+                {{item.num_join}}报名 ·{{item.num_prize}}点赞 ·{{item.num_share}}转发
+                <block wx:if="{{item.join_m_id!=null}}">
+                  ·已报名
+                </block>
+                <block wx:else></block>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!--循环体结束 -->
+    </block>
+  </block>
+  <block wx:elif="{{lebal_num==3}}">
+    <!--顶部导航条 -->
+    <view class="topbar_msg">
+      <view class="left-mine">
+        通知列表
+      </view>
+      <!-- <view class="flex-wrp right-mine" style="flex-direction:row;">
+      <view class="op-item">
+        <image src="/imgs/设置.png" />
+      </view> 
+      <view class="op-item">
+        <image src="/imgs/清空.png" />
+      </view>
+      <view class="op-item">
+        <image src="/imgs/筛选.png" />
+      </view>
+    </view> -->
+    </view>
+    <view class="topbar_msg">
+      <view class="items left {{bottom_line_msg==1?'.underline_msg':''}}" bindtap="not_read">未读</view>
+      <view class="items right {{bottom_line_msg==2?'.underline_msg':''}}" bindtap="is_read">已读</view>
+    </view>
+    <block wx:if="{{info_msg!=null}}">
+      暂无消息
+    </block>
+    <block wx:else>
+      <!--消息体开始-->
+      <view class="msg_main" wx:for="{{msgs}}" wx:for-index="index" wx:for-item="msg">
+        <view class="headimg" data-msg="{{msg}}">
+          <!-- bindtap='toOther_user' -->
+          <image src='{{msg.from_headimg}}'></image>
+        </view>
+        <view data-id="{{msg.id}}" data-msg_type="{{msg.type}}" data-msg_status="{{msg.msg_status}}" data-project_id="{{msg.project_id}}" bindtap="oprations">
+          <view class="content">
+            <text class="nickname inaline">{{msg.from_nickname}}</text>
+            <view class="title_msg">
+              {{msg.title}}
+            </view>
+            <view class="lebal">
+              寻找合伙人
+            </view>
+            <view class="gogogo">
+              快去看看
+            </view>
+            <view class="icon">
+              <!-- 
+              1：关注
+              2：报名
+              3：点赞 
+            -->
+              <block wx:if="{{msg.type==3}}">
+                <image src='https://czw.saleii.com/uploads/xcxchat/undefined/bafd88326d45e66e623f70ba58f96d8e.jpg'></image>
+              </block>
+              <block wx:elif="{{msg.type==2}}">
+                <image src='https://czw.saleii.com/uploads/xcxchat/undefined/d6d631491d5c2754e5065ce18c71e878.jpg'></image>
+              </block>
+              <block wx:elif="{{msg.type==1}}">
+                <image src='https://czw.saleii.com/uploads/xcxchat/undefined/f39cf041ac5d566db6b5dcb4018f3f9e.png'></image>
+              </block>
+              <block wx:elif="{{msg.type==4}}">
+              </block>
+            </view>
+            <view class="date">
+              {{dateArr[index]}}
+            </view>
+          </view>
+        </view>
+      </view>
+      <!--消息体结束-->
+    </block>
+  </block>
+
+  <!-- 我的界面 -->
+  <block wx:elif="{{lebal_num==4}}">
+    <view class="bgcolor_mine">
+      <view class="user_Info" bindtap="ToUser_Info">
+        <image class="profilephoto" src="{{myInfo.wx_headimg}}" />
+        <view class="name_loc">
+          <text>{{myInfo.wx_nickname}}</text>
+        </view>
+        <view class="sign_loc">
+          签名：
+          <block wx:if="{{getinfo.full_name!=''}}">
+            <text>{{getinfo.full_name}}</text>
+          </block>
+          <block wx:else>
+            <text>无</text>
+          </block>
+        </view>
+        <image src="https://czw.saleii.com/uploads/xcxchat/undefined/c7964b869da85ff083de75d80e72696a.png" />
+      </view>
+      <view class="user_item undertaking_mine" bindtap="toMy_cia">
+        我的创业
+        <image src="https://czw.saleii.com/uploads/xcxchat/undefined/c7964b869da85ff083de75d80e72696a.png" />
+      </view>
+      <view class="user_item" bindtap="toMy_idea">
+        我的创意
+        <image src="https://czw.saleii.com/uploads/xcxchat/undefined/c7964b869da85ff083de75d80e72696a.png" />
+      </view>
+      <view class="user_item" bindtap="toMy_activity">
+        我的活动
+        <image src="https://czw.saleii.com/uploads/xcxchat/undefined/c7964b869da85ff083de75d80e72696a.png" />
+      </view>
+      <view class="user_item undertaking_mine" bindtap="to_match">
+        比赛入口
+        <image src="https://czw.saleii.com/uploads/xcxchat/undefined/c7964b869da85ff083de75d80e72696a.png" />
+      </view>
+      <view class="user_item undertaking_mine" bindtap="quit">
+        <view>{{community.flag==1?'解散该社区':'退出该社区'}}</view>
+        <image src="https://czw.saleii.com/uploads/xcxchat/undefined/c7964b869da85ff083de75d80e72696a.png" />
+      </view>
+    </view>
+  </block>
+</view>
+<view class="bottom_bar">
+  <view class="bb_btn">
+    <block wx:if="{{lebal_num==1}}">
+      <view class="before">
+        <image src='../../../imgs/首页-后.png'></image>
+        <view class="red">社区首页</view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="next">
+        <image src='../../../imgs/首页-前.png' bindtap='change_lebal' data-id="1"></image>
+        <view class="gray">社区首页</view>
+      </view>
+    </block>
+  </view>
+  <view class="bb_btn">
+    <block wx:if="{{lebal_num==2}}">
+      <view class="before">
+        <image src='../../../imgs/发布.png'></image>
+        <view class="red">社区发布</view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="next">
+        <image src='../../../imgs/发布.png' bindtap='change_lebal' data-id="2"></image>
+        <view class="gray">社区发布</view>
+      </view>
+    </block>
+  </view>
+  <view class="bb_btn">
+    <block wx:if="{{lebal_num==3}}">
+      <view class="before">
+        <image src='../../../imgs/消息-后.png'></image>
+        <view class="red">社区消息</view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="next">
+        <image src='../../../imgs/消息-前.png' bindtap='change_lebal' data-id="3"></image>
+        <view class="gray">社区消息</view>
+      </view>
+    </block>
+  </view>
+  <view class="bb_btn">
+    <block wx:if="{{lebal_num==4}}">
+      <view class="before">
+        <image src='../../../imgs/我的-后.png'></image>
+        <view class="red">社区我的</view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="next">
+        <image src='../../../imgs/我的-前.png' bindtap='change_lebal' data-id="4"></image>
+        <view class="gray">社区我的</view>
+      </view>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,2 @@
+<!--pages/out/to_detail/to_detail.wxml-->
+<web-view src="http://mp.weixin.qq.com/s?__biz=MzU2NTYyMjk3MA==&mid=100000173&idx=1&sn=2ba5beaf8d6c1bb0180cc739ae76538d&chksm=7cb9a0784bce296e9c11c09bb4b07e39b4f706732614b29c6c7c70ffb489542afaf5616d1768#rd"></web-view>

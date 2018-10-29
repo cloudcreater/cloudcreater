@@ -14,8 +14,7 @@ App({
     weburl:'https://czw.saleii.com',
     shop_type:5,
 
-    other_to_main:"",
-    community:"",
+    group_id:"",
 
   },
   /** 

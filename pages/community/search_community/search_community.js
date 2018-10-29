@@ -134,8 +134,10 @@ Page({
     var community = event.currentTarget.dataset.item
 
     that.setData({
-      community: community
+      community: community,
+      passcode: ""
     })
+    
     if (community.pass_code != "") {
       that.setData({
         hiddenmodalput: !this.data.hiddenmodalput
@@ -228,11 +230,9 @@ Page({
   tomain: function (event) {
     var community = event.currentTarget.dataset.item
     if (community.flag != 0) {
-      wx.switchTab({
-        url: '../community',
+      wx.navigateTo({
+        url: '../community_main/community_main?community=' + JSON.stringify(event.currentTarget.dataset.item),
       })
-      app.globalData.other_to_main = 'yes'
-      app.globalData.community = community
     } else {
       wx.showModal({
         title: '重要',

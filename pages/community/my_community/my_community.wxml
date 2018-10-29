@@ -4,7 +4,7 @@
   <view class="items right {{bottom_line==2?'.underline':''}}" bindtap="not">我加入的</view>
 </view>
 <block wx:if="{{info!=null}}">
-  <view style='margin-left:250rpx;'>暂无此类圈子</view>
+  <view style='margin-left:250rpx;'>暂无此类社区</view>
 </block>
 <block wx:else>
   <view class="communities_item" wx:for="{{communities}}" wx:for-index="index" wx:for-item="community" >

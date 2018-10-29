@@ -120,7 +120,7 @@
     <block wx:if="{{!dis}}">
       <view class="flex-wrp" style="flex-direction:row;">
         <block wx:if="{{join_m_id}}">
-          <view class="nav_item" data-pid="{{currentProject.id}}">
+          <view class="nav_item" data-pid="{{currentProject.id}}" bindtap='to_match'>
             <view class="join_img_loc">
               <image src='https://czw.saleii.com/uploads/xcxchat/undefined/d08bd79e7eb9ec2563da8324f2225420.jpg'></image>
             </view>

@@ -113,71 +113,78 @@ Page({
     })
   },
   dologin: function () {
-    var that = this
-    var shop_type = that.data.shop_type
-    wx.request({
-      url: 'https://czw.saleii.com/api/web/user/login/user_xcx_login',
-      method: 'POST',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded', // 默认值
-        'Accept': 'application/json'
-      },
-      data: {
-        username: this.data.phoneNo,
-        smscode: this.data.sms_code,
-        wx_nickname: app.globalData.userInfo.nickName,
-        wx_headimg: app.globalData.userInfo.avatarUrl,
-        openid: app.globalData.openid,
-        biz_area: that.data.schoolname,
-        shop_type: shop_type,
-      },
-      success: function (res) {
-        if (res.data.status == "n") {
-          that.setData({
-            info: res.data.info
-          })
-        } else {
-          wx.setStorageSync('token', res.data.result['token'])
-          wx.setStorageSync('username', res.data.result['username'])
-          wx.setStorageSync('m_id', res.data.result['m_id'])
-          wx.setStorageSync('user_type', res.data.result['user_type'])
-          wecache.put("myInfo", res.data.result)
-          var myInfo = wecache.get("myInfo")
-          setTimeout(function () {
+    if (wecache.get("hasUserInfo") != "has"){
+      wx.showModal({
+        title: '重要',
+        content: '您还没有获取微信权限！请重新进入本页面获取',
+      })
+    }else{
+      var that = this
+      var shop_type = that.data.shop_type
+      wx.request({
+        url: 'https://czw.saleii.com/api/web/user/login/user_xcx_login',
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded', // 默认值
+          'Accept': 'application/json'
+        },
+        data: {
+          username: this.data.phoneNo,
+          smscode: this.data.sms_code,
+          wx_nickname: app.globalData.userInfo.nickName,
+          wx_headimg: app.globalData.userInfo.avatarUrl,
+          openid: app.globalData.openid,
+          biz_area: that.data.schoolname,
+          shop_type: shop_type,
+        },
+        success: function (res) {
+          if (res.data.status == "n") {
             that.setData({
-              // token: res.data.result.token,
-              // myInfo: res.data.result
-              myInfo: myInfo
+              info: res.data.info
             })
-            app.globalData.myInfo = myInfo
-            app.globalData.token = myInfo.token
+          } else {
+            wx.setStorageSync('token', res.data.result['token'])
+            wx.setStorageSync('username', res.data.result['username'])
+            wx.setStorageSync('m_id', res.data.result['m_id'])
+            wx.setStorageSync('user_type', res.data.result['user_type'])
+            wecache.put("myInfo", res.data.result)
+            var myInfo = wecache.get("myInfo")
             setTimeout(function () {
-              wx.request({
-                url: 'https://czw.saleii.com/api/client/get_name',
-                method: 'POST',
-                header: {
-                  'content-type': 'application/x-www-form-urlencoded', // 默认值
-                  'Accept': 'application/json'
-                },
-                data: {
-                  username: that.data.phoneNo,
-                  access_token: app.globalData.token
-                },
-                success: function (res) {
-                  wecache.put("getinfo", res.data.result)
-                  setTimeout(function () {
-                    that.setData({
-                      getinfo: wecache.get("getinfo")
-                    })
-                  },500)
-                }
+              that.setData({
+                // token: res.data.result.token,
+                // myInfo: res.data.result
+                myInfo: myInfo
               })
-            },500)
-            
-          },500)
+              app.globalData.myInfo = myInfo
+              app.globalData.token = myInfo.token
+              setTimeout(function () {
+                wx.request({
+                  url: 'https://czw.saleii.com/api/client/get_name',
+                  method: 'POST',
+                  header: {
+                    'content-type': 'application/x-www-form-urlencoded', // 默认值
+                    'Accept': 'application/json'
+                  },
+                  data: {
+                    username: that.data.phoneNo,
+                    access_token: app.globalData.token
+                  },
+                  success: function (res) {
+                    wecache.put("getinfo", res.data.result)
+                    setTimeout(function () {
+                      that.setData({
+                        getinfo: wecache.get("getinfo")
+                      })
+                    }, 500)
+                  }
+                })
+              }, 500)
+
+            }, 500)
+          }
         }
-      }
-    })
+      })
+    }
   },
   toMy_cia:function(){
     wx.navigateTo({
@@ -216,6 +223,11 @@ Page({
       url: '../out/out',
     })
   },
+  to_match:function(){
+    wx.navigateTo({
+      url: '../match/match',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -227,7 +239,25 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    if (wecache.get("hasUserInfo") != "has") {
+      wx.showModal({
+        title: '重要',
+        content: '我们需要获取您的微信权限才能体验我们的产品。',
+        success: function (res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: 'getUserInfo/getUserInfo',
+            })
+          } else if (res.cancel) {
+            wx.showToast({
+              title: '失败',
+              icon: 'loading',
+              duration: 2000
+            })
+          }
+        }
+      })
+    }
   },
 
   /**

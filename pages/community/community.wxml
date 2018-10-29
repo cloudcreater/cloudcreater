@@ -2,29 +2,29 @@
 <block wx:if="{{which_frame=='before'}}">
   <view>
     <view class="community_item" style='top:20rpx;' bindtap='to_search'>
-      发现圈子
+      发现社区
       <image src="https://czw.saleii.com/uploads/xcxchat/undefined/c7964b869da85ff083de75d80e72696a.png" />
     </view>
     <view class="community_item" style='top:170rpx;' bindtap='to_create'>
-      创建圈子
+      创建社区
       <image src="https://czw.saleii.com/uploads/xcxchat/undefined/c7964b869da85ff083de75d80e72696a.png" />
     </view>
     <view class="community_item" style='top:320rpx;' bindtap='to_my'>
-      我的圈子
+      我的社区
       <image src="https://czw.saleii.com/uploads/xcxchat/undefined/c7964b869da85ff083de75d80e72696a.png" />
     </view>
 
-    <view class="title_before">推荐圈子</view>
+    <view class="title_before">推荐社区</view>
     <scroll-view class="communities" scroll-y>
-      <!-- 推荐圈子 -->
-      <view class="communities_item" wx:for="{{communities}}" wx:for-index="index" wx:for-item="community" data-item='{{community}}' bindtap='tomain'>
-        <image class="head_img" src='{{community.logo}}'></image>
+      <!-- 推荐社区 -->
+      <view class="communities_item" wx:for="{{communities}}" wx:for-index="index" wx:for-item="community" >
+        <image class="head_img" src='{{community.logo}}' data-item='{{community}}' bindtap='tomain'></image>
         <view class="name">{{community.name?community.name:''}}</view>
         <view class="location">
           <image src="../../imgs/location.jpg"></image>
           {{community.city_str?community.city_str:''}}
         </view>
-        <view class="label_loc">
+        <view class="label_loc" data-item='{{community}}' bindtap='tomain'>
           <view class="label" style="{{community.type?'':'background-color:white'}}">{{community.type}}</view>
           <view class="label" style="{{community.industry_type?'':'background-color:white'}}">{{community.industry_type}}</view>
           <view class="label">{{community.pass_code?'内部群':'开放群'}}</view>

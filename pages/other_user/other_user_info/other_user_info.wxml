@@ -37,5 +37,8 @@
       <image src='https://czw.saleii.com/uploads/xcxchat/undefined/d20b55d2f2a2becf59726ffb8df7736b.png'></image>
       <text>{{currentProject.author}}</text>
     </view>
+    <view class="user_item" bindtap="call">他的微信号
+      <text>{{currentProject.author_wx}}</text>
+    </view>
   </view>
 </view>

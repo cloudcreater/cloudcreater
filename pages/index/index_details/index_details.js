@@ -132,6 +132,7 @@ Page({
       })
   },
   dojoin: function (event){
+
     var that = this
     var pid = event.currentTarget.dataset.pid
     var formID = event.detail.formId;
@@ -173,10 +174,21 @@ Page({
             })
           }
         })
+        if (pid==35){
+          wx.navigateTo({
+            url: '../../match/match',
+          })
+        }
       }
     })
-
-    
+  },
+  to_match:function(event){
+    var pid = event.currentTarget.dataset.pid
+    if (pid == 35) {
+      wx.navigateTo({
+        url: '../../match/match',
+      })
+    }
   },
   /**
  * 触发微信提醒

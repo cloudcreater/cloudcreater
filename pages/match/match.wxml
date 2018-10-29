@@ -1,0 +1,44 @@
+<!--pages/match/match.wxml-->
+<view class="container">
+  <view class="title">
+    聚烈科技2018第一届"聚裂之星"创业创意大赛项目征集
+  </view>
+  <image src='../../imgs/海报横.jpg' class="pic"></image>
+  <text class="title">
+    报名截止：2019年3月1日\n
+    奖项支持：万元奖金，免费工位，融资机会，政策扶持\n
+    报名要求：不限团队人数，不限年龄，不限专业，均可报名
+  </text>
+  <view class="todetail" bindtap='to_detail'>
+    点此了解详情
+  </view>
+  <view class='line'></view>
+  <view class="title">
+    报名表
+  </view>
+  <view class="title">
+    一、项目名称
+    <view class="red">*</view>
+  </view>
+  <input type='text' value='' placeholder='{{placeholder_title}}' placeholder-style='color:red' bindinput='input' data-name="title"   bindfocus='clear'></input>
+  <view class="title">
+    二、创始人姓名
+    <view class="red">*</view>
+  </view>
+  <input type='text' value='' placeholder='{{placeholder_name}}' placeholder-style='color:red'  bindinput='input' data-name="name"  bindfocus='clear'></input>
+  <view class="title" style='margin-left:180rpx;'>
+    手机
+    <view class="red">*</view>
+  </view>
+  <input type='text' value='' placeholder='{{placeholder_phone}}' placeholder-style='color:red' bindinput='input' data-name="phone"   bindfocus='clear'></input>
+  <view class="title" style='margin-left:180rpx;'>
+    高校或公司
+    <view class="red">*</view>
+  </view>
+  <input type='text' value='' placeholder='{{placeholder_school}}' placeholder-style='color:red' bindinput='input' data-name="school"   bindfocus='clear'></input>
+<view class="title">
+    三、保密声明
+    <view class="tips">承诺上传的任何信息和文件只用于本次大赛，不会用于其他地方.</view>
+  </view>
+  <view class="btn" bindtap="sub">提交</view>
+</view>

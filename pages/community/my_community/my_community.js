@@ -93,11 +93,10 @@ Page({
   },
   tomain: function(event) {
     var community = event.currentTarget.dataset.item
-    wx.switchTab({
-      url: '../community',
+    wx.navigateTo({
+      url: '../community_main/community_main?community=' + JSON.stringify(event.currentTarget.dataset.item),
     })
-    app.globalData.other_to_main = 'yes'
-    app.globalData.community = community
+
   },
   do_op: function() {
     that.setData({

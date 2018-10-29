@@ -18,25 +18,25 @@
 </block>
 <block wx:else>
   <view class="title">
-    推荐圈子
+    推荐社区
   </view>
 </block>
 <block wx:if="{{info!=''}}">
   <scroll-view scroll-y class="communities">
-    <view style='margin-left:250rpx;'>暂无此圈子</view>
+    <view style='margin-left:250rpx;'>暂无此社区</view>
   </scroll-view>
 </block>
 <block wx:else>
   <scroll-view scroll-y class="communities">
-    <!-- 推荐圈子 -->
-    <view class="communities_item" wx:for="{{communities}}" wx:for-index="index" wx:for-item="community" data-item='{{community}}' bindtap='tomain'>
-      <image class="head_img" src='{{community.logo}}'></image>
+    <!-- 推荐社区 -->
+    <view class="communities_item" wx:for="{{communities}}" wx:for-index="index" wx:for-item="community" >
+      <image class="head_img" src='{{community.logo}}' data-item='{{community}}' bindtap='tomain'></image>
       <view class="name">{{community.name}}</view>
       <view class="location">
         <image src="../../../imgs/location.jpg"></image>
         <view>{{community.city_str}}</view>
       </view>
-      <view class="label_loc">
+      <view class="label_loc" data-item='{{community}}' bindtap='tomain'>
         <view class="label" style="{{community.type?'':'background-color:white'}}">{{community.type}}</view>
         <view class="label" style="{{community.industry_type?'':'background-color:white'}}">{{community.industry_type}}</view>
         <view class="label">{{community.pass_code?'内部群':'开放群'}}</view>

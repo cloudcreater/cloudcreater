@@ -634,6 +634,15 @@ Page({
       inid: inid
     })
   },
+  choose_match:function(event){
+    var that = this
+    var match = event.currentTarget.dataset.match
+    var mid = event.currentTarget.dataset.mid
+    that.setData({
+      match: match,
+      mid: mid
+    })
+  },
   confirm: function() {
     var that = this
     that.setData({
@@ -756,7 +765,11 @@ Page({
     })
     
   },
-
+  to_match:function(){
+    wx.navigateTo({
+      url: '../match/match',
+    })
+  },
 
 
 
@@ -765,6 +778,10 @@ Page({
   //  */
   onReady: function() {
 
+  },
+
+  onPullDownRefresh:function(){
+    
   },
 
   // /**

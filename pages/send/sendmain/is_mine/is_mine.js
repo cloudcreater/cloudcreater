@@ -2,7 +2,9 @@
 import citydata from "../../../../citydata/citydata.js";
 import wecache from "../../../../utils/wecache.js"
 var list = []
+var comList = []
 const app = getApp()
+var that
 Page({
 
   /**
@@ -12,7 +14,7 @@ Page({
     region: ['浙江省', '杭州市', '江干区'],
     // dis: 4,
     project_classify: "",
-    symbols: [], 
+    symbols: [],
     upimg_url: [],
 
     title: "",
@@ -21,16 +23,19 @@ Page({
 
     multiIndex: [0, 0],
     multiArray: [
-      ['北京', '安徽', "福建", "甘肃", "广东", "广西", "贵州", "海南", "河北", "河南", "黑龙江", "湖北", "湖南", "吉林", "江苏", "江西", "辽宁", "内蒙古", "宁夏", "青海", "山东", "山西", "陕西", "上海", "四川", "天津", "西藏", "新疆", "云南", "浙江", "重庆", "香港", "澳门", "台湾"],
-      ['北京']
+      ['全部', '北京', '安徽', "福建", "甘肃", "广东", "广西", "贵州", "海南", "河北", "河南", "黑龙江", "湖北", "湖南", "吉林", "江苏", "江西", "辽宁", "内蒙古", "宁夏", "青海", "山东", "山西", "陕西", "上海", "四川", "天津", "西藏", "新疆", "云南", "浙江", "重庆", "香港", "澳门", "台湾", "全部"],
+      ['全部']
     ],
+
+    comLists:[],
+    index:0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var that = this
+    that = this
     symbols: ""
     console.log(that.data.symbols)
     that.setData({
@@ -40,27 +45,81 @@ Page({
     wx.setNavigationBarTitle({
       title: "发布我的" + options.type + "信息"
     })
+
+    if (app.globalData.group_id != "") {
+      that.setData({
+        group_id : app.globalData.group_id
+      })
+    } else {
+      that.setData({
+        group_id: ""
+      })
+    }
+
+    wx.request({
+      url: 'https://czw.saleii.com/api/client/get_member_group',
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded', // 默认值
+        'Accept': 'application/json'
+      },
+      data: {
+        username: app.globalData.myInfo.username,
+        access_token: app.globalData.myInfo.token,
+        page: 1,
+        pagesize: 10,
+        shop_type: 5,
+        type: 0, //0查我建立的朋友圈 1查我加入的朋友圈  2查询所有朋友圈 默认0,	
+      },
+      success(res) {
+        if (res.data.all_rows != 0) {
+          var Listitem = {}
+          for (var i = 0; i < res.data.result.length; i++) {
+            Listitem.id = res.data.result[i].id,
+            Listitem.name = res.data.result[i].name
+            comList.push(Listitem)
+            Listitem = {}
+          }
+        }
+      },
+      complete:function(){
+        wx.request({
+          url: 'https://czw.saleii.com/api/client/get_member_group',
+          method: 'POST',
+          header: {
+            'content-type': 'application/x-www-form-urlencoded', // 默认值
+            'Accept': 'application/json'
+          },
+          data: {
+            username: app.globalData.myInfo.username,
+            access_token: app.globalData.myInfo.token,
+            page: 1,
+            pagesize: 10,
+            shop_type: 5,
+            type: 1, //0查我建立的朋友圈 1查我加入的朋友圈  2查询所有朋友圈 默认0,	
+          },
+          success(res) {
+            if (res.data.all_rows != 0) {
+              var Listitem = {}
+              for (var i = 0; i < res.data.result.length; i++) {
+                Listitem.id = res.data.result[i].group_id,
+                Listitem.name = res.data.result[i].name
+                comList.push(Listitem)
+                that.setData({
+                  comLists: comList
+                })
+                Listitem = {}
+              }
+            }
+            console.log(comList)
+          }
+        })
+      }
+    })
+
   },
-  // start: function(e) {
-  //   console.log('picker发送选择改变，携带值为', e.detail.value)
-  //   this.setData({
-  //     startdate: e.detail.value
-  //   })
-  // },
-  // end: function(e) {
-  //   console.log('picker发送选择改变，携带值为', e.detail.value)
-  //   this.setData({
-  //     enddate: e.detail.value
-  //   })
-  // },
-  // bindRegionChange: function(e) {
-  //   console.log('picker发送选择改变，携带值为', e.detail.value)
-  //   this.setData({
-  //     region: e.detail.value
-  //   })
-  // },
   bindMultiPickerChange: function(e) {
-    var that = this
+     
     that.setData({
       "multiIndex[0]": e.detail.value[0],
       "multiIndex[1]": e.detail.value[1]
@@ -68,7 +127,7 @@ Page({
     console.log('picker发送选择改变，携带值为', that.data.multiArray[1][that.data.multiIndex[1]])
   },
   bindMultiPickerColumnChange: function(e) {
-    var that = this
+     
     switch (e.detail.column) {
       case 0:
         list = []
@@ -84,18 +143,25 @@ Page({
         })
     }
   },
+  bindPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value + "__" + that.data.comLists[e.detail.value].name)
+    this.setData({
+      index: e.detail.value,
+      group_id: that.data.comLists[e.detail.value].id
+    })
+  },
   tophoto: function() {
     wx.navigateTo({
       url: 'photos/photos',
     })
   },
   select: function(event) {
-    var that = this
+     
     wx.navigateTo({
       url: 'selectlabel/selectlabel?project_classify=' + that.data.project_classify,
     })
     // var num = event.currentTarget.dataset.num
-    // var that = this
+    //  
     // if (that.data.dis == num) {
     //   that.setData({
     //     dis: 4
@@ -107,7 +173,7 @@ Page({
     // }
   },
   // choose_task: function(event) {
-  //   var that = this
+  //    
   //   var task = event.currentTarget.dataset.task
   //   var tid = event.currentTarget.dataset.tid
   //   that.setData({
@@ -116,7 +182,7 @@ Page({
   //   })
   // },
   // choose_team: function(event) {
-  //   var that = this
+  //    
   //   var team = event.currentTarget.dataset.team
   //   var teid = event.currentTarget.dataset.teid
   //   that.setData({
@@ -125,7 +191,7 @@ Page({
   //   })
   // },
   // choose_captial: function(event) {
-  //   var that = this
+  //    
   //   var captial = event.currentTarget.dataset.captial
   //   var cid = event.currentTarget.dataset.cid
   //   that.setData({
@@ -134,7 +200,7 @@ Page({
   //   })
   // },
   // choose_industry: function(event) {
-  //   var that = this
+  //    
   //   var industry = event.currentTarget.dataset.industry
   //   var inid = event.currentTarget.dataset.inid
   //   that.setData({
@@ -143,7 +209,7 @@ Page({
   //   })
   // },
   // choose_status: function (event) {
-  //   var that = this
+  //    
   //   var status = event.currentTarget.dataset.status
   //   var sid = event.currentTarget.dataset.sid
   //   that.setData({
@@ -152,7 +218,7 @@ Page({
   //   })
   // },
   // confirm: function() {
-  //   var that = this
+  //    
   //   that.setData({
   //     dis: 4
   //   })
@@ -174,14 +240,8 @@ Page({
     // console.log(app.globalData.myInfo.username, app.globalData.token, app.globalData.myInfo.wx_nickname)
   },
   publish: function() {
-    var that = this
-    var id
-    if (app.globalData.community!=""){
-      id = app.globalData.community.id
-    }else{
-      id = ""
-    }
-    
+     
+
     if (that.data.symbols[0] == null) {
       wx.showModal({
         title: '重要',
@@ -242,7 +302,7 @@ Page({
             project_img3: that.data.upimg_url[2],
             project_img4: that.data.upimg_url[3],
             project_img5: that.data.upimg_url[4],
-            group_id: id,
+            group_id: that.data.group_id,
           },
           success: function(res) {
             console.log(res)
@@ -272,9 +332,9 @@ Page({
     }
   },
   save: function() {
-    var that = this
+     
     wecache.put("symbols", that.data.symbols)
-    // var that = this
+    //  
     wx.setStorage({
       key: "has_draft",
       data: "has"
@@ -363,7 +423,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    var that = this
+     
     console.log(that.data.symbols)
   },
 

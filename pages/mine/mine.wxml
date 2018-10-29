@@ -50,6 +50,10 @@
         问卷调查
         <image src="https://czw.saleii.com/uploads/xcxchat/undefined/c7964b869da85ff083de75d80e72696a.png" />
       </view>
+      <view class="user_item undertaking_mine" bindtap="to_match">
+        比赛入口
+        <image src="https://czw.saleii.com/uploads/xcxchat/undefined/c7964b869da85ff083de75d80e72696a.png" />
+      </view>
       <!-- <view class="user_item undertaking_mine" bindtap="clear">
         清除缓存
         <image src="https://czw.saleii.com/uploads/xcxchat/undefined/c7964b869da85ff083de75d80e72696a.png" />

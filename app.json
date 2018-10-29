@@ -13,12 +13,14 @@
     "pages/focus/focus_details/chat/chat",
 
     "pages/community/community",
+    "pages/community/community_main/community_main",
     "pages/community/search_community/search_community",
     "pages/community/create_community/create_community",
     "pages/community/create_community/selectlebal/selectlebal",
     "pages/community/my_community/my_community",
     "pages/community/my_community/edit_community/edit_community",
     "pages/community/my_community/edit_community/selectlebal/selectlebal",
+
 
     "pages/send/sendmain/sendmain",
     "pages/send/sendblank/sendblank",
@@ -59,7 +61,11 @@
     "pages/other_user/other_user_remark/other_user_remark",
     "pages/other_user/user_report/user_report",
 
-    "pages/out/out"
+    "pages/match/match",
+
+    "pages/out/out",
+
+    "pages/out/to_detail/to_detail"
 
   ],
   "window": {

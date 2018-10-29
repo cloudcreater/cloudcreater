@@ -42,12 +42,20 @@
         </picker>
       </view> -->
       <view class="items_city">
-        信息发布区域
+        选择是否发布到我的社区内
         <!-- <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
           <view>
             当前选择：{{region[0]}}，{{region[1]}}，{{region[2]}}
           </view>
         </picker> -->
+        <picker bindchange="bindPickerChange" value="{{index}}" range-key="name" range="{{comLists}}">
+          <view class="picker">
+            当前选择：{{comLists[index].name}}
+          </view>
+        </picker>
+      </view>
+      <view class="items_city">
+        信息发布区域
         <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
           <view class="picker">
             当前选择：{{multiArray[1][multiIndex[1]]}}
