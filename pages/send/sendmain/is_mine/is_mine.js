@@ -72,6 +72,7 @@ Page({
         type: 0, //0查我建立的朋友圈 1查我加入的朋友圈  2查询所有朋友圈 默认0,	
       },
       success(res) {
+        comList.push({id:'x',name:'否'})
         if (res.data.all_rows != 0) {
           var Listitem = {}
           for (var i = 0; i < res.data.result.length; i++) {
@@ -145,10 +146,18 @@ Page({
   },
   bindPickerChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value + "__" + that.data.comLists[e.detail.value].name)
-    this.setData({
-      index: e.detail.value,
-      group_id: that.data.comLists[e.detail.value].id
-    })
+    if (that.data.comLists[e.detail.value].id!='x'){
+      this.setData({
+        index: e.detail.value,
+        group_id: that.data.comLists[e.detail.value].id
+      })
+    }else{
+      this.setData({
+        index: e.detail.value,
+        group_id: ""
+      })
+    }
+    
   },
   tophoto: function() {
     wx.navigateTo({

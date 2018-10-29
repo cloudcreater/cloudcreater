@@ -4,6 +4,14 @@
   width: 95%;
   margin-left: 2.5%;
   margin-bottom: 20rpx;
+  font-size: 30rpx;
+}
+
+.detail{
+  width: 95%;
+  margin-left: 2.5%;
+  font-size: 36rpx;
+  font-weight: 800;
 }
 
 .pic {
@@ -67,7 +75,7 @@ input {
   width: fit-content;
   margin-top: 40rpx;
   margin-bottom: 40rpx;
-  font-size: 28rpx;
+  font-size: 48rpx;
   color: red;
   font-weight: 800;
   border-bottom: solid 2px;

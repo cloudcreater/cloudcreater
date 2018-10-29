@@ -89,10 +89,10 @@
         "selectedIconPath": "imgs/首页-后.png"
       },
       {
-        "pagePath": "pages/community/community",
-        "text": "发现",
-        "iconPath": "imgs/圈子-前.jpg",
-        "selectedIconPath": "imgs/圈子-后.jpg"
+        "pagePath": "pages/focus/focus",
+        "text": "关注",
+        "iconPath": "imgs/关注-前.png",
+        "selectedIconPath": "imgs/关注-后.png"
       },
       {
         "pagePath": "pages/send/sendblank/sendblank",
@@ -115,3 +115,4 @@
     ]
   }
 }
+
