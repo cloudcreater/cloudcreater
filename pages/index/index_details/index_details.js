@@ -18,13 +18,14 @@ Page({
     username:"",
     dis:false,
     status:"全部",
+    shop_type:shop_type,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    console.log(' index_details onLoad options:',options)
     let object = JSON.parse(options.project)
     this.setData({
       currentProject: object,
@@ -38,6 +39,7 @@ Page({
     console.log(object.num_prize)
     console.log(this.data.join_m_id)
     var that = this
+    var shop_type = that.data.shop_type
     wx.request({
       url: 'https://czw.saleii.com/api/client/get_projectmember_joinlist',
       method: 'POST',
@@ -48,7 +50,8 @@ Page({
       data: {
         username: app.globalData.myInfo.username,
         access_token: app.globalData.myInfo.token,
-        post_id: object.id
+        post_id: object.id,
+        shop_type:that.data.shop_type,
       },
       success(res) {
         that.setData({
@@ -93,7 +96,8 @@ Page({
     }
   },
   doprize:function(event){
-    var that = this
+      var that = this
+      var shop_type = that.data.shop_type
       var pid = event.currentTarget.dataset.pid
       console.log(pid)
       wx.request({
@@ -106,10 +110,26 @@ Page({
         data :{
           username: app.globalData.myInfo.username,
           access_token: app.globalData.token,
-          post_id: pid
+          post_id: pid,
+          shop_type:shop_type
         },
-        success:function(){
-          wx.request({
+        success:function(res){
+         if(res.data.info){
+           wx.showToast({
+             title: res.data.info,
+             duration: 1500,
+             icon: "none",
+           })
+           return
+         }else{
+           wx.showToast({
+             title: '点赞成功',
+             duration: 1500,
+             icon: "success",
+           })
+         } 
+          
+        wx.request({
             url: 'https://czw.saleii.com/api/client/get_project_list',
             method: 'POST',
             header: {
@@ -120,7 +140,8 @@ Page({
               username: app.globalData.myInfo.username,
               access_token: app.globalData.token,
               project_status: that.data.status,
-              project_id: pid
+              project_id: pid,
+              shop_type:shop_type,
             },success:function(res){
               that.setData({
                 prize_m_id: res.data.result[0].prize_m_id,
@@ -134,6 +155,7 @@ Page({
   dojoin: function (event){
 
     var that = this
+    var shop_type = that.data.shop_type
     var pid = event.currentTarget.dataset.pid
     var formID = event.detail.formId;
     that.setData({
@@ -153,9 +175,24 @@ Page({
       data: {
         username: app.globalData.myInfo.username,
         access_token: app.globalData.token,
-        post_id: pid
+        post_id: pid,
+        shop_type:shop_type,
       },
-      success: function () {
+      success: function (res) {
+        if (res.data.info) {
+          wx.showToast({
+            title: res.data.info,
+            duration: 1500,
+            icon: "none",
+          })
+          return
+        } else {
+          wx.showToast({
+            title: '报名成功',
+            duration: 1500,
+            icon: "success",
+          })
+        } 
         wx.request({
           url: 'https://czw.saleii.com/api/client/get_project_list',
           method: 'POST',
@@ -167,7 +204,8 @@ Page({
             username: app.globalData.myInfo.username,
             access_token: app.globalData.token,
             project_status: that.data.status,
-            project_id: pid
+            project_id: pid,
+            shop_type:shop_type,
           }, success: function (res) {
             that.setData({
               join_m_id: res.data.result[0].join_m_id,
@@ -229,6 +267,7 @@ Page({
 
   dofocus: function (event){
     var that = this
+    var shop_type = that.data.shop_type
     var pid = event.currentTarget.dataset.pid
     wx.request({
       url: 'https://czw.saleii.com/api/client/post_focus',
@@ -240,9 +279,24 @@ Page({
       data: {
         username: app.globalData.myInfo.username,
         access_token: app.globalData.token,
-        post_id: pid
+        post_id: pid,
+        shop_type:shop_type
       },
-      success: function () {
+      success: function (res) {
+        if (res.data.info) {
+          wx.showToast({
+            title: res.data.info,
+            duration: 1500,
+            icon: "none",
+          })
+          return
+        } else {
+          wx.showToast({
+            title: '关注成功',
+            duration: 1500,
+            icon: "success",
+          })
+        } 
         wx.request({
           url: 'https://czw.saleii.com/api/client/get_project_list',
           method: 'POST',
@@ -254,7 +308,8 @@ Page({
             username: app.globalData.myInfo.username,
             access_token: app.globalData.token,
             project_status: that.data.status,
-            project_id: pid
+            project_id: pid,
+            shop_type:shop_type,
           }, success: function (res) {
             that.setData({
               focus_m_id: res.data.result[0].focus_m_id,
@@ -283,6 +338,7 @@ Page({
   },
   del: function (event) {
     var item = event.currentTarget.dataset.item;
+    var shop_type = this.data.shop_type
     console.log(item.id)
     wx.showModal({
       title: '重要',
@@ -299,6 +355,7 @@ Page({
             data: {
               username: app.globalData.myInfo.username,
               access_token: app.globalData.token,
+              shop_type : shop_type,
               nickname: app.globalData.myInfo.wx_nickname,
               title: item.title,
               type: 3,
