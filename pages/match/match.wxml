@@ -26,6 +26,7 @@
   <view class="title">
     报名表
   </view>
+  <form>
   <view class="title">
     一、项目名称
     <view class="red">*</view>
@@ -46,9 +47,11 @@
     <view class="red">*</view>
   </view>
   <input type='text' value='' placeholder='{{placeholder_school}}' placeholder-style='color:red' bindinput='input' data-name="school" bindfocus='clear'></input>
+  
   <view class="title">
     三、保密声明
     <view class="tips">承诺上传的任何信息和文件只用于本次大赛，不会用于其他地方.</view>
   </view>
   <view class="btn" bindtap="sub">提交</view>
+  </form>
 </view>

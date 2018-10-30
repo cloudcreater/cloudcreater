@@ -45,6 +45,11 @@ Page({
     }
   },
   sub: function() {
+    var that = this
+    var formID = event.detail.formId;
+    that.setData({
+      formID: formID,
+    })
     if (that.data.title && that.data.name && that.data.phone && that.data.school) {
       wx.request({
         url: 'https://czw.saleii.com/api/client/save_project_info',
@@ -84,6 +89,7 @@ Page({
               content: '报名成功',
               success(res){
                 if(res.confirm){
+                  that.remindMessage() //微信通知
                   wx.switchTab({
                     url: '../../index',
                   })
@@ -124,6 +130,7 @@ Page({
       }
     }
   },
+
   clear: function() {
     that.setData({
       placeholder_title: "",
@@ -135,6 +142,46 @@ Page({
   to_detail:function(){
     wx.navigateTo({
       url: '../out/to_detail/to_detail',
+    })
+  },
+
+  /**
+* 触发微信提醒
+*/
+  remindMessage: function () {
+    var that = this
+    var formID = that.data.formID
+    var title = that.data.title
+    var name = that.data.name
+    var phone = that.data.phone
+    var school = that.data.school
+
+    wx.request({
+      url: 'https://czw.saleii.com/api/WXPay/sendMessage2Openid',
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded', // 默认值
+        'Accept': 'application/json'
+      },
+      data: {
+        m_id: project_m_id,
+        from_username: app.globalData.myInfo.username,
+        access_token: app.globalData.token,
+        formid: formID,
+        title: title,
+        name: name,
+        phone: phone,
+        school: school,
+        appid: appid,
+        appsecret: appsecret,
+        shop_type: shop_type,
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        console.log(res.data)
+      },
     })
   },
   /**
