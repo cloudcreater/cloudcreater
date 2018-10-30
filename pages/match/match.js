@@ -79,13 +79,19 @@ Page({
               duration: 1500,
             })
           } else {
-            wx.showToast({
-              title: '报名成功',
-              duration: 1500,
-              complete: function() {
-                wx.switchTab({
-                  url: '../index/index',
-                })
+            wx.showModal({
+              title: '重要',
+              content: '报名成功',
+              success(res){
+                if(res.confirm){
+                  wx.switchTab({
+                    url: '../../index',
+                  })
+                }else if(res.cancel){
+                  wx.switchTab({
+                    url: '../../index',
+                  })
+                }
               }
             })
           }

@@ -1,0 +1,82 @@
+<!--pages/mine/my_cia/mycia.wxml-->
+<view class="container">
+  <view class="topbar">
+    <view class="flex-wrp" style="flex-direction:row;">
+      <view class="top-item {{bottom_line==1?'.underline':''}}" bindtap="change" data-name="is_join">我报名的</view>
+      <view class="top-item {{bottom_line==2?'.underline':''}}" bindtap="change" data-name="is_focus">我关注的</view>
+      <view class="top-item {{bottom_line==3?'.underline':''}}" bindtap="change" data-name="is_publish">我发布的</view>
+    </view>
+  </view>
+  <block wx:if="{{info!=null}}">
+    <view>暂无此类项目</view>
+  </block>
+  <block wx:else>
+    <!--循环体开始 -->
+    <!--主要内容 -->
+    <view class="bgcolor" wx:for="{{items}}" wx:for-index="index" wx:for-item="item">
+      <view class="main">
+        <view class="info-loc" >
+          <!--姓名信息 -->
+          <view class="namespace" bindtap="toOther_user" data-item="{{item}}">
+            <image src="{{item.headimgurl}}"></image>
+            <view class="textpart">
+              <text>{{item.nickname}}</text> V
+              <text>发布了一条</text>
+              <text id="type" class="label">{{item.project_task}}</text> ·
+              <text class="data">{{dateArr[index]}}</text>
+            </view>
+          </view>
+          <!--标签 --> 
+          <view class="label-loc" bindtap="toindex_details" data-item="{{item}}">
+            <text id="type" class="label">{{item.project_step}}</text>
+            <block wx:if="{{item.project_team}}">
+              <text id="type" class="label">{{item.project_team}}</text>
+            </block>
+            <block wx:if="{{item.project_captial}}">
+              <text id="type" class="label">{{item.project_captial}}</text>
+            </block>
+            <block wx:if="{{item.project_industry}}">
+              <text id="type" class="label">{{item.project_industry}}</text>
+            </block>
+          </view>
+          <!--介绍 -->
+          <view class="introduce" bindtap="toindex_details" data-item="{{item}}">
+            {{item.project_desc}}
+          </view>
+          <!--图片 -->
+          <view class="img-loc" bindtap="toindex_details" data-item="{{item}}">
+            <image src="{{item.imagePath1}}" />
+          </view>
+          <!--转发关注 -->
+          <view class="foot">
+            <view wx:if="{{item.focus_m_id!=null}}">
+              ❤ 已关注 ·{{item.num_join}}报名 ·{{item.num_prize}}点赞 ·{{item.num_share}}转发
+            </view>
+            <view wx:else>
+              {{item.num_join}}报名 ·{{item.num_prize}}点赞 ·{{item.num_share}}转发
+            </view>
+          </view>
+          <view class="{{dis?'show':'hide'}}" wx:if="{{project_name=='is_publish'}}">
+            <view class="selectBox edit_btn" bindtap="edit" data-item="{{item}}">
+              编辑
+            </view>
+          </view>
+          <view class="{{dis?'show':'hide'}}" wx:if="{{project_name=='is_publish'}}">
+            <view class="selectBox del_btn" bindtap="del" data-item="{{item}}">
+              删除
+            </view>
+          </view> 
+        </view>
+      </view>
+    </view>
+    <!--循环体结束 --> 
+  </block>
+  <view class="op_btn {{dis?'selected':''}}" wx:if="{{project_name=='is_publish'}}" bindtap='do_op'>
+    <block wx:if="{{!dis}}">
+      管理
+    </block>
+    <block wx:else> 
+      返回
+    </block>
+  </view> 
+</view>

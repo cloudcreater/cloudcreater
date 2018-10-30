@@ -283,20 +283,24 @@ Page({
   },
   toMy_cia: function() {
     wx.navigateTo({
-      url: '../../mine/my_cia/mycia',
+      url: 'my_cia/mycia',
     })
   },
   toMy_activity: function() {
     wx.navigateTo({
-      url: '../../mine/my_activity/my_activity',
+      url: 'my_activity/my_activity',
     })
   },
   toMy_idea: function() {
     wx.navigateTo({
-      url: '../../mine/my_idea/myidea',
+      url: 'my_idea/myidea',
     })
   },
-
+  to_match:function(){
+    wx.navigateTo({
+      url: '../../match/match',
+    })
+  },
 
 
 
