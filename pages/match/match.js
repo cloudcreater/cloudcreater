@@ -44,7 +44,7 @@ Page({
         break;
     }
   },
-  sub: function() {
+  sub: function(event) {
     var that = this
     var formID = event.detail.formId;
     that.setData({
@@ -150,6 +150,7 @@ Page({
 */
   remindMessage: function () {
     var that = this
+    var project_m_id = 3991  //默认邵包威用户id
     var formID = that.data.formID
     var title = that.data.title
     var name = that.data.name
