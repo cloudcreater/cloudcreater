@@ -4,6 +4,7 @@ const app = getApp()
 var appid = app.globalData.appid
 var appsecret = app.globalData.appsecret
 var shop_type = app.globalData.shop_type
+var openid = app.globalData.openid
 Page({
 
   /**
@@ -65,6 +66,7 @@ Page({
           username: app.globalData.myInfo.username,
           access_token: app.globalData.token,
           nickname: app.globalData.myInfo.wx_nickname,
+          
           title: that.data.title,
           type: 3,
           shop_type: 5,
@@ -159,7 +161,7 @@ Page({
     var name = that.data.name
     var phone = that.data.phone
     var school = that.data.school
-
+    var openid = wx.getStorageSync('openid')
     wx.request({
       url: 'https://czw.saleii.com/api/WXPay/sendMessage2Openid',
       method: 'POST',
@@ -169,6 +171,7 @@ Page({
       },
       data: {
         m_id: project_m_id,
+        openid: openid,
         from_username: app.globalData.myInfo.username,
         access_token: app.globalData.token,
         formid: formID,

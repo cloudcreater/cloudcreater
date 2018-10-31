@@ -26,7 +26,7 @@
   <view class="title">
     报名表
   </view>
-  <form class="forms">
+  <form class="forms" bindsubmit="sub" report-submit="true" >
     <view class="title" style='margin-left:60rpx;'>
       一、项目名称
       <view class="red">*</view>
@@ -52,6 +52,6 @@
       三、保密声明
       <view class="tips">承诺上传的任何信息和文件只用于本次大赛，不会用于其他地方.</view>
     </view>
-    <view class="btn" bindtap="sub" style='margin-left:240rpx;'>提交</view>
+    <button class="btn"  formType="submit" style='margin-left:240rpx;'>提交</button>
   </form>
 </view>

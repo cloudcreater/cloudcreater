@@ -13,7 +13,6 @@ App({
     appsecret:'521fabc9fc9e432c1ca2969be953a285',
     weburl:'https://czw.saleii.com',
     shop_type:5,
-
     group_id:"",
 
   },
@@ -56,7 +55,6 @@ App({
               getApp().globalData.openid = res.data.openid
               console.log('获取用户OpenId:', user.openid)
               
-
             }
           })
         } else {
