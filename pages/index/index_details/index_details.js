@@ -239,6 +239,7 @@ Page({
     var project_m_id = that.data.currentProject.m_id
     var project_title = that.data.currentProject.title
     var openid = wx.getStorageSync('openid')
+    var msg_type = 3
     wx.request({
       url: 'https://czw.saleii.com/api/WXPay/sendMessage2Openid',
       method: 'POST',
@@ -257,6 +258,7 @@ Page({
         appid:appid,
         appsecret:appsecret,
         shop_type:shop_type,
+        msg_type: msg_type,
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'

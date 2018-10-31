@@ -3,9 +3,9 @@
   <view class="bgcolor">
     <textarea placeholder="对于我们的产品，欢迎写下意见和建议。1000字以内" bindinput='textinput'></textarea>
     <form report-submit='true' bindsubmit="sub">
-      <view class="btn" bindtap='sub'>
+      <button class="btn"  formType="submit">
         提交
-      </view>
+      </button>
     </form>
   </view>
   

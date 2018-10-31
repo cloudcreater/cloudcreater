@@ -96,11 +96,11 @@ Page({
                 if(res.confirm){
                   that.remindMessage() //微信通知
                   wx.switchTab({
-                    url: '../../index/index',
+                    url: '../index/index',
                   })
                 }else if(res.cancel){
                   wx.switchTab({
-                    url: '../../index/index',
+                    url: '../index/index',
                   })
                 }
               }
@@ -162,6 +162,7 @@ Page({
     var phone = that.data.phone
     var school = that.data.school
     var openid = wx.getStorageSync('openid')
+    var msg_type = 1
     wx.request({
       url: 'https://czw.saleii.com/api/WXPay/sendMessage2Openid',
       method: 'POST',
@@ -182,6 +183,7 @@ Page({
         appid: appid,
         appsecret: appsecret,
         shop_type: shop_type,
+        msg_type:msg_type,
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
