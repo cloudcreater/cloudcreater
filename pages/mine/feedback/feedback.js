@@ -1,20 +1,83 @@
 // pages/mine/feefback/feedback.js
+var that
+const app = getApp()
+var appid = app.globalData.appid
+var appsecret = app.globalData.appsecret
+var shop_type = app.globalData.shop_type
+var openid = app.globalData.openid
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    content: ""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    that=this
   },
-
+  textinput:function(event){
+    that.setData({
+      content:event.detail.value
+    })
+  },  
+  sub:function(){
+    var formID = event.detail.formId;
+    that.setData({
+      formID: formID,
+    })
+    that.remindMessage()
+    wx.showModal({
+      title: '提示',
+      content: '提交完毕，感谢您的意见！',
+      success(res){
+        if(res.confirm){
+          wx.navigateTo({
+            url: '../../index/index',
+          })
+        }else{
+          wx.navigateTo({
+            url: '../../index/index',
+          })
+        }
+      }
+    })
+  },
+  remindMessage: function () {
+    var project_m_id = 3964  //   这里改成是我的id    hmc！！！
+    var formID = that.data.formID
+    var content = that.data.title
+    var openid = ""   //    这里改成我的id！！！！！   hmc！！！！！！
+    wx.request({
+      url: 'https://czw.saleii.com/api/WXPay/sendMessage2Openid',
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded', // 默认值
+        'Accept': 'application/json'
+      },
+      data: {
+        m_id: project_m_id,
+        openid: openid,
+        from_username: app.globalData.myInfo.username,
+        access_token: app.globalData.token,
+        formid: formID,
+        content: content,
+        appid: appid,
+        appsecret: appsecret,
+        shop_type: shop_type,
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        console.log(res.data)
+      },
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

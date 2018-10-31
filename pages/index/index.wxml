@@ -23,7 +23,7 @@
         <block wx:if="{{tname==''}}">
           时间
         </block>
-        <block wx:else>
+        <block wx:else> 
           {{tname}}
         </block>
         <image src="https://czw.saleii.com/uploads/xcxchat/undefined/7fe9f8fae4654c5df2a199e20bee9554.png" />
@@ -85,7 +85,7 @@
 
     <view class="bgcolor" bindtap='to_match'>
       <view class="main">
-        <view class="info-loc" >
+        <view class="info-loc">
           <!--姓名信息 -->
           <view class="namespace">
             <image src="../../imgs/0.jpg"></image>
@@ -104,11 +104,11 @@
             <text id="type" class="label">官方赛事</text>
           </view>
           <!--介绍 -->
-          <view class="introduce" >
+          <view class="introduce">
             第一届"聚裂之星"创业大赛项目征集火热进行中！！
           </view>
           <!--图片 -->
-          <view class="img-loc"W>
+          <view class="img-loc" W>
             <image src="../../imgs/0.jpg" />
           </view>
           <!--转发关注 -->
@@ -121,10 +121,10 @@
 
     <view class="bgcolor" wx:for="{{items}}" wx:for-index="index" wx:for-item="item">
       <view class="main">
-        <view class="info-loc" >
+        <view class="info-loc">
           <!--姓名信息 -->
-          <view class="namespace" bindtap="toOther_user" data-item="{{item}}">
-            <image src="{{item.headimgurl}}"></image>
+          <view class="namespace">
+            <image src="{{item.headimgurl}}"  bindtap="toOther_user" data-item="{{item}}"></image>
             <view class="textpart">
               <text>{{item.nickname}}</text>
               <text>\t</text>
@@ -158,7 +158,7 @@
           <view class="foot">
             <view wx:if="{{item.focus_m_id!=null}}">
               <view>
-              ❤ 已关注 ·{{item.num_join}}报名 ·{{item.num_prize}}点赞 ·{{item.num_share}}转发{{item.join_m_id!=null?'·已报名':''}}
+                ❤ 已关注 ·{{item.num_join}}报名 ·{{item.num_prize}}点赞 ·{{item.num_share}}转发{{item.join_m_id!=null?'·已报名':''}}
               </view>
               <!--
               <block wx:if="{{item.join_m_id!=null}}">
@@ -169,7 +169,7 @@
             </view>
             <view wx:else>
               <view>
-              {{item.num_join}}报名 ·{{item.num_prize}}点赞 ·{{item.num_share}}转发{{item.join_m_id!=null?'·已报名':''}}
+                {{item.num_join}}报名 ·{{item.num_prize}}点赞 ·{{item.num_share}}转发{{item.join_m_id!=null?'·已报名':''}}
               </view>
               <!-- 
               <block wx:if="{{item.join_m_id!=null}}">
@@ -210,7 +210,7 @@
   <view class="menu {{dis==3?'show':'hide'}}">
     <scroll-view class="bgcolor-white" scroll-y>
       <block wx:if="{{project_type=='is_create'}}">
-        <view class="title">只看关注</view>
+        <!-- <view class="title">只看关注</view>
         <view class="btnitem">
           <view class="flex-wrp" style="flex-direction:column;">
             <view class="flex-wrp" style="flex-direction:row;">
@@ -219,17 +219,7 @@
             </view>
           </view>
         </view>
-        <view class="row_line"></view>
-        <view class="title">赛事组队</view>
-        <view class="btnitem">
-          <view class="flex-wrp" style="flex-direction:column;">
-            <view class="flex-wrp" style="flex-direction:row;">
-              <view class="btns {{mid==1?'.afterclick':''}}" data-match="0" data-mid="1" bindtap="choose_match">否</view>
-              <view class="btns {{mid==2?'.afterclick':''}}" data-match="1" data-mid="2" bindtap="choose_match">是</view>
-            </view>
-          </view>
-        </view>
-        <view class="row_line"></view>
+        <view class="row_line"></view> -->
         <view class="title">信息类型</view>
         <view class="btnitem">
           <view class="flex-wrp" style="flex-direction:column;">
@@ -242,6 +232,9 @@
               <view class="btns {{tid==4?'.afterclick':''}}" data-task="任务众包" data-tid="4" bindtap="choose_task">任务众包</view>
               <view class="btns {{tid==5?'.afterclick':''}}" data-task="招聘英才" data-tid="5" bindtap="choose_task">招聘英才</view>
               <view class="btns {{tid==6?'.afterclick':''}}" data-task="企业服务" data-tid="6" bindtap="choose_task">企业服务</view>
+            </view>
+            <view class="flex-wrp" style="flex-direction:row;  margin-top:20px;">
+              <view class="btns {{tid==7?'.afterclick':''}}" data-task="赛事组队" data-tid="7" bindtap="choose_task">赛事组队</view>
             </view>
           </view>
         </view>
@@ -291,15 +284,15 @@
               <view class="btns {{inid==10?'.afterclick':''}}" data-industry="其他" data-inid="10" bindtap="choose_industry">其他</view>
             </view>
             <view class="btnitem">
-              <view class="btns" style="position: absolute;left: 100rpx; bottom:-1200rpx" bindtap="confirm">确认</view>
-              <view class="btns" style="position: absolute;left: 380rpx; bottom:-1200rpx" bindtap="remake">重置</view>
+              <view class="btns" style="position: absolute;left: 100rpx; bottom:-900rpx" bindtap="confirm">确认</view>
+              <view class="btns" style="position: absolute;left: 380rpx; bottom:-900rpx" bindtap="remake">重置</view>
               <view style='height:100rpx;margin-top:60rpx;'></view>
             </view>
           </view>
         </view>
       </block>
       <block wx:elif="{{project_type=='is_idea'}}">
-        <view class="title">只看关注</view>
+        <!-- <view class="title">只看关注</view>
         <view class="btnitem">
           <view class="flex-wrp" style="flex-direction:column;">
             <view class="flex-wrp" style="flex-direction:row;">
@@ -308,23 +301,14 @@
             </view>
           </view>
         </view>
-        <view class="row_line"></view>
-        <view class="title">赛事组队</view>
-        <view class="btnitem">
-          <view class="flex-wrp" style="flex-direction:column;">
-            <view class="flex-wrp" style="flex-direction:row;">
-              <view class="btns {{mid==1?'.afterclick':''}}" data-match="0" data-mid="1" bindtap="choose_match">否</view>
-              <view class="btns {{mid==2?'.afterclick':''}}" data-match="1" data-mid="2" bindtap="choose_match">是</view>
-            </view>
-          </view>
-        </view>
-        <view class="row_line"></view>
+        <view class="row_line"></view> -->
         <view class="title">信息类型</view>
         <view class="btnitem">
           <view class="flex-wrp" style="flex-direction:column;">
             <view class="flex-wrp" style="flex-direction:row;">
               <view class="btns {{tid==1?'.afterclick':''}}" data-task="一起搞事情" data-tid="1" bindtap="choose_task">一起搞事情</view>
               <view class="btns {{tid==2?'.afterclick':''}}" data-task="创意众筹" data-tid="2" bindtap="choose_task">创意众筹 </view>
+              <view class="btns {{tid==3?'.afterclick':''}}" data-task="赛事组队" data-tid="3" bindtap="choose_task">赛事组队 </view>
             </view>
           </view>
         </view>
@@ -363,15 +347,15 @@
             <view class="btns">其他</view>
           </view> -->
             <view class="btnitem">
-              <view class="btns" style="position: absolute;left: 100rpx; bottom:-405rpx" bindtap="confirm">确认</view>
-              <view class="btns" style="position: absolute;left: 380rpx; bottom:-405rpx" bindtap="remake">重置</view>
+              <view class="btns" style="position: absolute;left: 100rpx; bottom:-5rpx" bindtap="confirm">确认</view>
+              <view class="btns" style="position: absolute;left: 380rpx; bottom:-5rpx" bindtap="remake">重置</view>
               <view style='height:100rpx;margin-top:60rpx;'></view>
             </view>
           </view>
         </view>
       </block>
       <block wx:elif="{{project_type=='is_active'}}">
-        <view class="title">只看关注</view>
+        <!-- <view class="title">只看关注</view>
         <view class="btnitem">
           <view class="flex-wrp" style="flex-direction:column;">
             <view class="flex-wrp" style="flex-direction:row;">
@@ -380,7 +364,7 @@
             </view>
           </view>
         </view>
-        <view class="row_line"></view>
+        <view class="row_line"></view> -->
         <view class="title">信息类型</view>
         <view class="btnitem">
           <view class="flex-wrp" style="flex-direction:column;">
@@ -429,8 +413,8 @@
             <view class="btns">生活技巧</view>
           </view> -->
             <view class="btnitem">
-              <view class="btns" style="position: absolute;left: 100rpx; bottom:-400rpx" bindtap="confirm">确认</view>
-              <view class="btns" style="position: absolute;left: 380rpx; bottom:-400rpx" bindtap="remake">重置</view>
+              <view class="btns" style="position: absolute;left: 100rpx; bottom:-200rpx" bindtap="confirm">确认</view>
+              <view class="btns" style="position: absolute;left: 380rpx; bottom:-200rpx" bindtap="remake">重置</view>
               <view style='height:100rpx;margin-top:60rpx;'></view>
             </view>
           </view>

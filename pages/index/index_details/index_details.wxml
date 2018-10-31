@@ -57,7 +57,17 @@
       <image src="/imgs/右箭头.png" />
     </view>
     <view class="detail_text">
-      <view class="title">创业详述</view>
+      <view class="title">
+        <block wx:if="{{currentProject.project_classify=='创业'}}">
+          创业详述
+        </block>
+        <block wx:elif="{{currentProject.project_classify=='创意'}}">
+          创意详述
+        </block>
+        <block wx:elif="{{currentProject.project_classify=='活动'}}">
+          活动详述
+        </block>
+      </view>
       <view class="main_text">
         {{currentProject.desc}}
       </view>

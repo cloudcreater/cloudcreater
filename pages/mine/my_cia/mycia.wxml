@@ -17,8 +17,8 @@
       <view class="main">
         <view class="info-loc" >
           <!--姓名信息 -->
-          <view class="namespace" bindtap="toOther_user" data-item="{{item}}">
-            <image src="{{item.headimgurl}}"></image>
+          <view class="namespace">
+            <image src="{{item.headimgurl}}" bindtap="toOther_user" data-item="{{item}}"></image>
             <view class="textpart">
               <text>{{item.nickname}}</text> V
               <text>发布了一条</text>
