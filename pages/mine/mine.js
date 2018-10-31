@@ -124,6 +124,7 @@ Page({
     }else{
       var that = this
       var shop_type = that.data.shop_type
+      var openid = wx.getStorageSync('openid')
       wx.request({
         url: 'https://czw.saleii.com/api/web/user/login/user_xcx_login',
         method: 'POST',
@@ -136,7 +137,7 @@ Page({
           smscode: this.data.sms_code,
           wx_nickname: app.globalData.userInfo.nickName,
           wx_headimg: app.globalData.userInfo.avatarUrl,
-          openid: app.globalData.openid,
+          openid: openid,
           biz_area: that.data.schoolname,
           shop_type: shop_type,
         },

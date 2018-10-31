@@ -25,11 +25,12 @@ Page({
       content:event.detail.value
     })
   },  
-  sub:function(){
+  sub: function (event){
     var formID = event.detail.formId;
     that.setData({
       formID: formID,
     })
+    console.log('feedback sub formID:', formID)
     that.remindMessage()
     wx.showModal({
       title: '提示',
@@ -50,8 +51,9 @@ Page({
   remindMessage: function () {
     var project_m_id = 3964  //   这里改成是我的id    hmc！！！
     var formID = that.data.formID
-    var content = that.data.title
-    var openid = ""   //    这里改成我的id！！！！！   hmc！！！！！！
+    var content = that.data.content
+    var openid = wx.getStorageSync('openid')   
+    var msg_type = 2  //for feedback
     wx.request({
       url: 'https://czw.saleii.com/api/WXPay/sendMessage2Openid',
       method: 'POST',
@@ -69,6 +71,7 @@ Page({
         appid: appid,
         appsecret: appsecret,
         shop_type: shop_type,
+        msg_type: msg_type,
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
