@@ -3,15 +3,15 @@
   <view class="title">
     聚烈科技2018第一届"聚裂之星"创业创意大赛项目征集
   </view>
-  <image src='https://czw.saleii.com/uploads/xcxchat/undefined/65d3301b6ea8d9d909967b8d98257657.jpg' class="pic"></image>
+  <image src='https://czw.saleii.com/uploads/xcxchat/undefined/d7d91c01115ec289742f0159f42cec72.jpg' class="pic"></image>
   <text class="title">
     报名截止：2019年1月31日\n
-    奖项支持：万元奖金，免费工位，融资机会，政策扶持\n
+    奖项支持：丰厚奖金，免费工位，融资机会，政策扶持\n
     报名要求：不限团队人数，不限年龄，不限专业，均可报名\n
     赛事安排：
   </text>
   <view class="detail">
-    在项目征集过程中，参赛团队或个人可以将自己的项目发布在小程序上，找比赛队友，找项目合伙人或合作渠道等，获得点赞和转发总量前10名的参赛项目可以直接进入复赛，获得点赞和转发总量前3名的参赛项目可以直接进入决赛。 
+    在项目征集过程中，参赛团队或个人可以将自己的项目发布在小程序上，找比赛队友，找项目合伙人或合作渠道等，获得点赞和转发总量前10名的参赛项目可以直接进入复赛，获得点赞和转发总量前3名的参赛项目可以直接进入决赛。
   </view>
   <text class="title">
     发布项目方法如下： 
@@ -26,32 +26,32 @@
   <view class="title">
     报名表
   </view>
-  <form>
-  <view class="title">
-    一、项目名称
-    <view class="red">*</view>
-  </view>
-  <input type='text' value='' placeholder='{{placeholder_title}}' placeholder-style='color:red' bindinput='input' data-name="title" bindfocus='clear'></input>
-  <view class="title">
-    二、创始人姓名
-    <view class="red">*</view>
-  </view>
-  <input type='text' value='' placeholder='{{placeholder_name}}' placeholder-style='color:red' bindinput='input' data-name="name" bindfocus='clear'></input>
-  <view class="title" style='margin-left:180rpx;'>
-    手机
-    <view class="red">*</view>
-  </view>
-  <input type='text' value='' placeholder='{{placeholder_phone}}' placeholder-style='color:red' bindinput='input' data-name="phone" bindfocus='clear'></input>
-  <view class="title" style='margin-left:180rpx;'>
-    高校或公司
-    <view class="red">*</view>
-  </view>
-  <input type='text' value='' placeholder='{{placeholder_school}}' placeholder-style='color:red' bindinput='input' data-name="school" bindfocus='clear'></input>
-  
-  <view class="title">
-    三、保密声明
-    <view class="tips">承诺上传的任何信息和文件只用于本次大赛，不会用于其他地方.</view>
-  </view>
-  <view class="btn" bindtap="sub">提交</view>
+  <form class="forms">
+    <view class="title" style='margin-left:60rpx;'>
+      一、项目名称
+      <view class="red">*</view>
+    </view>
+    <input type='text' value='' placeholder='{{placeholder_title}}' placeholder-style='color:red' bindinput='input' data-name="title" bindfocus='clear' style='margin-left:140rpx;'></input>
+    <view class="title" style='margin-left:60rpx;'>
+      二、创始人姓名
+      <view class="red">*</view>
+    </view>
+    <input type='text' value='' placeholder='{{placeholder_name}}' placeholder-style='color:red' bindinput='input' data-name="name" bindfocus='clear' style='margin-left:140rpx;'></input>
+    <view class="title" style='margin-left:100rpx;'>
+      手机
+      <view class="red">*</view>
+    </view>
+    <input type='text' value='' placeholder='{{placeholder_phone}}' placeholder-style='color:red' bindinput='input' data-name="phone" bindfocus='clear' style='margin-left:140rpx;'></input>
+    <view class="title" style='margin-left:100rpx;'>
+      高校或公司
+      <view class="red">*</view>
+    </view>
+    <input type='text' value='' placeholder='{{placeholder_school}}' placeholder-style='color:red' bindinput='input' data-name="school" bindfocus='clear' style='margin-left:140rpx;'></input>
+
+    <view class="title">
+      三、保密声明
+      <view class="tips">承诺上传的任何信息和文件只用于本次大赛，不会用于其他地方.</view>
+    </view>
+    <view class="btn" bindtap="sub" style='margin-left:240rpx;'>提交</view>
   </form>
 </view>
