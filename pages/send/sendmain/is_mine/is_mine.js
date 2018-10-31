@@ -2,7 +2,6 @@
 import citydata from "../../../../citydata/citydata.js";
 import wecache from "../../../../utils/wecache.js"
 var list = []
-var comList = []
 const app = getApp()
 var that
 Page({
@@ -55,7 +54,7 @@ Page({
         group_id: ""
       })
     }
-
+    var comList = []
     wx.request({
       url: 'https://czw.saleii.com/api/client/get_member_group',
       method: 'POST',
@@ -102,6 +101,7 @@ Page({
           success(res) {
             if (res.data.all_rows != 0) {
               var Listitem = {}
+              
               for (var i = 0; i < res.data.result.length; i++) {
                 Listitem.id = res.data.result[i].group_id,
                 Listitem.name = res.data.result[i].name
@@ -112,7 +112,7 @@ Page({
                 Listitem = {}
               }
             }
-            console.log(comList)
+            console.log(that.data.comLists)
           }
         })
       }
