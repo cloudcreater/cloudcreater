@@ -12,6 +12,7 @@
 }
 
 .Bo_bar_item{
+  position: relative;
   width: 50%;
   line-height: 120rpx;
   text-align: center;
@@ -19,6 +20,15 @@
   padding-top:30rpx;
   font-weight: 500;
 }
+
+.Bo_bar_item image{
+  position: absolute;
+  width: 60rpx;
+  height: 60rpx;
+  left: 155rpx;
+  top: 10rpx;
+}
+
 
 .selected{
   color:red;

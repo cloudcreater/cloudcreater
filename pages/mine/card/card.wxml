@@ -1,9 +1,11 @@
 <!--pages/mine/card/card.wxml-->
 <view class="bottom_bar">
   <view class="Bo_bar_item {{which_bar=='my_card'?'selected':''}}" data-bar_name="mine" bindtap='change'>
+    <image src="https://czw.saleii.com/uploads/xcxchat/undefined/9d0acd6ba58730b70dabccb102bd83ca.jpg"></image>
     我的名片
   </view>
   <view class="Bo_bar_item {{which_bar=='my_collect'?'selected':''}}" data-bar_name="collect" bindtap='change'>
+    <image src='https://czw.saleii.com/uploads/xcxchat/undefined/c3190429fed1ea5b81b771838c29e5c1.jpg'></image>
     名片夹
   </view>
 </view>
