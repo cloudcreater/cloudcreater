@@ -96,11 +96,11 @@ Page({
                 if(res.confirm){
                   that.remindMessage() //微信通知
                   wx.switchTab({
-                    url: '../../index',
+                    url: '../../index/index',
                   })
                 }else if(res.cancel){
                   wx.switchTab({
-                    url: '../../index',
+                    url: '../../index/index',
                   })
                 }
               }
