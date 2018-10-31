@@ -37,11 +37,11 @@ Page({
       content: '提交完毕，感谢您的意见！',
       success(res){
         if(res.confirm){
-          wx.navigateTo({
+          wx.switchTab({
             url: '../../index/index',
           })
-        }else{
-          wx.navigateTo({
+        } else if (res.cancel){
+          wx.switchTab({
             url: '../../index/index',
           })
         }

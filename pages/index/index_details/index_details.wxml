@@ -25,7 +25,17 @@
       </view> -->
     </view>
     <view class="project_label">
-      <view class="title">创业标签</view>
+      <view class="title">
+        <block wx:if="{{currentProject.project_classify=='创业'}}">
+          创业标签
+        </block>
+        <block wx:elif="{{currentProject.project_classify=='创意'}}">
+          创意标签
+        </block>
+        <block wx:elif="{{currentProject.project_classify=='活动'}}">
+          活动标签
+        </block>
+      </view>
       <view class="label_loc">
         <view class="label_user_info">{{currentProject.project_step}}</view>
         <block wx:if="{{currentProject.project_team}}">
@@ -41,7 +51,17 @@
     </view>
     <!--sketch简述  -->
     <view class="sketch">
-      <view class="title">创业简述</view>
+      <view class="title">
+        <block wx:if="{{currentProject.project_classify=='创业'}}">
+          创业简述
+        </block>
+        <block wx:elif="{{currentProject.project_classify=='创意'}}">
+          创意简述
+        </block>
+        <block wx:elif="{{currentProject.project_classify=='活动'}}">
+          活动简述
+        </block>
+      </view>
       <view class="detail">
         <view class="detail_item">项目名称：{{currentProject.title}}</view>
         <view class="detail_item">项目简述：{{currentProject.project_desc}}</view>
@@ -146,14 +166,14 @@
           </view>
         </block>
         <block wx:else>
-        <!-- 
+          <!-- 
           <view class="nav_item" data-pid="{{currentProject.id}}" bindtap="dojoin">
           -->
-          <form  class="nav_item" bindsubmit="dojoin" report-submit="true"  data-pid="{{currentProject.id}}">
+          <form class="nav_item" bindsubmit="dojoin" report-submit="true" data-pid="{{currentProject.id}}">
             <view class="join_img_loc">
               <image src='https://czw.saleii.com/uploads/xcxchat/undefined/fbe718c4671d97f6b2cce5385a0ac9f7.jpg'></image>
             </view>
-             <button class="free-btn-bordernone" style="margin-top:30rpx;" formType="submit">报名</button>
+            <button class="free-btn-bordernone" style="margin-top:30rpx;" formType="submit">报名</button>
           </form>
           <!--报名
           </view>
@@ -226,7 +246,7 @@
     <block wx:if="{{!dis}}">
       管理
     </block>
-    <block wx:else> 
+    <block wx:else>
       返回
     </block>
   </view>
