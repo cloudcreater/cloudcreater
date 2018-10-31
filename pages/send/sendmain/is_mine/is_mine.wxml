@@ -2,7 +2,7 @@
 <view class="container">
   <view class="bgcolor">
     <view class="main">
-      <view class="selectlabel" bindtap="select" data-num="1"> 
+      <view class="selectlabel" bindtap="select" data-num="1">
         选择标签
         <image src="/imgs/右箭头.png" />
       </view>
@@ -11,13 +11,13 @@
           <view class="label-loc">
             <text class="label">{{symbols[0].task}}</text>
             <block wx:if="{{symbols[1].captial}}">
-              <text class="label">{{symbols[1].captial}}</text> 
+              <text class="label">{{symbols[1].captial}}</text>
             </block>
             <block wx:if="{{symbols[2].industry}}">
-              <text class="label">{{symbols[2].industry}}</text> 
+              <text class="label">{{symbols[2].industry}}</text>
             </block>
             <block wx:if="{{symbols[3].team}}">
-              <text class="label">{{symbols[3].team}}</text> 
+              <text class="label">{{symbols[3].team}}</text>
             </block>
             <text class="label">{{symbols[4].status}}</text>
           </view>
@@ -69,7 +69,16 @@
         简介：
         <textarea class="items_textarea" placeholder='用几句话简单介绍您的项目,建议三四十字即可' bindinput="project_descInput"></textarea>
       </view>
-      <view class="title">创业详述
+      <view class="title">
+        <block wx:if="{{project_classify=='创业'}}">
+          创业详述
+        </block>
+        <block wx:elif="{{project_classify=='创意'}}">
+          创意详述
+        </block>
+        <block wx:elif="{{project_classify=='活动'}}">
+          活动详述
+        </block>
         <view class="right">1000字以内</view>
       </view>
       <textarea class='area' maxlength='2000' placeholder='请简要介绍下您的项目和需求，建议提前写好复制黏贴' bindinput="descInput">
