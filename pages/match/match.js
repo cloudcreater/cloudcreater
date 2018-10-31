@@ -1,6 +1,9 @@
 // pages/match/match.js
 var that
 const app = getApp()
+var appid = app.globalData.appid
+var appsecret = app.globalData.appsecret
+var shop_type = app.globalData.shop_type
 Page({
 
   /**
