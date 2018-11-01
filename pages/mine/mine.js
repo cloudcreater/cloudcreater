@@ -17,6 +17,11 @@ Page({
     shop_type: shop_type
   },
 
+  handleContact(e) {
+    //console.log('handleContact path:', e.path, ' query:', e.query)
+    //console.log(e.query)
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

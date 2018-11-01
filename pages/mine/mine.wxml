@@ -42,8 +42,8 @@
         设置
         <image src="/imgs/右箭头.png" />
       </view> -->
-      <view class="user_item" bindtap="tofeedback">
-        反馈中心
+      <view class="user_item" bindtap=""> <!-- tofeedback -->
+        <button class="clickBtn" open-type="contact" bindcontact="handleContact" session-from="weapp">反馈中心</button> 
         <image src="https://czw.saleii.com/uploads/xcxchat/undefined/c7964b869da85ff083de75d80e72696a.png" />
       </view>
       <view class="user_item undertaking_mine" bindtap="search">
