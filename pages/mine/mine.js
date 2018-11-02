@@ -2,19 +2,20 @@
 import wecache from "../../utils/wecache.js"
 const app = getApp()
 var shop_type = app.globalData.shop_type
+var that
 Page({
 
   /**
    * 页面的初始数据
    */
-  data: { 
+  data: {
     userInfo: null,
     phoneNo: null,
     sms_code: null,
-    schoolname:"",
+    schoolname: "",
     info: "",
     myInfo: null,
-    shop_type: shop_type
+    shop_type: shop_type,
   },
 
   handleContact(e) {
@@ -25,59 +26,40 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    var that = this
+  onLoad: function(options) {
+    that = this
     that.setData({
       userInfo: app.globalData.userInfo,
       myInfo: wecache.get("myInfo", "0"),
       getinfo: wecache.get("getinfo", "0")
     })
-    if (wecache.get("hasUserInfo")!="has") {
-      wx.showModal({
-        title: '重要',
-        content: '我们需要获取您的微信权限才能体验我们的产品。',
-        success: function (res) {
-          if (res.confirm) {
-            wx.navigateTo({
-              url: 'getUserInfo/getUserInfo',
-            })
-          } else if (res.cancel) {
-            wx.showToast({
-              title: '失败',
-              icon: 'loading',
-              duration: 2000
-            })
-          }
-        }
-      })
-    }
   },
-  ToUser_Info: function () {
+  ToUser_Info: function() {
     wx.navigateTo({
       url: 'user_info/user_info',
     })
   },
-  ToUser_Confirm: function () {
+  ToUser_Confirm: function() {
     wx.navigateTo({
       url: 'user_confirm/user_confirm',
     })
   },
-  ToUser_Card: function () {
+  ToUser_Card: function() {
     wx.navigateTo({
       url: 'card/card',
     })
   },
-  ToUser_Resume: function () {
+  ToUser_Resume: function() {
     wx.navigateTo({
       url: 'resume/resume',
     })
   },
-  phoneNoInput: function (event) {
+  phoneNoInput: function(event) {
     this.setData({
       phoneNo: event.detail.value
     })
   },
-  SmscodeInput: function (event) {
+  SmscodeInput: function(event) {
     this.setData({
       sms_code: event.detail.value
     })
@@ -87,7 +69,7 @@ Page({
       schoolname: event.detail.value
     })
   },
-  getSmscode: function () {
+  getSmscode: function() {
     var that = this
     var shop_type = that.data.shop_type
     wx.request({
@@ -99,9 +81,9 @@ Page({
       },
       data: {
         phoneNo: this.data.phoneNo,
-        shop_type:shop_type
+        shop_type: shop_type
       },
-      success: function (res) {
+      success: function(res) {
         if (res.data.info) {
           that.setData({
             info: res.data.info
@@ -114,19 +96,19 @@ Page({
       }
     })
   },
-  tipsClear: function () {
+  tipsClear: function() {
     var that = this
     that.setData({
       info: ""
     })
   },
-  dologin: function () {
-    if (wecache.get("hasUserInfo") != "has"){
+  dologin: function() {
+    if (wecache.get("hasUserInfo") != "has") {
       wx.showModal({
         title: '重要',
         content: '您还没有获取微信权限！请重新进入本页面获取',
       })
-    }else{
+    } else {
       var that = this
       var shop_type = that.data.shop_type
       var openid = wx.getStorageSync('openid')
@@ -146,7 +128,7 @@ Page({
           biz_area: that.data.schoolname,
           shop_type: shop_type,
         },
-        success: function (res) {
+        success: function(res) {
           if (res.data.status == "n") {
             that.setData({
               info: res.data.info
@@ -158,7 +140,7 @@ Page({
             wx.setStorageSync('user_type', res.data.result['user_type'])
             wecache.put("myInfo", res.data.result)
             var myInfo = wecache.get("myInfo")
-            setTimeout(function () {
+            setTimeout(function() {
               that.setData({
                 // token: res.data.result.token,
                 // myInfo: res.data.result
@@ -166,7 +148,7 @@ Page({
               })
               app.globalData.myInfo = myInfo
               app.globalData.token = myInfo.token
-              setTimeout(function () {
+              setTimeout(function() {
                 wx.request({
                   url: 'https://czw.saleii.com/api/client/get_name',
                   method: 'POST',
@@ -178,9 +160,9 @@ Page({
                     username: that.data.phoneNo,
                     access_token: app.globalData.token
                   },
-                  success: function (res) {
+                  success: function(res) {
                     wecache.put("getinfo", res.data.result)
-                    setTimeout(function () {
+                    setTimeout(function() {
                       that.setData({
                         getinfo: wecache.get("getinfo")
                       })
@@ -195,112 +177,104 @@ Page({
       })
     }
   },
-  toMy_cia:function(){
+  toMy_cia: function() {
     wx.navigateTo({
       url: 'my_cia/mycia',
     })
   },
-  toMy_activity:function(){
+  toMy_activity: function() {
     wx.navigateTo({
       url: 'my_activity/my_activity',
     })
   },
-  toMy_idea:function(){
+  toMy_idea: function() {
     wx.navigateTo({
       url: 'my_idea/myidea',
     })
   },
-  toOpration:function(){
+  toOpration: function() {
     wx.navigateTo({
       url: 'oprations/oprations',
     })
   },
-  tofeedback:function(){
+  tofeedback: function() {
     wx.navigateTo({
       url: 'feedback/feedback',
     })
   },
-  clear:function(){
-    wecache.put("myresume",null)
+  clear: function() {
+    wecache.put("myresume", null)
     wecache.put("mycard", null)
     wx.switchTab({
       url: '../index/index',
     })
   },
-  search:function(){
+  search: function() {
     wx.navigateTo({
       url: '../out/out',
     })
   },
-  to_match:function(){
+  to_match: function() {
     wx.navigateTo({
       url: '../match/match',
     })
   },
+  getUserInfo: function(event) {
+    app.globalData.userInfo = event.detail.userInfo
+    this.setData({
+      userInfo: event.detail.userInfo,
+      hasUserInfo: "has"
+    })
+    wecache.put("hasUserInfo", "has")
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-  
+  onReady: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-    if (wecache.get("hasUserInfo") != "has") {
-      wx.showModal({
-        title: '重要',
-        content: '我们需要获取您的微信权限才能体验我们的产品。',
-        success: function (res) {
-          if (res.confirm) {
-            wx.navigateTo({
-              url: 'getUserInfo/getUserInfo',
-            })
-          } else if (res.cancel) {
-            wx.showToast({
-              title: '失败',
-              icon: 'loading',
-              duration: 2000
-            })
-          }
-        }
-      })
-    }
+  onShow: function() {
+    that.setData({
+      hasUserInfo: wecache.get("hasUserInfo","no")
+    })
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
-  
+  onHide: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-  
+  onUnload: function() {
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-  
+  onPullDownRefresh: function() {
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-  
+  onReachBottom: function() {
+
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-  
+  onShareAppMessage: function() {
+
   }
 })

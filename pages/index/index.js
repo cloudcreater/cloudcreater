@@ -47,8 +47,8 @@ Page({
     inid: "",
     team: "",
     teid: "",
-    dates:"",
-    fid:"",
+    dates: "",
+    fid: "",
     focus: 0,
 
     pagesize: 10,
@@ -63,7 +63,7 @@ Page({
 
     multiIndex: [0, 0],
     multiArray: [
-      ['全部','北京', '安徽', "福建", "甘肃", "广东", "广西", "贵州", "海南", "河北", "河南", "黑龙江", "湖北", "湖南", "吉林", "江苏", "江西", "辽宁", "内蒙古", "宁夏", "青海", "山东", "山西", "陕西", "上海", "四川", "天津", "西藏", "新疆", "云南", "浙江", "重庆", "香港", "澳门", "台湾","全部"],
+      ['全部', '北京', '安徽', "福建", "甘肃", "广东", "广西", "贵州", "海南", "河北", "河南", "黑龙江", "湖北", "湖南", "吉林", "江苏", "江西", "辽宁", "内蒙古", "宁夏", "青海", "山东", "山西", "陕西", "上海", "四川", "天津", "西藏", "新疆", "云南", "浙江", "重庆", "香港", "澳门", "台湾", "全部"],
       ['全部']
     ],
   },
@@ -107,7 +107,7 @@ Page({
           project_industry: "全部",
           project_type: name,
           project_status: that.data.status,
-          project_date:that.data.dates,
+          project_date: that.data.dates,
           project_location: that.data.multiArray[1][that.data.multiIndex[1]],
           pagesize: that.data.pagesize,
           is_focus: that.data.focus,
@@ -120,7 +120,7 @@ Page({
             that.setData({
               items: res.data.result,
               dateArr: [],
-              info:null
+              info: null
             })
             for (var i = 0; i < res.data.result.length; i++) {
               that.setData({
@@ -598,7 +598,7 @@ Page({
       tid: tid
     })
   },
-  choose_focus: function (event) {
+  choose_focus: function(event) {
     var that = this
     var focus = event.currentTarget.dataset.focus
     var fid = event.currentTarget.dataset.fid
@@ -634,7 +634,7 @@ Page({
       inid: inid
     })
   },
-  choose_match:function(event){
+  choose_match: function(event) {
     var that = this
     var match = event.currentTarget.dataset.match
     var mid = event.currentTarget.dataset.mid
@@ -751,7 +751,7 @@ Page({
       })
     }
   },
-  remake:function(){
+  remake: function() {
     var that = this
     that.setData({
       task: "",
@@ -763,12 +763,30 @@ Page({
       team: "",
       teid: "",
     })
-    
+
   },
-  to_match:function(){
-    wx.navigateTo({
-      url: '../match/match',
-    })
+  to_match: function() {
+    if (wecache.get("myInfo", "0") == 0) {
+      wx.showModal({
+        title: '重要',
+        content: '请先登陆！',
+        success: function(res) {
+          if (res.confirm) {
+            wx.switchTab({
+              url: '../mine/mine',
+            })
+          } else if (res.cancel) {
+            wx.switchTab({
+              url: '../index/index',
+            })
+          }
+        }
+      })
+    } else {
+      wx.navigateTo({
+        url: '../match/match',
+      })
+    }
   },
 
 
@@ -780,8 +798,8 @@ Page({
 
   },
 
-  onPullDownRefresh:function(){
-    
+  onPullDownRefresh: function() {
+
   },
 
   // /**
@@ -792,7 +810,7 @@ Page({
     that.onLoad()
     that.setData({
       changepage: 1,
-      focus:0
+      focus: 0
     })
 
     if (wecache.get("myInfo", "0") == 0) {

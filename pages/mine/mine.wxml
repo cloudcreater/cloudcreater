@@ -42,8 +42,9 @@
         设置
         <image src="/imgs/右箭头.png" />
       </view> -->
-      <view class="user_item" bindtap=""> <!-- tofeedback -->
-        <button class="clickBtn" open-type="contact" bindcontact="handleContact" session-from="weapp">反馈中心</button> 
+      <view class="user_item" bindtap="">
+        <!-- tofeedback -->
+        <button class="clickBtn" open-type="contact" bindcontact="handleContact" session-from="weapp">反馈中心</button>
         <image src="https://czw.saleii.com/uploads/xcxchat/undefined/c7964b869da85ff083de75d80e72696a.png" />
       </view>
       <view class="user_item undertaking_mine" bindtap="search">
@@ -63,32 +64,40 @@
       </button> -->
     </view>
     <view wx:else>
-      <view class="title">请登录</view>
-      <view class="login_frame">
-        <view class="main_frame_loc">
-          <view class="phone_loc">
-            <view class="login_item_title">手机号：</view>
-            <view class="login_item_input">
-              <input type="text" placeholder='请输入您的手机号码' bindinput="phoneNoInput" bindfocus="tipsClear"></input>
+      <block wx:if="{{hasUserInfo=='has'}}">
+        <view class="title">请登录</view>
+        <view class="login_frame">
+          <view class="main_frame_loc">
+            <view class="phone_loc">
+              <view class="login_item_title">手机号：</view>
+              <view class="login_item_input">
+                <input type="text" placeholder='请输入您的手机号码' bindinput="phoneNoInput" bindfocus="tipsClear"></input>
+              </view>
+              <view class="tips">{{info}}</view>
             </view>
-            <view class="tips">{{info}}</view>
-          </view>
-          <view class="sms_loc">
-            <view class="login_item_title">验证码：</view>
-            <view class="login_item_input">
-              <input type="text" placeholder='请输入验证码' bindinput="SmscodeInput"></input>
+            <view class="sms_loc">
+              <view class="login_item_title">验证码：</view>
+              <view class="login_item_input">
+                <input type="text" placeholder='请输入验证码' bindinput="SmscodeInput"></input>
+              </view>
             </view>
-          </view>
-          <view class="school_loc">
-            <view class="login_item_title">学校：</view>
-            <view class="login_item_input">
-              <input type="text" placeholder='输入您的学校（可不填）' bindinput="schoolInput"></input>
+            <view class="school_loc">
+              <view class="login_item_title">学校：</view>
+              <view class="login_item_input">
+                <input type="text" placeholder='输入您的学校（可不填）' bindinput="schoolInput"></input>
+              </view>
             </view>
+            <button class="getsms_btn" bindtap="getSmscode">获取验证码</button>
+            <button class="getsms_btn login" bindtap="dologin">登陆</button>
           </view>
-          <button class="getsms_btn" bindtap="getSmscode">获取验证码</button>
-          <button class="getsms_btn login" bindtap="dologin">登陆</button>
         </view>
-      </view>
+      </block>
+      <block wx:else>
+        <view class="white_bg">
+          <view class="wel">欢迎来到云端创客，点击确认按钮开启云端创业之旅~</view>
+          <button open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 确认 </button>
+        </view>
+      </block>
     </view>
   </view>
 </view>
