@@ -1,0 +1,21 @@
+<!--pages/find/find.wxml-->
+<view class="community_item" style='top:20rpx;' bindtap='to_community'>
+  社区
+  <image src="https://czw.saleii.com/uploads/xcxchat/undefined/c7964b869da85ff083de75d80e72696a.png" />
+</view>
+<view class="community_item" style='top:180rpx;' data-lebal="创业服务" bindtap='to_service'>
+  创业服务
+  <image src="https://czw.saleii.com/uploads/xcxchat/undefined/c7964b869da85ff083de75d80e72696a.png" />
+</view>
+<view class="community_item" style='top:340rpx;' data-lebal="精选课程" bindtap='to_service'>
+  精选课程
+  <image src="https://czw.saleii.com/uploads/xcxchat/undefined/c7964b869da85ff083de75d80e72696a.png" />
+</view>
+<view class="community_item" style='top:500rpx;' data-lebal="cool公司" bindtap='to_service'>
+  cool公司
+  <image src="https://czw.saleii.com/uploads/xcxchat/undefined/c7964b869da85ff083de75d80e72696a.png" />
+</view>
+<view class="community_item" style='top:660rpx;' data-lebal="组织机构" bindtap='to_service'>
+  组织机构
+  <image src="https://czw.saleii.com/uploads/xcxchat/undefined/c7964b869da85ff083de75d80e72696a.png" />
+</view>

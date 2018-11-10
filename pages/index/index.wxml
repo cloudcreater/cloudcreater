@@ -210,7 +210,7 @@
   <view class="menu {{dis==3?'show':'hide'}}">
     <scroll-view class="bgcolor-white" scroll-y>
       <block wx:if="{{project_type=='is_create'}}">
-        <!-- <view class="title">只看关注</view>
+        <view class="title">只看关注</view>
         <view class="btnitem">
           <view class="flex-wrp" style="flex-direction:column;">
             <view class="flex-wrp" style="flex-direction:row;">
@@ -219,7 +219,7 @@
             </view>
           </view>
         </view>
-        <view class="row_line"></view> -->
+        <view class="row_line"></view>
         <view class="title">信息类型</view>
         <view class="btnitem">
           <view class="flex-wrp" style="flex-direction:column;">
@@ -284,15 +284,15 @@
               <view class="btns {{inid==10?'.afterclick':''}}" data-industry="其他" data-inid="10" bindtap="choose_industry">其他</view>
             </view>
             <view class="btnitem">
-              <view class="btns" style="position: absolute;left: 100rpx; bottom:-900rpx" bindtap="confirm">确认</view>
-              <view class="btns" style="position: absolute;left: 380rpx; bottom:-900rpx" bindtap="remake">重置</view>
+              <view class="btns" style="position: absolute;left: 100rpx; bottom:-1100rpx" bindtap="confirm">确认</view>
+              <view class="btns" style="position: absolute;left: 380rpx; bottom:-1100rpx" bindtap="remake">重置</view>
               <view style='height:100rpx;margin-top:60rpx;'></view>
             </view>
           </view>
         </view>
       </block>
       <block wx:elif="{{project_type=='is_idea'}}">
-        <!-- <view class="title">只看关注</view>
+        <view class="title">只看关注</view>
         <view class="btnitem">
           <view class="flex-wrp" style="flex-direction:column;">
             <view class="flex-wrp" style="flex-direction:row;">
@@ -301,7 +301,7 @@
             </view>
           </view>
         </view>
-        <view class="row_line"></view> -->
+        <view class="row_line"></view>
         <view class="title">信息类型</view>
         <view class="btnitem">
           <view class="flex-wrp" style="flex-direction:column;">
@@ -347,15 +347,15 @@
             <view class="btns">其他</view>
           </view> -->
             <view class="btnitem">
-              <view class="btns" style="position: absolute;left: 100rpx; bottom:-5rpx" bindtap="confirm">确认</view>
-              <view class="btns" style="position: absolute;left: 380rpx; bottom:-5rpx" bindtap="remake">重置</view>
+              <view class="btns" style="position: absolute;left: 100rpx; bottom:-205rpx" bindtap="confirm">确认</view>
+              <view class="btns" style="position: absolute;left: 380rpx; bottom:-205rpx" bindtap="remake">重置</view>
               <view style='height:100rpx;margin-top:60rpx;'></view>
             </view>
           </view>
         </view>
       </block>
       <block wx:elif="{{project_type=='is_active'}}">
-        <!-- <view class="title">只看关注</view>
+        <view class="title">只看关注</view>
         <view class="btnitem">
           <view class="flex-wrp" style="flex-direction:column;">
             <view class="flex-wrp" style="flex-direction:row;">
@@ -364,7 +364,7 @@
             </view>
           </view>
         </view>
-        <view class="row_line"></view> -->
+        <view class="row_line"></view>
         <view class="title">信息类型</view>
         <view class="btnitem">
           <view class="flex-wrp" style="flex-direction:column;">
@@ -413,8 +413,8 @@
             <view class="btns">生活技巧</view>
           </view> -->
             <view class="btnitem">
-              <view class="btns" style="position: absolute;left: 100rpx; bottom:-200rpx" bindtap="confirm">确认</view>
-              <view class="btns" style="position: absolute;left: 380rpx; bottom:-200rpx" bindtap="remake">重置</view>
+              <view class="btns" style="position: absolute;left: 100rpx; bottom:-400rpx" bindtap="confirm">确认</view>
+              <view class="btns" style="position: absolute;left: 380rpx; bottom:-400rpx" bindtap="remake">重置</view>
               <view style='height:100rpx;margin-top:60rpx;'></view>
             </view>
           </view>

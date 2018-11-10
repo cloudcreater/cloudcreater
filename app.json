@@ -68,7 +68,11 @@
 
     "pages/out/out",
 
-    "pages/out/to_detail/to_detail"
+    "pages/out/to_detail/to_detail",
+
+    "pages/find/find",
+
+    "pages/service/service"
 
   ],
   "window": {
@@ -92,10 +96,10 @@
         "selectedIconPath": "imgs/首页-后.png"
       },
       {
-        "pagePath": "pages/focus/focus",
-        "text": "关注",
-        "iconPath": "imgs/关注-前.png",
-        "selectedIconPath": "imgs/关注-后.png"
+        "pagePath": "pages/find/find",
+        "text": "发现",
+        "iconPath": "imgs/发现-前.jpg",
+        "selectedIconPath": "imgs/发现-后.jpg"
       },
       {
         "pagePath": "pages/send/sendblank/sendblank",

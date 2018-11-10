@@ -28,27 +28,14 @@
         项目名称：
         <input maxlength='16' type='text' placeholder='请输入项目名称' bindinput="titleInput"></input>
       </view>
-      <!-- <view class="items_date" style='height:fit-content'>
-        信息持续时间
-        <picker mode="date" value="{{startdate}}" bindchange="start">
-          <view>
-            从: {{startdate}}
-          </view>
-        </picker>
-        <picker mode="date" value="{{enddate}}" bindchange="end">
-          <view>
-            到: {{enddate}}
-          </view>
-        </picker>
-      </view> -->
-      <!-- <view class="items_city">
+      <view class="items_city">
         选择是否发布到我的社区内
         <picker bindchange="bindPickerChange" value="{{index}}" range-key="name" range="{{comLists}}">
           <view class="picker">
             当前选择：{{comLists[index].name}}
           </view>
         </picker>
-      </view> -->
+      </view>
       <view class="items_city">
         信息发布区域
         <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">

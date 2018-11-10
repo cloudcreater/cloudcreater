@@ -34,7 +34,7 @@ Page({
     msgs: "",
     bottom_line_msg: 1,
     msg_status: 0,
-    info_msg:null,
+    info_msg: null,
     status: "全部",
   },
 
@@ -283,20 +283,20 @@ Page({
   },
   toMy_cia: function() {
     wx.navigateTo({
-      url: 'my_cia/mycia',
+      url: 'my_cia/mycia?community=' + JSON.stringify(that.data.community),
     })
   },
   toMy_activity: function() {
     wx.navigateTo({
-      url: 'my_activity/my_activity',
+      url: 'my_activity/my_activity?community=' + JSON.stringify(that.data.community),
     })
   },
   toMy_idea: function() {
     wx.navigateTo({
-      url: 'my_idea/myidea',
+      url: 'my_idea/myidea?community=' + JSON.stringify(that.data.community),
     })
   },
-  to_match:function(){
+  to_match: function() {
     wx.navigateTo({
       url: '../../match/match',
     })
@@ -309,10 +309,10 @@ Page({
     that.setData({
       lebal_num: id
     })
-    if (id==2){
+    if (id == 2) {
       var systemtype
       wx.getSystemInfo({
-        success: function (res) {
+        success: function(res) {
           systemtype = res.system
         }
       })
@@ -320,7 +320,7 @@ Page({
       if (systemtype.substring(0, 7) != "Android") {
         wx.showActionSheet({
           itemList: ['我的创业', '我的创意', '我的活动'],
-          success: function (res) {
+          success: function(res) {
             app.globalData.group_id = that.data.group_id
             if (res.tapIndex == 0) {
               wx.navigateTo({
@@ -336,7 +336,7 @@ Page({
               })
             }
           },
-          fail: function (res) {
+          fail: function(res) {
             console.log(res.errMsg)
             that.setData({
               lebal_num: 1
@@ -346,7 +346,7 @@ Page({
       } else {
         wx.showActionSheet({
           itemList: ['我的创业', '我的创意', '我的活动', '取消'],
-          success: function (res) {
+          success: function(res) {
             app.globalData.group_id = that.data.group_id
             if (res.tapIndex == 0) {
               wx.navigateTo({
@@ -366,7 +366,7 @@ Page({
               })
             }
           },
-          fail: function (res) {
+          fail: function(res) {
             console.log(res.errMsg)
             that.setData({
               lebal_num: 1
@@ -476,9 +476,14 @@ Page({
       },
       success: function(res) {
         console.log(res.data.result)
+        var msg = []
         if (res.data.status == "y") {
+          for (var i = 0; i < res.data.result.length; i++) {
+            if (res.data.result[i].group_id == that.data.group_id)
+              msg.push(res.data.result[i])
+          }
           that.setData({
-            msgs: res.data.result,
+            msgs: msg,
             bottom_line_msg: 1,
             dateArr: [],
             msg_status: 0,
@@ -519,9 +524,14 @@ Page({
       },
       success: function(res) {
         console.log(res.data.result)
+        var msg = []
         if (res.data.status == "y") {
+          for (var i = 0; i < res.data.result.length; i++) {
+            if (res.data.result[i].group_id == that.data.group_id)
+              msg.push(res.data.result[i])
+          }
           that.setData({
-            msgs: res.data.result,
+            msgs: msg,
             bottom_line_msg: 2,
             dateArr: [],
             msg_status: 1,
@@ -819,11 +829,15 @@ Page({
         pagesize: that.data.pagesize,
       },
       success: function(res) {
-
         console.log(res.data.result)
+        var msg = []
         if (res.data.status == "y") {
+          for (var i = 0; i < res.data.result.length; i++) {
+            if (res.data.result[i].group_id == that.data.group_id)
+              msg.push(res.data.result[i])
+          }
           that.setData({
-            msgs: res.data.result,
+            msgs: msg,
             bottom_line_msg: that.data.bottom_line,
             dateArr: [],
             info_msg: null

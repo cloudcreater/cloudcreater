@@ -1,0 +1,32 @@
+<!--pages/service/service.wxml-->
+<view class="top">
+  <view class="location" bindtap='change_loc'>
+    <image src='../../imgs/location.jpg'></image>
+    <view class="picker">杭州</view>
+  </view>
+  <view class="bar">
+    <view class="bar_item {{bottom_line==0?'underline':''}}" bindtap='changelebal' data-num="0" data-lebal="{{lebalitem[0]}}">{{lebalitem[0]}}</view>
+    <view class="bar_item {{bottom_line==1?'underline':''}}" bindtap='changelebal' data-num="1" data-lebal="{{lebalitem[1]}}">{{lebalitem[1]}}</view>
+    <view class="bar_item {{bottom_line==2?'underline':''}}" bindtap='changelebal' data-num="2" data-lebal="{{lebalitem[2]}}">{{lebalitem[2]}}</view>
+    <view class="bar_item {{bottom_line==3?'underline':''}}" bindtap='changelebal' data-num="3" data-lebal="{{lebalitem[3]}}">{{lebalitem[3]}}</view>
+  </view>
+</view>
+<view wx:if="{{currentLebal=='创客空间'}}">
+  <view class="main">
+    <view class="white_bg">
+      <image src='../../imgs/服务1.jpg'></image>
+      <view class="foot">
+        ⭐
+        <text>\t</text>已收藏·33点赞·20分享
+      </view>
+      <view class="part_right">
+        <view class="name">星普乐士创客空间</view>
+        <view class="address">地址：杭州市下沙经济开发区新加坡科技园5幢2单元</view>
+        <view class="price">工位价格：400/个/元</view>
+        <view class="phone">联系电话：0571-88888888</view>
+        <view class="lebal">省级众创空间</view>
+        <view class="lebal" style='right:30rpx;'>海归多</view>
+      </view>
+    </view>
+  </view>
+</view>
