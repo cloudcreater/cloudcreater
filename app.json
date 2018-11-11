@@ -72,7 +72,8 @@
 
     "pages/find/find",
 
-    "pages/service/service"
+    "pages/service/service",
+    "pages/service/service_main/service_main"
 
   ],
   "window": {

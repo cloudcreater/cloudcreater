@@ -1,0 +1,125 @@
+/* pages/service/service_main/service_main.wxss */
+
+.bgcolor {
+  width: 100%;
+  height: fit-content;
+  background-color: rgb(242, 242, 242);
+  padding-bottom: 240rpx;
+}
+
+.pic {
+  width: 100%;
+  height: 450rpx;
+}
+
+.part1 {
+  position: relative;
+  width: 100%;
+  height: 500rpx;
+  top: 30rpx;
+  background-color: white;
+}
+
+.name {
+  position: relative;
+  left: 2%;
+  top: 20rpx;
+  font-size: 40rpx;
+  font-weight: 500;
+}
+
+.item {
+  position: relative;
+  left: 2%;
+  font-size: 32rpx;
+  line-height: 50rpx;
+}
+
+.lebal_loc {
+  width: 100%;
+  height: 100rpx;
+  position: absolute;
+  bottom: 10rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.lebal {
+  margin-left: 30rpx;
+  margin-top: 10rpx;
+  width: fit-content;
+  height: 36rpx;
+  padding: 6rpx 12rpx;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 36rpx;
+  background-color: rgb(25, 158, 216);
+  border-radius: 10px;
+  color: white;
+}
+
+.part2 {
+  position: relative;
+  width: 100%;
+  height: fit-content;
+  top: 70rpx;
+  background-color: white;
+  padding-bottom: 50rpx;
+}
+
+.part3{
+  position: relative;
+  width: 100%;
+  height: fit-content;
+  top: 110rpx;
+  background-color: white;
+  padding-bottom: 50rpx;
+}
+
+.content {
+  width: 96%;
+  position: relative;
+  left: 2%;
+  top: 30rpx;
+  font-size: 32rpx;
+  text-indent: 2em;
+}
+
+.bottom_bar{
+  position: fixed;
+  bottom: 0;
+  background-color: white;
+  width: 100%;
+  height: 100rpx;
+  border-top: solid 1px rgb(181, 181 , 181)
+}
+
+.left{
+  position: absolute;
+  left: 0;
+  width: 65%;
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.bto_item{
+  width: 33%;
+  height: 100rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color:rgb(148, 148, 148);
+  line-height: 140rpx;
+}
+
+.right{
+  position: absolute;
+  right: 0;
+  height: 100rpx;
+  width: 35%;
+  background-color: rgb(25, 158, 216);
+  color: white;
+  text-align: center;
+  line-height: 100rpx;
+  font-size: 36rpx;
+}

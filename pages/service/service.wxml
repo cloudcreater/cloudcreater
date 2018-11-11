@@ -12,7 +12,7 @@
   </view>
 </view>
 <view wx:if="{{currentLebal=='创客空间'}}">
-  <view class="main">
+  <view class="main" bindtap='to_serviceMain'>
     <view class="white_bg">
       <image src='../../imgs/服务1.jpg'></image>
       <view class="foot">

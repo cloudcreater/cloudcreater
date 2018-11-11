@@ -198,8 +198,8 @@
       </view>
     </block>
     <block wx:else>
-      <view class="next">
-        <image src='../../../imgs/首页-前.png' bindtap='change_lebal' data-id="1"></image>
+      <view class="next" bindtap='change_lebal' data-id="1">
+        <image src='../../../imgs/首页-前.png' ></image>
         <view class="gray">社区首页</view>
       </view>
     </block>
@@ -212,8 +212,8 @@
       </view>
     </block>
     <block wx:else>
-      <view class="next">
-        <image src='../../../imgs/发布.png' bindtap='change_lebal' data-id="2"></image>
+      <view class="next" bindtap='change_lebal' data-id="2">
+        <image src='../../../imgs/发布.png' ></image>
         <view class="gray">社区发布</view>
       </view>
     </block>
@@ -226,8 +226,8 @@
       </view>
     </block>
     <block wx:else>
-      <view class="next">
-        <image src='../../../imgs/消息-前.png' bindtap='change_lebal' data-id="3"></image>
+      <view class="next" bindtap='change_lebal' data-id="3">
+        <image src='../../../imgs/消息-前.png' ></image>
         <view class="gray">社区消息</view>
       </view>
     </block>
@@ -240,8 +240,8 @@
       </view>
     </block>
     <block wx:else>
-      <view class="next">
-        <image src='../../../imgs/我的-前.png' bindtap='change_lebal' data-id="4"></image>
+      <view class="next" bindtap='change_lebal' data-id="4">
+        <image src='../../../imgs/我的-前.png' ></image>
         <view class="gray">社区我的</view>
       </view>
     </block>

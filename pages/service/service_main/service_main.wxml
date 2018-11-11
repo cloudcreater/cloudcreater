@@ -1,0 +1,56 @@
+<!--pages/service/service_main/service_main.wxml-->
+<view class="container">
+  <view class="bgcolor">
+    <image class="pic" src='../../../imgs/服务2.jpg'></image>
+    <view class="part1">
+      <view class="name">
+        星普乐士创客空间
+      </view>
+      <view style='margin-top:40rpx;'>
+        <view class="item">地址：杭州市下沙经济开发区新加坡科技园5幢2单元</view>
+        <view class="item">官网：WWWWWWWWWWWWWWWWWWWW</view>
+        <view class="item">联系电话：8888888888</view>
+        <view class="item">工位价格：400元/个/月</view>
+        <view class="item">提供服务：工位租赁，公司注册，代理记账，融资服务</view>
+        <view class="item">空间特色：</view>
+        <view class="lebal_loc">
+          <view class="lebal">省级众创空间</view>
+          <view class="lebal">海归多</view>
+          <view class="lebal">入驻大礼包</view>
+        </view>
+      </view>
+    </view>
+    <view class="part2">
+      <view class="name">
+        星普乐士创客空间简介
+      </view>
+      <view class="content">
+        星普乐士（star plus）创客空间啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦
+        星普乐士（star plus）创客空间啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦
+        星普乐士（star plus）创客空间啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦
+        星普乐士（star plus）创客空间啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦
+      </view>
+    </view>
+    <view class="part3">
+      <view class="name">
+        空间服务以及定价
+      </view>
+      <view class="content">
+        星普乐士（star plus）创客空间啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦
+        星普乐士（star plus）创客空间啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦
+        星普乐士（star plus）创客空间啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦
+        星普乐士（star plus）创客空间啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦
+      </view>
+    </view>
+  </view>
+  <view class="bottom_bar">
+    <view class="left">
+      <view class="bto_item">收藏</view>
+      <view class="bto_item">点赞</view>
+      <view class="bto_item">分享</view>
+    </view>
+    <view class="right">
+      立即联系
+    </view>
+  </view>
+</view>

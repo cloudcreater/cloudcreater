@@ -68,6 +68,12 @@ Page({
       bottom_line: num
     })
   },
+  to_serviceMain:function(){
+    // var item = event.currentTarget.dataset.item
+    wx.navigateTo({
+      url: 'service_main/service_main',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
