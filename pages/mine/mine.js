@@ -225,6 +225,7 @@ Page({
       userInfo: event.detail.userInfo,
     })
     wecache.put("hasUserInfo", "has")
+    that.onShow()
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

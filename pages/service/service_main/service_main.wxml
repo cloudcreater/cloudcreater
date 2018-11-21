@@ -1,7 +1,7 @@
 <!--pages/service/service_main/service_main.wxml-->
 <view class="container">
   <view class="bgcolor">
-    <image class="pic" src='../{{item.img1}}'></image>
+    <image class="pic" src='{{item.img1}}'></image>
     <view class="part1">
       <view class="name">
         {{item.name}}

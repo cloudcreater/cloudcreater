@@ -17,7 +17,7 @@ Page({
     that.setData({
       type:options.type
     })
-    app.globalData.img_arr=[]
+
   },
   Tois_mine:function(){
     wx.navigateTo({

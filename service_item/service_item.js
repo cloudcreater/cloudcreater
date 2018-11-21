@@ -1,7 +1,7 @@
 const service_item = {
   item: [{
       'name': 'FUNWORK空间',
-      'img1': '../../service_imgs/funwork空间.png',
+      'img1': 'https://czw.saleii.com/uploads/xcxchat/undefined/05fb9d33da4aea97616e8ff2dd57bb5e.png',
       'img2': '',
       'img3': '',
       'address': '杭州市江干区钱江新城CBD核心华润大厦8F',
@@ -18,7 +18,7 @@ const service_item = {
     },
     {
       'name': 'WE-LINK众创空间',
-      'img1': '../../service_imgs/WE-LINK众创空间.jpg',
+      'img1': 'https://czw.saleii.com/uploads/xcxchat/undefined/c01bb34b3cd1832a278120035306f031.jpg',
       'img2': '',
       'img3': '',
       'address': '杭州经济技术开发区6号大街452号2幢1楼A区',
@@ -35,9 +35,9 @@ const service_item = {
     },
     {
       'name': '创巢创空间',
-      'img1': '../../service_imgs/创巢.png',
-      'img2': '../../service_imgs/创巢创科技.png',
-      'img3': '../../service_imgs/创巢创客空间.png',
+      'img1': 'https://czw.saleii.com/uploads/xcxchat/undefined/8e4a5be3604ec3863fd5a90e840bb9e7.png',
+      'img2': 'https://czw.saleii.com/uploads/xcxchat/undefined/2832a0ca1aea5f70a8a68a1fb9bad9a0.jpg',
+      'img3': 'https://czw.saleii.com/uploads/xcxchat/undefined/743bedfa1b0c2d983a6940943a9a7501.png',
       'address': '浙江省杭州市经开区学林街1261-5创巢创业园18楼',
       'price': '整体出租',
       'phone': '15968882375',
@@ -52,7 +52,7 @@ const service_item = {
     },
     {
       'name': '费米众创空间',
-      'img1': '../../service_imgs/费米众创空间.jpg',
+      'img1': 'https://czw.saleii.com/uploads/xcxchat/undefined/50b27147ec4c59843531c3860b740cce.jpg',
       'img2': '',
       'img3': '',
       'address': '江干区九环路9号国家大学科技园C座楼1F(地铁1号线九和路站D出口，走800米即到)',
@@ -73,7 +73,7 @@ const service_item = {
     },
     {
       'name': '汇梦空间',
-      'img1': '../../service_imgs/汇梦空间.jpg',
+      'img1': 'https://czw.saleii.com/uploads/xcxchat/undefined/2e223075b647e23a8dea7afaae4267fb.jpg',
       'img2': '',
       'img3': '',
       'address': '杭州经济技术开发区2号大街515号智慧谷',
@@ -90,7 +90,7 @@ const service_item = {
     },
     {
       'name': '氪空间',
-      'img1': '../../service_imgs/氪空间.png',
+      'img1': 'https://czw.saleii.com/uploads/xcxchat/undefined/f0cea2803f8779eca5eaecdb63f79252.png',
       'img2': '',
       'img3': '',
       'address': '杭州市江干区钱江路1288号平安金融中心C栋7层 ',
@@ -108,7 +108,7 @@ const service_item = {
     },
     {
       'name': '尚+众创空间',
-      'img1': '../../service_imgs/尚+众创空间.jpg',
+      'img1': 'https://czw.saleii.com/uploads/xcxchat/undefined/8f5d40f0ed00abde4160a645a09aab2e.jpg',
       'img2': '',
       'img3': '',
       'address': '杭州下沙经济开发区长空路1号',
@@ -126,7 +126,7 @@ const service_item = {
     },
     {
       'name': '数动空间',
-      'img1': '../../service_imgs/数动空间.jpg',
+      'img1': 'https://czw.saleii.com/uploads/xcxchat/undefined/e121f926b93fef509183b5b59ac3f371.jpg',
       'img2': '',
       'img3': '',
       'address': '浙江省杭州市上城区望江东路332号中豪望江国际中心3号楼5层（地铁1、4号线近江站）',
@@ -160,7 +160,7 @@ const service_item = {
     },
     {
       'name': '星普乐士创客空间',
-      'img1': '../../service_imgs/星普乐士众创空间.jpg',
+      'img1': 'https://czw.saleii.com/uploads/xcxchat/undefined/465fcd6ccb944bc36348f49f2f3399a3.jpg',
       'img2': '',
       'img3': '',
       'address': '杭州市经济技术开发区新加坡科技园5幢',
@@ -178,7 +178,7 @@ const service_item = {
     },
     {
       'name': '星矢零部落众创空间',
-      'img1': '../../service_imgs/星矢众创空间.png',
+      'img1': 'https://czw.saleii.com/uploads/xcxchat/undefined/09620ebc1eaace867fb69b85e100f1d2.png',
       'img2': '',
       'img3': '',
       'address': '杭州经济技术开发区金沙湖地铁站B出口',

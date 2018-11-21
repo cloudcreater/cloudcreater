@@ -258,6 +258,7 @@ Page({
       })
     } else {
       for (var i = 0; i < app.globalData.img_arr.length; i++) {
+        console.log(1)
         wx.uploadFile({
           url: 'https://czw.saleii.com/api/upload/index4',
           filePath: app.globalData.img_arr[i],
@@ -278,6 +279,9 @@ Page({
                 upimg_url: that.data.upimg_url.concat(retinfo['result']['img_url'])
               })
             }
+          },
+          complete(){
+            
           }
         })
       }
@@ -315,6 +319,7 @@ Page({
           },
           success: function(res) {
             console.log(res)
+            app.globalData.img_arr = []
             if (res.data.status == "n") {
               wx.showToast({
                 title: res.data.info,
@@ -337,7 +342,7 @@ Page({
             }
           }
         })
-      }, 1000)
+      }, 3000)
     }
   },
   save: function() {
