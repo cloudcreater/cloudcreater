@@ -1,4 +1,5 @@
 // pages/service/service.js
+import service_item from "../../service_item/service_item.js";
 var that
 Page({
 
@@ -7,14 +8,16 @@ Page({
    */
   data: {
     lebalList: [
-      ["创客空间", "财税代理", "技术支持", "融资服务"],
+      ["创客空间", "优选店铺", "技术支持", "融资服务"],
       ["创业·MBA", "职业·技能", "外语·留学", "学历·考研"],
       ["大公司", "独角兽公司", "初始公司", "工作室"],
       ["政府组织", "商业组织", "高校组织", "社会组织"],
     ],
+    
     lebalitem: [],
     bottom_line: 0,
-    currentLebal: ""
+    currentLebal: "",
+    items:""
   },
 
   /**
@@ -22,6 +25,9 @@ Page({
    */
   onLoad: function(options) {
     that = this
+    that.setData({
+      items: service_item.item
+    })
     let lebal = options.lebal
     wx.setNavigationBarTitle({
       title: lebal,
@@ -68,11 +74,11 @@ Page({
       bottom_line: num
     })
   },
-  to_serviceMain:function(){
-    // var item = event.currentTarget.dataset.item
+  to_serviceMain: function(event) {
     wx.navigateTo({
-      url: 'service_main/service_main',
+      url: 'service_main/service_main?item=' + JSON.stringify(event.currentTarget.dataset.item),
     })
+    console.log(event.currentTarget.dataset.item)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

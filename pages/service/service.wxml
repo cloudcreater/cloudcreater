@@ -12,7 +12,7 @@
   </view>
 </view>
 <view wx:if="{{currentLebal=='创客空间'}}">
-  <view class="main" bindtap='to_serviceMain'>
+  <view class="main">
     <view class="white_bg">
       <image src='../../imgs/服务1.jpg'></image>
       <view class="foot">
@@ -29,4 +29,23 @@
       </view>
     </view>
   </view>
+  <block wx:for="{{items}}" wx:for-index="index" wx:for-item="item">
+    <view class="main" bindtap='to_serviceMain' data-item='{{item}}'>
+      <view class="white_bg">
+        <image src='{{item.img1}}'></image>
+        <view class="foot">
+          ⭐
+          <text>\t</text>已收藏·33点赞·20分享
+        </view>
+        <view class="part_right">
+          <view class="name">{{item.name}}</view>
+          <view class="address">地址：{{item.address}}</view>
+          <view class="price">工位价格：{{item.price}}</view>
+          <view class="phone">联系电话：{{item.phone}}</view>
+          <view class="lebal">{{item.special}}</view>
+          <view class="lebal" style='right:0rpx;'>{{item.lebal1}}</view>
+        </view>
+      </view>
+    </view>
+  </block>
 </view>

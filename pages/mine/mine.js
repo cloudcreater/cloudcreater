@@ -223,7 +223,6 @@ Page({
     app.globalData.userInfo = event.detail.userInfo
     this.setData({
       userInfo: event.detail.userInfo,
-      hasUserInfo: "has"
     })
     wecache.put("hasUserInfo", "has")
   },

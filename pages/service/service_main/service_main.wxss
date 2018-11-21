@@ -15,7 +15,7 @@
 .part1 {
   position: relative;
   width: 100%;
-  height: 500rpx;
+  height: fit-content;
   top: 30rpx;
   background-color: white;
 }
@@ -38,8 +38,7 @@
 .lebal_loc {
   width: 100%;
   height: 100rpx;
-  position: absolute;
-  bottom: 10rpx;
+  position: relative;
   display: flex;
   flex-direction: row;
 }
