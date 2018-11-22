@@ -106,15 +106,20 @@
   text-overflow: ellipsis;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp:2;
+  -webkit-line-clamp: 2;
 }
 
 .price {
+  height: 40rpx;
   position: relative;
   font-size: 30rpx;
   top: 20rpx;
   font-weight: 700;
- 
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .phone {
