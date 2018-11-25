@@ -1,0 +1,118 @@
+<!--pages/act/act.wxml-->
+<view class="title" style='margin-left:150rpx;'>
+  云端创客“共享人才计划”活动报名
+</view>
+<image src='../../imgs/人才计划.jpg' class="pic"></image>
+<view class="title">
+  <text>
+      报名截止：长期\n
+      活动背景：
+    </text>
+</view>
+<view class="detail">
+  共享经济是一种全新的经济模式,近几年得到了突飞猛进的发展。其本质是整合线下的闲散物品或服务者,让他们提供产品或服务。在共享过程中,供给方通过在特时间内提供使用权或服务获得酬劳,需求方虽无所有权但在特定使用权内满足了需要。 近年来中、小企业发展遇到很多问题,例如人才短缺、雇佣人才成本高、匹配人才几率低等问题影响了中、小企业的正常发展。灵活用工成为经济领域的一个热词,所谓灵活用工即优化人力成本,从而实现其良性。
+</view>
+<image src='../../imgs/人才计划1.jpg' class="pic"></image>
+<view class="detail">
+  在“大众创业、万众创新”的号召下，创业公司越来越多，这其中绝大部分是中小微企业。囿于经营成本的限制，中小微企业里往往一人身兼数职，或是由企业主大包大揽，或是由企业主通过自己的人脉圈子找专业的人来解决专业的事。这样既耗费精力，效果也得不到保证。 “共享人才计划”会将有需求的企业与提供服务的个体有效结合,达到精准匹配。对于个体而言,是人尽其能,对于企业而言,是尽人所用,是一举两得的措施。
+</view>
+<view class="title">
+  <text>
+      参与方式：
+      填下方表格即可
+    </text>
+</view>
+
+
+
+<view class="todetail" bindtap='to_detail'>
+  点此了解详情
+</view>
+<view class='line'></view>
+<view class="title">
+  报名表
+</view>
+<form class="forms" bindsubmit="sub" report-submit="true">
+  <view class="title" style='margin-left:60rpx;'>
+    1、您的姓名
+    <view class="red">*</view>
+  </view>
+  <input type='text' value='' bindinput='input' data-name="name" style='margin-left:140rpx;'></input>
+  <view class="title" style='margin-left:60rpx;'>
+    2、您的联系方式
+  </view>
+  <view class="title" style='margin-left:100rpx;'>
+    手机
+    <view class="red">*</view>
+  </view>
+  <input type='text' value='' bindinput='input' data-name="phone"  style='margin-left:140rpx;'></input>
+  <view class="title" style='margin-left:100rpx;'>
+    微信
+    <view class="red">*</view>
+  </view>
+  <input type='text' value='' bindinput='input' data-name="weixin"  style='margin-left:140rpx;'></input>
+  <view class="title" style='margin-left:60rpx;'>
+    3、您是用人单位还是求职人才？（单选）
+    <view class="red">*</view>
+  </view>
+  <radio-group class="group" bindchange="radioChange">
+    <radio class='radio' value="用人单位" checked="">用人单位</radio>
+    <radio class='radio' value="求职人才" checked="">求职人才</radio>
+  </radio-group>
+
+  <view class="title" style='margin-left:60rpx;'>
+    4.您需要的人才类型或您擅长的技术门类？(多选)
+    <view class="red">*</view>
+  </view>
+  <checkbox-group class="group" bindchange="checkboxChange">
+    <block wx:for="{{items}}" wx:for-index="index" wx:for-item="item">
+      <checkbox class='box' value="{{item.value}}" checked="">{{item.value}}</checkbox>
+    </block>
+  </checkbox-group>
+  <view class="title" style='margin-left:60rpx;'>
+    5.您接受的人才雇佣方式？(多选)
+    <view class="red">*</view>
+  </view>
+  <checkbox-group class="group" bindchange="checkboxChange1">
+    <checkbox class='box' value="实习" checked="">实习</checkbox>
+    <checkbox class='box' value="兼职" checked="">兼职</checkbox>
+    <checkbox class='box' value="项目外包" checked="">项目外包</checkbox>
+  </checkbox-group>
+  <view class="title" style='margin-left:60rpx;'>
+    6.您接受的薪酬结算方式？(多选)
+    <view class="red">*</view>
+  </view>
+  <checkbox-group class="group" bindchange="checkboxChange2">
+    <checkbox class='box' value="按日薪计算" checked="">按日薪计算</checkbox>
+    <checkbox class='box' value="按月薪计算" checked="">按月薪计算</checkbox>
+    <checkbox class='box' value="按项目外包计算" checked="">按项目外包计算</checkbox>
+  </checkbox-group>
+  <view class="title" style='margin-left:60rpx;'>
+    7.您接受的工作方式？(多选)
+    <view class="red">*</view>
+  </view>
+  <checkbox-group class="group" bindchange="checkboxChange3">
+    <checkbox class='box' value="实地坐班工作" checked="">实地坐班工作</checkbox>
+    <checkbox class='box' value="在线远程工作" checked="">在线远程工作</checkbox>
+  </checkbox-group>
+  <view class="title" style='margin-left:60rpx;'>
+    8、用人单位请选择人才到岗时间或者项目发包时间（单选）
+    <view class="red">*</view>
+  </view>
+  <radio-group class="group" bindchange="radioChange1">
+    <radio class='radio' value="3天之内" checked="">3天之内</radio>
+    <radio class='radio' value="10天之内" checked="">10天之内</radio>
+    <radio class='radio' value="30天之内" checked="">30天之内</radio>
+    <radio class='radio' value="长期有效" checked="">长期有效</radio>
+  </radio-group>
+  <view class="title" style='margin-left:60rpx;'>
+    9.人才请选择自己的空余时间
+    <view class="red">*</view>
+  </view>
+  <input type='text' value=''bindinput='input' data-name="time" style='margin-left:140rpx;'></input>
+  <view class="title">
+    三、保密声明
+    <view class="tips">承诺上传的任何信息和文件只用于本次大赛，不会用于其他地方.</view>
+  </view>
+  <button class="btn" formType="submit" style='margin-left:240rpx;'>提交</button>
+</form>

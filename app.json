@@ -66,9 +66,12 @@
 
     "pages/match/match",
 
-    "pages/out/out",
+    "pages/act/act",
 
+    "pages/out/out",
     "pages/out/to_detail/to_detail",
+    "pages/out/to_act/to_act",
+    
 
     "pages/find/find",
 

@@ -243,11 +243,9 @@
 }
 
 .img-loc {
-  width: 160rpx;
-  height: 140rpx;
-  float: right;
-  margin-right: 30rpx;
-  margin-top: 50rpx;
+  position: absolute;
+  bottom: 90rpx;
+  right: 20rpx;
 }
 
 .foot {

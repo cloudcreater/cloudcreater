@@ -788,6 +788,11 @@ Page({
       })
     }
   },
+  to_act:function(){
+    wx.navigateTo({
+      url: '../act/act',
+    })
+  },
 
 
 

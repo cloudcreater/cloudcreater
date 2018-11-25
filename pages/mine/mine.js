@@ -162,11 +162,7 @@ Page({
                   },
                   success: function(res) {
                     wecache.put("getinfo", res.data.result)
-                    setTimeout(function() {
-                      that.setData({
-                        getinfo: wecache.get("getinfo")
-                      })
-                    }, 500)
+                    that.onShow()
                   }
                 })
               }, 500)
@@ -239,7 +235,8 @@ Page({
    */
   onShow: function() {
     that.setData({
-      hasUserInfo: wecache.get("hasUserInfo","no")
+      hasUserInfo: wecache.get("hasUserInfo","no"),
+        getinfo: wecache.get("getinfo")
     })
   },
 

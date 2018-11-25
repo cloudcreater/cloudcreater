@@ -43,37 +43,6 @@
       </view>
     </view>
   </view>
-  <!-- 循环体开始 -->
-  <!--主要内容 -->
-  <!-- <view class="bgcolor">
-    <view class="main">
-      <view class="info-loc">
-        <view class="namespace">
-          《图片》
-          <text>汤大王</text> V
-          <text>发布了一条</text>
-          <text id="type" class="label">寻找合伙人</text> ·
-          <text class="data">1小时前</text>
-        </view>
-        <view class="label-loc">
-          <text id="type" class="label">正在进行中</text>
-          <text id="type" class="label">团队组建阶段</text>
-          <text id="type" class="label">未融资</text>
-          <text id="type" class="label">餐饮</text>
-        </view>
-        <view class="introduce">
-          如果啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦 啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦 啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦.....
-        </view>
-        <view class="img-loc">
-          <image src="/imgs/图1.png" />
-        </view>
-        <view class="foot">
-          ❤ 已关注 33报名 ·356点赞 ·53转发
-        </view>
-      </view>
-    </view>
-  </view> -->
-  <!--循环体结束 -->
   <block wx:if="{{info!=null}}">
     <view style="margin-top:144rpx;"></view>
     <view>{{info}}</view>
@@ -101,15 +70,50 @@
           <view class="label-loc">
             <text id="type" class="label">准备阶段</text>
             <text id="type" class="label">不需付费</text>
-            <text id="type" class="label">官方赛事</text>
+            <text id="type" class="label">官方活动</text>
           </view>
           <!--介绍 -->
           <view class="introduce">
             第一届"聚裂之星"创业大赛项目征集火热进行中！！
           </view>
           <!--图片 -->
-          <view class="img-loc" W>
+          <view class="img-loc" >
             <image src="../../imgs/0.jpg" />
+          </view>
+          <!--转发关注 -->
+          <view class="foot">
+            官方认证活动
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="bgcolor" bindtap='to_act'>
+      <view class="main">
+        <view class="info-loc">
+          <!--姓名信息 -->
+          <view class="namespace">
+            <image src="../../imgs/0.jpg"></image>
+            <view class="textpart">
+              <text>聚裂科技</text>
+              <text>\t</text>
+              <text>发布了一条</text>
+              <text id="type" class="label">人才计划</text> ·
+              <text class="data" style='color:red'>置顶</text>
+            </view>
+          </view>
+          <!--标签 -->
+          <view class="label-loc">
+            <text id="type" class="label">准备阶段</text>
+            <text id="type" class="label">不需付费</text>
+            <text id="type" class="label">官方赛事</text>
+          </view>
+          <!--介绍 -->
+          <view class="introduce">
+            云端创客“共享人才计划”活动报名
+          </view>
+          <!--图片 -->
+          <view class="img-loc" style='bottom:50rpx;'>
+            <image style='width:400rpx;' src="../../imgs/人才计划.jpg" />
           </view>
           <!--转发关注 -->
           <view class="foot">
