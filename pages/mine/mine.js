@@ -158,7 +158,8 @@ Page({
                   },
                   data: {
                     username: that.data.phoneNo,
-                    access_token: app.globalData.token
+                    access_token: app.globalData.token,
+                    shop_type:that.data.shop_type,
                   },
                   success: function(res) {
                     wecache.put("getinfo", res.data.result)

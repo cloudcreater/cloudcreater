@@ -1,6 +1,7 @@
 // pages/mine/user_info/user_info.js
 import wecache from "../../../utils/wecache.js"
 const app = getApp()
+var shop_type = app.globalData.shop_type
 var that
 Page({
 
@@ -13,6 +14,7 @@ Page({
     getinfo: "",
     Wxnumber:"",
     hiddenmodalput: true,  
+    shop_type: shop_type,
   },
 
   /**
@@ -62,7 +64,8 @@ Page({
           },
           data: {
             username: app.globalData.myInfo.username,
-            access_token: app.globalData.token
+            access_token: app.globalData.token,
+            shop_type:that.data.shop_type,
           },
           success: function (res) {
             console.log(res)
