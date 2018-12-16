@@ -64,7 +64,7 @@ Page({
       })
       if (systemtype.substring(0, 7) != "Android") {
         wx.showActionSheet({
-          itemList: ['我的创业', /*'我的创意'*/, '我的活动', '我的草稿'],
+          itemList: ['我的创业', /*'我的创意'*/ '我的活动', '我的草稿'],
           success: function(res) {
             if (res.tapIndex == 0) {
               wx.navigateTo({
@@ -110,7 +110,7 @@ Page({
         })
       } else {
         wx.showActionSheet({
-          itemList: ['我的创业', /*'我的创意'*/, '我的活动', '我的草稿', '取消'],
+          itemList: ['我的创业', /*'我的创意'*/ '我的活动', '我的草稿', '取消'],
           success: function(res) {
             if (res.tapIndex == 0) {
               wx.navigateTo({
