@@ -64,21 +64,23 @@ Page({
       })
       if (systemtype.substring(0, 7) != "Android") {
         wx.showActionSheet({
-          itemList: ['我的创业', '我的创意', '我的活动', '我的草稿'],
+          itemList: ['我的创业', /*'我的创意'*/, '我的活动', '我的草稿'],
           success: function(res) {
             if (res.tapIndex == 0) {
               wx.navigateTo({
                 url: '../sendmain/is_mine/is_mine?type=创业',
               })
-            } else if (res.tapIndex == 1) {
-              wx.navigateTo({
-                url: '../sendmain/is_mine/is_mine?type=创意',
-              })
-            } else if (res.tapIndex == 2) {
+            }
+            //  else if (res.tapIndex == 1) {
+            //   wx.navigateTo({
+            //     url: '../sendmain/is_mine/is_mine?type=创意',
+            //   })
+            // } 
+            else if (res.tapIndex == 1) {
               wx.navigateTo({
                 url: '../sendmain/is_mine/is_mine?type=活动',
               })
-            } else if (res.tapIndex == 3) {
+            } else if (res.tapIndex == 2) {
               console.log(that.data.draft)
               if (that.data.draft != "has") {
                 wx.showModal({
@@ -108,21 +110,23 @@ Page({
         })
       } else {
         wx.showActionSheet({
-          itemList: ['我的创业', '我的创意', '我的活动', '我的草稿', '取消'],
+          itemList: ['我的创业', /*'我的创意'*/, '我的活动', '我的草稿', '取消'],
           success: function(res) {
             if (res.tapIndex == 0) {
               wx.navigateTo({
                 url: '../sendmain/is_mine/is_mine?type=创业',
               })
-            } else if (res.tapIndex == 1) {
-              wx.navigateTo({
-                url: '../sendmain/is_mine/is_mine?type=创意',
-              })
-            } else if (res.tapIndex == 2) {
+            }
+            //  else if (res.tapIndex == 1) {
+            //   wx.navigateTo({
+            //     url: '../sendmain/is_mine/is_mine?type=创意',
+            //   })
+            // } 
+            else if (res.tapIndex == 1) {
               wx.navigateTo({
                 url: '../sendmain/is_mine/is_mine?type=活动',
               })
-            } else if (res.tapIndex == 3) {
+            } else if (res.tapIndex == 2) {
               console.log(that.data.draft)
               if (that.data.draft != "has") {
                 wx.showModal({
@@ -141,7 +145,7 @@ Page({
                   url: '../mydraft/mydraft',
                 })
               }
-            } else if (res.tapIndex == 4) {
+            } else if (res.tapIndex == 3) {
               wx.switchTab({
                 url: '../../index/index',
               })

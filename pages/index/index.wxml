@@ -4,7 +4,7 @@
   <view class="topbar">
     <view class="flex-wrp" style="flex-direction:row;">
       <view class="top-item {{bottom_line==1?'.underline':''}}" bindtap="change" data-name="is_create">创业</view>
-      <view class="top-item {{bottom_line==2?'.underline':''}}" bindtap="change" data-name="is_idea">创意</view>
+      <view class="top-item {{bottom_line==2?'.underline':''}}" bindtap="change" data-name="is_idea">课程</view>
       <view class="top-item {{bottom_line==3?'.underline':''}}" bindtap="change" data-name="is_active">活动</view>
     </view>
   </view>
@@ -52,10 +52,9 @@
     <!--主要内容 -->
     <view style="margin-top:144rpx;"></view>
 
-    <view class="bgcolor" bindtap='to_match'>
+    <!-- <view class="bgcolor" bindtap='to_match'>
       <view class="main">
         <view class="info-loc">
-          <!--姓名信息 -->
           <view class="namespace">
             <image src="../../imgs/0.jpg"></image>
             <view class="textpart">
@@ -66,31 +65,26 @@
               <text class="data" style='color:red'>置顶</text>
             </view>
           </view>
-          <!--标签 -->
           <view class="label-loc">
             <text id="type" class="label">准备阶段</text>
             <text id="type" class="label">不需付费</text>
             <text id="type" class="label">官方活动</text>
           </view>
-          <!--介绍 -->
           <view class="introduce">
             第一届"聚裂之星"创业大赛项目征集火热进行中！！
           </view>
-          <!--图片 -->
           <view class="img-loc" >
             <image src="../../imgs/0.jpg" />
           </view>
-          <!--转发关注 -->
           <view class="foot">
             官方认证活动
           </view>
         </view>
       </view>
-    </view>
-    <view class="bgcolor" bindtap='to_act'>
+    </view> -->
+    <!-- <view class="bgcolor" bindtap='to_act'>
       <view class="main">
         <view class="info-loc">
-          <!--姓名信息 -->
           <view class="namespace">
             <image src="../../imgs/0.jpg"></image>
             <view class="textpart">
@@ -101,27 +95,23 @@
               <text class="data" style='color:red'>置顶</text>
             </view>
           </view>
-          <!--标签 -->
           <view class="label-loc">
             <text id="type" class="label">准备阶段</text>
             <text id="type" class="label">不需付费</text>
             <text id="type" class="label">官方赛事</text>
           </view>
-          <!--介绍 -->
           <view class="introduce">
             云端创客“共享人才计划”活动报名
           </view>
-          <!--图片 -->
           <view class="img-loc" style='bottom:50rpx;'>
             <image style='width:400rpx;' src="../../imgs/人才计划.jpg" />
           </view>
-          <!--转发关注 -->
           <view class="foot">
             官方认证活动
           </view>
         </view>
       </view>
-    </view>
+    </view> -->
 
     <view class="bgcolor" wx:for="{{items}}" wx:for-index="index" wx:for-item="item">
       <view class="main">
@@ -310,53 +300,42 @@
         <view class="btnitem">
           <view class="flex-wrp" style="flex-direction:column;">
             <view class="flex-wrp" style="flex-direction:row;">
-              <view class="btns {{tid==1?'.afterclick':''}}" data-task="一起搞事情" data-tid="1" bindtap="choose_task">一起搞事情</view>
-              <view class="btns {{tid==2?'.afterclick':''}}" data-task="创意众筹" data-tid="2" bindtap="choose_task">创意众筹 </view>
-              <view class="btns {{tid==3?'.afterclick':''}}" data-task="赛事组队" data-tid="3" bindtap="choose_task">赛事组队 </view>
+              <view class="btns {{tid==1?'.afterclick':''}}" data-task="线上课程" data-tid="1" bindtap="choose_task">线上课程</view>
+              <view class="btns {{tid==2?'.afterclick':''}}" data-task="线下课程" data-tid="2" bindtap="choose_task">线下课程 </view>
+
             </view>
           </view>
         </view>
         <view class="row_line"></view>
-        <view class="title">创意领域</view>
+        <view class="title">付费类型</view>
         <view class="btnitem">
           <view class="flex-wrp" style="flex-direction:column;">
             <view class="flex-wrp" style="flex-direction:row;">
-              <view class="btns {{inid==1?'.afterclick':''}}" data-industry="互联网产品" data-inid="1" bindtap="choose_industry">互联网产品</view>
-              <view class="btns {{inid==2?'.afterclick':''}}" data-industry="游戏娱乐" data-inid="2" bindtap="choose_industry">游戏娱乐</view>
-              <view class="btns {{inid==3?'.afterclick':''}}" data-industry="影视传媒" data-inid="3" bindtap="choose_industry">影视传媒</view>
-            </view>
-            <view class="flex-wrp" style="flex-direction:row; margin-top:20px;">
-              <view class="btns {{inid==4?'.afterclick':''}}" data-industry="音乐音频" data-inid="4" bindtap="choose_industry">音乐音频</view>
-              <view class="btns {{inid==5?'.afterclick':''}}" data-industry="书籍小说" data-inid="5" bindtap="choose_industry">书籍小说</view>
-              <view class="btns {{inid==6?'.afterclick':''}}" data-industry="其他" data-inid="6" bindtap="choose_industry">其他</view>
-            </view>
-            <!-- <view class="flex-wrp" style="flex-direction:row; margin-top:20px;">
-            <view class="btns">图片图像</view>
-            <view class="btns">学术内容</view>
-            <view class="btns">生活技巧</view>
-          </view>
-          <view class="flex-wrp" style="flex-direction:row; margin-top:20px;">
-            <view class="btns">兴趣爱好</view>
-            <view class="btns">生活服务</view>
-            <view class="btns">医疗</view>
-          </view>
-          <view class="flex-wrp" style="flex-direction:row; margin-top:20px;">
-            <view class="btns">广告媒体</view>
-            <view class="btns">外贸加工</view>
-            <view class="btns">硬件工业</view>
-          </view>
-          <view class="flex-wrp" style="flex-direction:row; margin-top:20px;">
-            <view class="btns">农业产品</view>
-            <view class="btns">物流运输</view>
-            <view class="btns">其他</view>
-          </view> -->
-            <view class="btnitem">
-              <view class="btns" style="position: absolute;left: 100rpx; bottom:-205rpx" bindtap="confirm">确认</view>
-              <view class="btns" style="position: absolute;left: 380rpx; bottom:-205rpx" bindtap="remake">重置</view>
-              <view style='height:100rpx;margin-top:60rpx;'></view>
+              <view class="btns {{inid==1?'.afterclick':''}}" data-industry="免费课程" data-inid="1" bindtap="choose_industry">免费课程</view>
+              <view class="btns {{inid==2?'.afterclick':''}}" data-industry="收费课程" data-inid="2" bindtap="choose_industry">收费课程</view>
             </view>
           </view>
         </view>
+        <view class="row_line"></view>
+        <view class="title">课程类型</view>
+        <view class="btnitem">
+          <view class="flex-wrp" style="flex-direction:column;">
+            <view class="flex-wrp" style="flex-direction:row;">
+              <view class="btns {{inid==1?'.afterclick':''}}" data-industry="产品经理" data-inid="1" bindtap="choose_industry">产品经理</view>
+              <view class="btns {{inid==2?'.afterclick':''}}" data-industry="产品运营" data-inid="2" bindtap="choose_industry">产品运营</view>
+              <view class="btns {{inid==2?'.afterclick':''}}" data-industry="技术开发" data-inid="3" bindtap="choose_industry">产品运营</view>
+            </view>
+            <view class="flex-wrp" style="flex-direction:row; margin-top:30rpx" >
+              <view class="btns {{inid==1?'.afterclick':''}}" data-industry="创业教育" data-inid="4" bindtap="choose_industry">产品经理</view>
+              <view class="btns {{inid==2?'.afterclick':''}}" data-industry="其他类型" data-inid="5" bindtap="choose_industry">产品运营</view>
+            </view>
+          </view>
+        </view>
+        <view class="btnitem">
+              <view class="btns" style="position: absolute;left: 100rpx; bottom:-405rpx" bindtap="confirm">确认</view>
+              <view class="btns" style="position: absolute;left: 380rpx; bottom:-405rpx" bindtap="remake">重置</view>
+              <view style='height:100rpx;margin-top:60rpx;'></view>
+            </view>
       </block>
       <block wx:elif="{{project_type=='is_active'}}">
         <view class="title">只看关注</view>

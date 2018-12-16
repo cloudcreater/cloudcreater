@@ -1,18 +1,19 @@
 /* pages/index/index_details/index_details.wxss */
-.main{
+
+.main {
   width: 100%;
   height: 100%;
 }
 
-.top_user_info{
+.top_user_info {
   width: 100%;
   height: 140rpx;
-  border-top: solid rgb(228, 228, 228) 1px; 
-  border-bottom: solid rgb(228, 228, 228) 1px; 
+  border-top: solid rgb(228, 228, 228) 1px;
+  border-bottom: solid rgb(228, 228, 228) 1px;
   position: relative;
 }
 
-.headimg image{
+.headimg image {
   position: absolute;
   width: 100rpx;
   height: 100rpx;
@@ -21,25 +22,25 @@
   top: 20rpx;
 }
 
-.nickname{
+.nickname {
   position: absolute;
   left: 160rpx;
   top: 24rpx;
   font-size: 34rpx;
 }
 
-.Vimg{
+.Vimg {
   position: absolute;
   left: 300rpx;
   top: 20rpx;
 }
 
-.nickname image{
+.nickname image {
   width: 40rpx;
   height: 40rpx;
 }
 
-.content{
+.content {
   position: absolute;
   left: 160rpx;
   top: 70rpx;
@@ -47,7 +48,7 @@
   color: rgb(147, 147, 147);
 }
 
-.focus_loc{
+.focus_loc {
   position: absolute;
   width: 90rpx;
   height: 90rpx;
@@ -55,40 +56,39 @@
   top: 30rpx;
 }
 
-.focus_loc image{
+.focus_loc image {
   width: 90rpx;
   height: 90rpx;
 }
 
-.chat_loc{
+.chat_loc {
   position: absolute;
   width: 300rpx;
   height: 40rpx;
   right: 50rpx;
   top: 60rpx;
   font-size: 28rpx;
-
 }
 
-.chat_loc image{
+.chat_loc image {
   width: 80rpx;
   height: 80rpx;
 }
 
-.project_label{
+.project_label {
   width: 100%;
   height: 190rpx;
-  border-bottom: solid rgb(228, 228, 228) 1px; 
+  border-bottom: solid rgb(228, 228, 228) 1px;
   position: relative;
 }
 
-.title{
+.title {
   font-size: 36rpx;
   margin-left: 50rpx;
   margin-top: 30rpx;
 }
 
-.label_loc{
+.label_loc {
   width: fit-content;
   margin: 0 auto;
 }
@@ -109,22 +109,23 @@
   margin-top: 30rpx;
 }
 
-.sketch{
+.sketch {
   width: 100%;
   height: fit-content;
-  border-bottom: solid rgb(228, 228, 228) 1px; 
+  border-bottom: solid rgb(228, 228, 228) 1px;
   position: relative;
 }
 
-.detail{
+.detail {
   width: 600rpx;
   height: fit-content;
-  margin-left:20%; 
+  margin-left: 20%;
   margin-top: 34rpx;
   font-size: 34rpx;
   color: rgb(148, 148, 148);
 }
-.detail_item{
+
+.detail_item {
   width: 550rpx;
   height: fit-content;
   margin-bottom: 25rpx;
@@ -132,17 +133,17 @@
   text-overflow: ellipsis;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp:2;
+  -webkit-line-clamp: 2;
 }
 
-.photo{
+.photo {
   width: 100%;
   height: 78rpx;
-  border-bottom: solid rgb(228, 228, 228) 1px; 
+  border-bottom: solid rgb(228, 228, 228) 1px;
   position: relative;
 }
 
-.photo image{
+.photo image {
   position: absolute;
   width: 50rpx;
   height: 50rpx;
@@ -150,28 +151,27 @@
   right: 20rpx;
 }
 
-.detail_text{
+.detail_text {
   width: 100%;
   height: fit-content;
-  border-bottom: solid rgb(228, 228, 228) 1px; 
+  border-bottom: solid rgb(228, 228, 228) 1px;
   position: relative;
   padding-bottom: 60rpx;
 }
 
-.main_text{
+.main_text {
   width: 95%;
   text-indent: 2em;
   margin-left: 2.5%;
   margin-top: 30rpx;
   font-size: 36rpx;
   word-break: break-all;
-
   overflow: hidden;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp:2;
+  -webkit-line-clamp: 2;
 }
 
-.title_bg{
+.title_bg {
   width: 100%;
   height: 100rpx;
   font-size: 36rpx;
@@ -222,7 +222,7 @@
   display: inline-block;
   width: px;
   height: 20rpx;
-  overflow:hidden;
+  overflow: hidden;
 }
 
 .namespace {
@@ -232,17 +232,18 @@
   color: rgb(161, 161, 161);
 }
 
-.namespace image{
+.namespace image {
   width: 50rpx;
   height: 50rpx;
   display: inline-block;
   border-radius: 100%;
 }
 
-.textpart{
+.textpart {
   display: inline-block;
   position: absolute;
-  left: 60rpx; top: 4rpx;
+  left: 60rpx;
+  top: 4rpx;
 }
 
 .introduce {
@@ -275,83 +276,82 @@
   height: 140rpx;
 }
 
-.bottom_nav{
+.bottom_nav {
   width: 100%;
   height: 120rpx;
   position: fixed;
   bottom: 0px;
   background-color: white;
-  border-top: solid rgb(228, 228, 228) 1px; 
-  border-bottom: solid rgb(228, 228, 228) 1px; 
+  border-top: solid rgb(228, 228, 228) 1px;
+  border-bottom: solid rgb(228, 228, 228) 1px;
 }
- 
-.nav_item{
+
+.nav_item {
   width: 25%;
   text-align: center;
   line-height: 120rpx;
   font-size: 30rpx;
-  color:rgb(148, 148, 148);
+  color: rgb(148, 148, 148);
   position: relative;
   padding-top: 20rpx;
 }
 
-.num_loc{
+.num_loc {
   position: absolute;
   top: -20rpx;
   left: 78rpx;
   width: fit-content;
-
 }
 
-.num_loc image{
+.num_loc image {
   width: 40rpx;
   height: 35rpx;
 }
 
-.join_img_loc{
+.join_img_loc {
   position: absolute;
   top: -20rpx;
   left: 68rpx;
   width: fit-content;
 }
 
-.join_img_loc image{
+.join_img_loc image {
   width: 50rpx;
   height: 34rpx;
 }
-.free-btn-bordernone{
+
+.free-btn-bordernone {
   background: none !important;
   color: #000 !important;
-  font-size:28rpx;
+  font-size: 28rpx;
 }
 
-.free-btn-bordernone::after{
-   border: none; 
+.free-btn-bordernone::after {
+  border: none;
 }
 
-
-.share_btn{
+.share_btn {
   height: 40rpx;
   line-height: 40rpx;
   font-size: 36rpx;
-  color:rgb(148, 148, 148);
+  color: rgb(148, 148, 148);
   margin-top: 18rpx;
   margin-left: 50rpx;
-  background-color: rgba(255, 255, 255, 0)
+  background-color: rgba(255, 255, 255, 0);
 }
 
-.share_btn::after{
-  border: none; 
+.share_btn::after {
+  border: none;
 }
 
-.share_img_loc{
+.share_img_loc {
   position: absolute;
   top: 18rpx;
   left: 10rpx;
   width: fit-content;
 }
 
-.share_img_loc image{
+.share_img_loc image {
   width: 45rpx;
   height: 62rpx;
 }
@@ -376,13 +376,13 @@
   background-color: rgba(0, 0, 0, 0.719);
 }
 
-.selected{
+.selected {
   background-color: white;
-  border-color:rgba(0, 0, 0, 0.719);
+  border-color: rgba(0, 0, 0, 0.719);
   color: rgba(0, 0, 0, 0.719);
 }
 
-.selectBox{
+.selectBox {
   position: absolute;
   bottom: 30rpx;
   width: 140rpx;
@@ -394,13 +394,13 @@
   background-color: rgba(0, 0, 0, 0.05);
   color: rgb(0, 0, 0);
   font-weight: 500;
-  border:solid rgb(0, 0, 0) 2px;
+  border: solid rgb(0, 0, 0) 2px;
 }
 
-.del_btn{
+.del_btn {
   left: 440rpx;
 }
 
-.edit_btn{
+.edit_btn {
   left: 180rpx;
 }

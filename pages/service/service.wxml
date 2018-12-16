@@ -12,23 +12,6 @@
   </view>
 </view>
 <view wx:if="{{currentLebal=='创客空间'}}">
-  <view class="main">
-    <view class="white_bg">
-      <image src='../../imgs/服务1.jpg'></image>
-      <view class="foot">
-        ⭐
-        <text>\t</text>已收藏·33点赞·20分享
-      </view>
-      <view class="part_right">
-        <view class="name">星普乐士创客空间</view>
-        <view class="address">地址：杭州市下沙经济开发区新加坡科技园5幢2单元</view>
-        <view class="price">工位价格：400/个/元</view>
-        <view class="phone">联系电话：0571-88888888</view>
-        <view class="lebal">省级众创空间</view>
-        <view class="lebal" style='right:30rpx;'>海归多</view>
-      </view>
-    </view>
-  </view>
   <block wx:for="{{items}}" wx:for-index="index" wx:for-item="item">
     <view class="main" bindtap='to_serviceMain' data-item='{{item}}'>
       <view class="white_bg">

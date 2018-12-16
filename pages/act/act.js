@@ -17,7 +17,7 @@ Page({
       { value: '教育' },
     ],
     name:"", //名称 
-    phone:"", //电话y
+    phone:"", //电话
     time:"", //时间
     people:"", //用人或求职
     tech:"", //技术

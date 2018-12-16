@@ -112,7 +112,7 @@
   <input type='text' value=''bindinput='input' data-name="time" style='margin-left:140rpx;'></input>
   <view class="title">
     三、保密声明
-    <view class="tips">承诺上传的任何信息和文件只用于本次大赛，不会用于其他地方.</view>
+    <view class="tips">承诺上传的任何信息和文件只用于本次活动，不会用于其他地方.</view>
   </view>
   <button class="btn" formType="submit" style='margin-left:240rpx;'>提交</button>
 </form>

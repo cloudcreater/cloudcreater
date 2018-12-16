@@ -35,7 +35,7 @@
       </view>
     </view>
   </view>
-  <view class="bottom_bar">
+  <!-- <view class="bottom_bar">
     <view class="left">
       <view class="bto_item">收藏</view>
       <view class="bto_item">点赞</view>
@@ -44,5 +44,5 @@
     <view class="right">
       立即联系
     </view>
-  </view>
+  </view> -->
 </view>
